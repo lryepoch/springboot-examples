@@ -2,10 +2,11 @@ package com.shiro.mapper;
 
 import com.shiro.entity.UserRole;
 import com.shiro.entity.UserRoleExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface UserRoleMapper {
     int countByExample(UserRoleExample example);
 

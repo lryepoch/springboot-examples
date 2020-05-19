@@ -2,10 +2,11 @@ package com.shiro.mapper;
 
 import com.shiro.entity.RolePermission;
 import com.shiro.entity.RolePermissionExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface RolePermissionMapper {
     int countByExample(RolePermissionExample example);
 

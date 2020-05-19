@@ -2,6 +2,7 @@ package com.shiro.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class RoleExample {
     protected String orderByClause;
@@ -174,7 +175,7 @@ public class RoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
+        public Criteria andNameEqualTo(Set<String> value) {
             addCriterion("name =", value, "name");
             return (Criteria) this;
         }
