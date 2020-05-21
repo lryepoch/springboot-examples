@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 	
-	@RequestMapping("/hello")
+	@RequestMapping(value = "hello")
 	public String hello(){
 		
 		//返回的是json，不需要写一个页面

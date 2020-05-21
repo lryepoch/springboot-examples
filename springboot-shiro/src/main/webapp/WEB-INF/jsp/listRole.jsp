@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- 
-<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
- 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+
 </head>
 <body>
- 
+
 <div class="workingroom">
-     
+
     <%@include file="include/menu.jsp" %>
-     
+
     <table>
         <tr>
             <td>id</td>
@@ -30,23 +30,23 @@
                 <td>${r.name}</td>
                 <td>${r.desc_}</td>
                 <td>
-                     <c:forEach items="${role_permissions[r]}" var="p">
+                    <c:forEach items="${role_permissions[r]}" var="p">
                         ${p.name} <br>
-                     </c:forEach>
+                    </c:forEach>
                 </td>
-                 
+
                 <td><a href="editRole?id=${r.id}">编辑</a></td>
                 <td><a href="deleteRole?id=${r.id}">删除</a></td>
             </tr>
         </c:forEach>
     </table>
-     
-    <div class="addOrEdit" >
+
+    <div class="addOrEdit">
         <form action="addRole" method="post">
             角色名称: <input type="text" name="name"> <br>
             角色描述: <input type="text" name="desc_"> <br><br>
             <input type="submit" value="增加">
-        </form>  
+        </form>
     </div>
 </div>
 </body>

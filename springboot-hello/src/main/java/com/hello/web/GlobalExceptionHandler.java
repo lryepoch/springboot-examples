@@ -1,10 +1,10 @@
 package com.hello.web;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 全局异常处理：@ControllerAdvice + @ExceptionHandler

@@ -9,6 +9,7 @@ import com.shiro.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,12 +31,14 @@ public class PermissionServiceImpl implements PermissionService {
     private RolePermissionMapper rolePermissionMapper;
 
     @Override
-    public Set<String> listPermissionsNames(String name) {
-        Set<String> result = new HashSet<>();
-        Set<String> roleNames = roleService.listRoleNames(name);
+    public List<String> listPermissionsNames(String name) {
+        List<String> result = new ArrayList<>();
+        List<String> roleNames = roleService.listRoleNames(name);
+
         RoleExample roleExample = new RoleExample();
-        roleExample.or().andNameEqualTo(roleNames);
+        roleExample.or().andNameIn(roleNames);
         List<Role> roles = roleMapper.selectByExample(roleExample);
+
         for (Role role:roles){
             RolePermissionExample example = new RolePermissionExample();
             example.or().andRidEqualTo(role.getId());
@@ -43,6 +46,34 @@ public class PermissionServiceImpl implements PermissionService {
             for (RolePermission permission: rps){
                 Permission permission1 = permissionMapper.selectByPrimaryKey(permission.getPid());
                 result.add(permission1.getName());
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public boolean needInterceptor(String requestURI) {
+        PermissionExample example = new PermissionExample();
+        example.setOrderByClause("id desc");
+        List<Permission> ps = permissionMapper.selectByExample(example);
+        for(Permission p:ps){
+            if (p.getUrl().equals(requestURI)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Set<String> listPermissionURLs(String userName) {
+        Set<String> result = new HashSet<>();
+        List<String> permissionNames = listPermissionsNames(userName);
+        for (String name:permissionNames){
+            PermissionExample example = new PermissionExample();
+            example.or().andNameEqualTo(name);
+            List<Permission> permissions = permissionMapper.selectByExample(example);
+            for (Permission permission:permissions){
+                result.add(permission.getUrl());
             }
         }
         return result;

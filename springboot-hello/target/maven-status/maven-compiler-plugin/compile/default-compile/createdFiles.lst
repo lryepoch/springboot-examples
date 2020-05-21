@@ -1,5 +1,0 @@
-com\hello\web\HelloController.class
-com\hello\web\JspController.class
-com\hello\web\GlobalExceptionHandler.class
-com\hello\web\MyExceptionController.class
-com\hello\Application.class

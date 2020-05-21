@@ -1,6 +1,5 @@
 package com.shiro.config;
 
-import com.shiro.entity.Role;
 import com.shiro.entity.User;
 import com.shiro.service.PermissionService;
 import com.shiro.service.RoleService;
@@ -16,7 +15,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author lryepoch
@@ -24,13 +23,13 @@ import java.util.Set;
  * @description TODO
  */
 public class MyShiroRealm extends AuthorizingRealm {
-
     @Autowired
     private UserService userService;
     @Autowired
     private RoleService roleService;
     @Autowired
     private PermissionService permissionService;
+
     /**
      * 授权
      * doGetAuthorizationInfo方法是在我们调用
@@ -46,10 +45,12 @@ public class MyShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         User user = (User) principals.getPrimaryPrincipal();
         user = userService.findByUsername(user.getName());
-        Set<String> roles = roleService.listRoleNames(user.getName());
-        Set<String> permissions = permissionService.listPermissionsNames(user.getName());
-        info.setRoles(roles);
-        info.setStringPermissions(permissions);
+
+        List<String> roles = roleService.listRoleNames(user.getName());
+        List<String> permissions = permissionService.listPermissionsNames(user.getName());
+
+        info.addRoles(roles);
+        info.addStringPermissions(permissions);
         return info;
     }
 
@@ -69,7 +70,7 @@ public class MyShiroRealm extends AuthorizingRealm {
             return null;
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user,//用户信息
+                user.getName(),//用户名
                 user.getPassword(),//密码
                 ByteSource.Util.bytes(user.getSalt()),//salt=username+salt
                 getName());//realm name

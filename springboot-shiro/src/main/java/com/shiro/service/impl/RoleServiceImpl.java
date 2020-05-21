@@ -11,9 +11,8 @@ import com.shiro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author lryepoch
@@ -30,8 +29,8 @@ public class RoleServiceImpl implements RoleService {
     RoleMapper roleMapper;
 
     @Override
-    public Set<String> listRoleNames(String name) {
-        Set<String> roles = new HashSet<>();
+    public List<String> listRoleNames(String name) {
+        List<String> roles = new ArrayList<>();
         User user = userService.findByUsername(name);
         UserRoleExample userRoleExample = new UserRoleExample();
         userRoleExample.or().andUidEqualTo(user.getId());

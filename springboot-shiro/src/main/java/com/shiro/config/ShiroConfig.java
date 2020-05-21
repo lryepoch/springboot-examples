@@ -1,28 +1,30 @@
 package com.shiro.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.mgt.SecurityManager;
+
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.apache.shiro.mgt.SecurityManager;
-
-import javax.servlet.Filter;
 
 
 /**
  * @author lryepoch
  * @date 2020/5/19 15:35
- * @description TODO
+ * @description TODO shiro配置类
  */
 @Configuration
+@Slf4j
 public class ShiroConfig {
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
@@ -36,34 +38,32 @@ public class ShiroConfig {
      *
      */
     @Bean
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager){
-        System.out.println("ShiroConfiguration.shirFilter()");
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean  = new ShiroFilterFactoryBean();
 
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setLoginUrl("/login1");
         // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+        shiroFilterFactoryBean.setSuccessUrl("/index1");
         //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized1");
 
         //拦截器.
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
         //自定义拦截器
         Map<String, Filter> customisedFilter = new HashMap<>();
-//        customisedFilter.put("url", getURLPathMatchingFilter());
+        customisedFilter.put("url", getURLPathMatchingFilter());
 
         //配置映射关系
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/index", "anon");
-        filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/config/**", "anon");
         filterChainDefinitionMap.put("/doLogout", "logout");
-        filterChainDefinitionMap.put("/**", "authc");
-//        shiroFilterFactoryBean.setFilters(customisedFilter);
+//        filterChainDefinitionMap.put("/**", "authc");
+        filterChainDefinitionMap.put("/**", "url");
+        shiroFilterFactoryBean.setFilters(customisedFilter);
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
@@ -76,6 +76,10 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    public URLPathMatchingFilter getURLPathMatchingFilter(){
+        return new URLPathMatchingFilter();
+    }
+
     @Bean
     public MyShiroRealm getMyShiroRealm(){
         MyShiroRealm myShiroRealm = new MyShiroRealm();
@@ -85,10 +89,8 @@ public class ShiroConfig {
 
     /**
      * 凭证匹配器
-     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
-     *  所以我们需要修改下doGetAuthenticationInfo中的代码;
-     * ）
-     * @return
+     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理，所以我们需要修改下doGetAuthenticationInfo中的代码）
+     *
      */
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher(){
@@ -101,7 +103,7 @@ public class ShiroConfig {
     }
 
     /**
-     * 1.LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
+     * LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
      * 负责org.apache.shiro.util.Initializable类型bean的生命周期的，初始化和销毁，主要是AuthorizingRealm类的子类，以及EhCacheManager类
      *
      * @return

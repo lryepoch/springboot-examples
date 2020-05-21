@@ -1,6 +1,6 @@
 package com.shiro.service;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author lryepoch
@@ -8,5 +8,5 @@ import java.util.Set;
  * @description TODO
  */
 public interface RoleService {
-    Set<String> listRoleNames(String name);
+    List<String> listRoleNames(String name);
 }

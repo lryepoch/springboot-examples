@@ -5,8 +5,8 @@
     
     <mapper namespace="com.how2j.springboot.mapper.CategoryMapper">
     
-    	<select id="findAll" resultType="Category">
-    		select * from category_
+    	<select id="findAll" resultType="com.how2j.springboot.pojo.Category">
+    		select * from category
     	</select>
     
     </mapper>

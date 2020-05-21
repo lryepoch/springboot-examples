@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyExceptionController {
 
-    @RequestMapping(value = "/my")
+    @RequestMapping(value = "my")
     public String myexception(Model model) throws Exception {
 
         model.addAttribute("message", "You will never walk alone!");

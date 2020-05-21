@@ -1,5 +1,6 @@
 package com.shiro.service;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -8,5 +9,9 @@ import java.util.Set;
  * @description TODO
  */
 public interface PermissionService {
-    Set<String> listPermissionsNames(String name);
+    List<String> listPermissionsNames(String name);
+
+    boolean needInterceptor(String requestURI);
+
+    Set<String> listPermissionURLs(String userName);
 }

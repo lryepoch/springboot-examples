@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- 
-<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
- 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+
 </head>
 <body>
- 
+
 <div class="workingroom">
-     
+
     <%@include file="include/menu.jsp" %>
-     
+
     <table>
         <tr>
             <td>id</td>
@@ -35,14 +35,14 @@
             </tr>
         </c:forEach>
     </table>
-     
-    <div class="addOrEdit" >
+
+    <div class="addOrEdit">
         <form action="addPermission" method="post">
             权限名称: <input type="text" name="name"> <br>
             权限描述: <input type="text" name="desc_"> <br>
             权限对应的url: <input type="text" name="url"> <br><br>
             <input type="submit" value="增加">
-        </form>  
+        </form>
     </div>
 </div>
 </body>
