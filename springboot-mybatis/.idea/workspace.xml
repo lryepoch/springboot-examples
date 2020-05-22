@@ -1,122 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f62075c-2db0-41a2-a265-6338207de581" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/.jsdtscope" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.common.component" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/springboot-base.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/JspController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/JspController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/MyExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/MyExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/jsp/fault.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/jsp/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/jsp/success.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/webapp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/JspController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/MyExceptionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT.war.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/JspController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/MyExceptionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/accessors-smart-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/android-json-0.0.20131108.vaadin1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/asm-5.0.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/assertj-core-2.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/hamcrest-core-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/hamcrest-library-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-validator-5.3.6.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-core-2.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-databind-2.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/json-path-2.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/json-smart-2.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jsonassert-1.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/junit-4.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/log4j-over-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/logback-classic-1.1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/logback-core-1.1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/mockito-core-1.10.19.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/objenesis-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/snakeyaml-1.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-autoconfigure-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-logging-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-test-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-tomcat-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-web-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-test-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-test-autoconfigure-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-context-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-core-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-test-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-web-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-annotations-api-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-embed-core-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-embed-el-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-embed-websocket-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/validation-api-1.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="4ed22f9b-c8b9-455d-95e0-16d68d766ac4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/artifacts/springboot_crud_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/artifacts/springboot_crud_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_github_pagehelper_pagehelper_4_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_jasper_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_eclipse_jdt_ecj_3_12_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_6_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_mybatis_3_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_aop_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_beans_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_context_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_core_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_expression_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_tx_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_web_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/springboot-crud.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/sql/how2java.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/how2java.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/src/main/resources/Application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/how2j/springboot/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/how2j/springboot/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/how2j/springboot/mapper/Category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/how2j/springboot/mapper/Category.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/how2j/springboot/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/how2j/springboot/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/controller/FileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/mapper/Category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/how2j/springboot/mapper/Category.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/how2j/springboot/mapper/CategoryMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/pojo/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/how2j/springboot/pojo/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/how2j/springboot/test/CategoryMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/how2j/springboot/test/CategoryMapperTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-shiro/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-shiro/src/main/java/com/shiro/ShiroApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/src/main/java/com/shiro/ShiroApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-shiro/src/main/java/com/shiro/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/src/main/java/com/shiro/config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-shiro/src/main/java/com/shiro/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/src/main/java/com/shiro/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-shiro/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-shiro/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/how2java.sql" beforeDir="false" afterPath="$PROJECT_DIR$/how2java.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-shiro/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -131,27 +101,7 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -159,10 +109,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/how2j/springboot/Application.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/how2j/springboot/mapper/Category.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/Application.properties" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -174,18 +121,15 @@
         <option name="userSettingsFile" value="D:\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-4" />
-    <option name="width" value="960" />
+    <option name="x" value="955" />
+    <option name="width" value="976" />
     <option name="height" value="1047" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -216,7 +160,24 @@
               <item name="springboot-mybatis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot-mybatis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot-mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot-mybatis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot-mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot-mybatis" type="b2602c69:ProjectViewProjectNode" />
@@ -233,6 +194,15 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="springboot-mybatis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot-mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -240,23 +210,21 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.24591574" />
-    <property name="restartRequiresConfirmation" value="false" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\JetBrains\IntelliJ IDEA 2019.1\IdeaProjects\springboot-examples\springboot-mybatis" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -284,23 +252,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5f62075c-2db0-41a2-a265-6338207de581" name="Default Changelist" comment="" />
-      <created>1589941536685</created>
+      <changelist id="4ed22f9b-c8b9-455d-95e0-16d68d766ac4" name="Default Changelist" comment="" />
+      <created>1590057021039</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1589941536685</updated>
-      <workItem from="1589941538485" duration="2027000" />
-      <workItem from="1589944580766" duration="1812000" />
+      <updated>1590057021039</updated>
+      <workItem from="1590057022808" duration="140000" />
+      <workItem from="1590128508805" duration="105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3839000" />
+    <option name="totallyTimeSpent" value="245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25375536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -310,8 +278,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.49499443" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933258" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -319,10 +287,9 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32925472" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -340,118 +307,38 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/how2j/springboot/test/CategoryMapperTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/how2j/springboot/controller/CategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="228">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listCategory.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://D:/apache-maven-3.5.4/repository/org/springframework/spring-webmvc/4.3.13.RELEASE/spring-webmvc-4.3.13.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="455" selection-start-line="455" selection-end-line="455" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://D:/apache-maven-3.5.4/repository/org/springframework/spring-webmvc/4.3.13.RELEASE/spring-webmvc-4.3.13.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="530" selection-start-line="530" selection-end-line="530" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/how2java.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://D:/apache-maven-3.5.4/repository/org/springframework/spring-web/4.3.13.RELEASE/spring-web-4.3.13.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="171">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/how2j/springboot/controller/CategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/how2j/springboot/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/how2j/springboot/mapper/CategoryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/how2j/springboot/mapper/Category.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>springboot-mybatis:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.24591574" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web (springboot-mybatis)|Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.24591574" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.24591574" />
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
@@ -463,20 +350,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.24591574" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>springboot-mybatis</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -496,11 +370,10 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.24591574" />
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

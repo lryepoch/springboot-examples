@@ -9,8 +9,5 @@
         <module name="springboot-crud" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="springboot-crud" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

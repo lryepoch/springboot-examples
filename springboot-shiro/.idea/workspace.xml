@@ -2,156 +2,134 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33589b6c-3214-4781-87e8-988e229981c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/.jsdtscope" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.common.component" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/springboot-base.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/JspController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/JspController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/MyExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/java/com/hello/web/MyExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-hello/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/jsp/fault.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/jsp/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/resources/jsp/success.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/src/main/webapp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/JspController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/classes/com/hello/web/MyExceptionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT.war.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/JspController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/classes/com/hello/web/MyExceptionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/jsp/fault.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/jsp/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/jsp/success.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/accessors-smart-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/android-json-0.0.20131108.vaadin1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/asm-5.0.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/assertj-core-2.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/hamcrest-core-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/hamcrest-library-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-validator-5.3.6.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-core-2.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-databind-2.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/json-path-2.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/json-smart-2.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jsonassert-1.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/junit-4.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/log4j-over-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/logback-classic-1.1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/logback-core-1.1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/mockito-core-1.10.19.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/objenesis-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/snakeyaml-1.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-autoconfigure-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-logging-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-test-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-tomcat-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-starter-web-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-test-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-boot-test-autoconfigure-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-context-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-core-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-test-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-web-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-annotations-api-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-embed-core-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-embed-el-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/tomcat-embed-websocket-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-hello/target/springboot-0.0.1-SNAPSHOT/WEB-INF/lib/validation-api-1.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/artifacts/springboot_crud_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/artifacts/springboot_crud_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__com_github_pagehelper_pagehelper_4_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_jasper_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_eclipse_jdt_ecj_3_12_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_6_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_mybatis_3_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_aop_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_beans_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_context_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_core_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_expression_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_tx_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_web_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_13_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/springboot-crud.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/sql/how2java.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-crud/how2java.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-crud/src/main/resources/Application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.classpath" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/src/main/java/com/how2j/springboot/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/src/main/java/com/how2j/springboot/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/src/main/java/com/how2j/springboot/mapper/Category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/src/main/java/com/how2j/springboot/mapper/Category.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/src/main/resources/Application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/src/main/resources/Application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/Application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/Application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/controller/FileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/mapper/Category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/mapper/Category.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/mapper/CategoryMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/pojo/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/pojo/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/test/CategoryMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/target/classes/com/how2j/springboot/test/CategoryMapperTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/ShiroApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/ShiroApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/config/MyShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/config/MyShiroRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/exception/DefaultExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/exception/DefaultExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/PermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/RolePermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/RolePermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/UserRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/mapper/UserRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/service/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shiro/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shiro/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/deleteOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/deleteOrder.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/hello.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listCategory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listCategory.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listPermission.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listPermission.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listRole.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listRole.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/unauthorized.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/unauthorized.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/springboot-shiro.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-mybatis/sql/how2java.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-mybatis/how2java.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/shiro.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/ShiroApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/config/MyShiroRealm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/config/ShiroConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/controller/PageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/Permission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/PermissionExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/RoleExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/RolePermission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/RolePermissionExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/UserExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/entity/UserRoleExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/exception/DefaultExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/mapper/PermissionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/mapper/RoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/mapper/RolePermissionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/mapper/UserRoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/service/PermissionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/service/RoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/service/impl/PermissionServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/service/impl/RoleServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/java/com/shiro/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/resources/mapping/PermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/resources/mapping/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/resources/mapping/RolePermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/resources/mapping/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/src/main/resources/mapping/UserRoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/target/classes/mapping/PermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/target/classes/mapping/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/target/classes/mapping/RolePermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/target/classes/mapping/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot-shiro--/target/classes/mapping/UserRoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -165,31 +143,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="54" column="57" lean-forward="true" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shiro/ShiroApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
-              <folding>
-                <element signature="e#574#575#0" expanded="true" />
-                <element signature="e#640#641#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -201,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shiro/config/ShiroConfig.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shiro/ShiroApplication.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -219,18 +174,19 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="955" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="976" />
     <option name="height" value="1047" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,36 +210,31 @@
               <item name="springboot-shiro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot-shiro" type="b2602c69:ProjectViewProjectNode" />
               <item name="springboot-shiro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot-shiro" type="b2602c69:ProjectViewProjectNode" />
               <item name="springboot-shiro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot-shiro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot-shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,13 +247,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/static/css" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\JetBrains\IntelliJ IDEA 2019.1\IdeaProjects\springboot-examples\springboot-shiro\src\main\webapp\static\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -337,17 +293,20 @@
       <updated>1590029609680</updated>
       <workItem from="1590029611451" duration="184000" />
       <workItem from="1590029811668" duration="2376000" />
+      <workItem from="1590040973971" duration="2578000" />
+      <workItem from="1590128794967" duration="1195000" />
+      <workItem from="1590134569764" duration="748000" />
+      <workItem from="1590135577827" duration="129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2560000" />
+    <option name="totallyTimeSpent" value="7210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25375536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20600858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -355,7 +314,6 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32925472" />
@@ -370,6 +328,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -397,6 +356,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shiro/ShiroApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+          <folding>
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -404,22 +374,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editPermission.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/deleteProduct.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listRole.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listUser.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listPermission.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listProduct.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listCategory.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editRole.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/deleteOrder.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editUser.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="54" column="57" lean-forward="true" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+        <state relative-caret-position="171">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shiro/ShiroApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+        <state relative-caret-position="798">
+          <caret line="54" column="57" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errorPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shiro.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>

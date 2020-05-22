@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+    <div class="showing">
+
+        <p th:if test="${empty subject.principal}">
+            <a href="login">登录</a><br>
+        </p>
+        <p th:if test="${!empty subject.principal}">
+            <span class="desc">你好，${subject.principal}，</span>
+            <a href="doLogout">退出</a><br>
+        </p>
+
+        <a href="listProduct">查看产品</a><br>
+        <a href="deleteProduct">删除产品</a><br>
+        <a href="deleteOrder">删除订单</a><br>
+    </div>
+
+</body>
+</html>

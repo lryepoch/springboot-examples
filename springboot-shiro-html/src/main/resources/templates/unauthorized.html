@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="showing">
+    权限不足,具体原因：${ex.message}
+    <br>
+    <a href="#" onClick="javascript:history.back()">返回</a>
+</div>
+</body>
+</html>
