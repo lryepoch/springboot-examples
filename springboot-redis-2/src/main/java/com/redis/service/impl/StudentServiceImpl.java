@@ -14,9 +14,9 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
     @Override
-    @Cacheable(value = "stu-dent", key = "'哈哈哈哈哈：' + #id")
-//    @CachePut(value = "user", key = "#id")
-//    @CacheEvict(value = "user", key = "#id")
+    @Cacheable(value = "stu-dent", key = "'哈哈哈哈哈：' + #id")  //用于查询
+//    @CachePut(value = "user", key = "#id")    //用于新增+更新
+//    @CacheEvict(value = "user", key = "#id")  //用于删除
     public Student selectStudentById(Integer id) {
         return studentMapper.selectStudentById(id);
     }

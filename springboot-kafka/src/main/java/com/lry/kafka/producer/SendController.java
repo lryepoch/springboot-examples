@@ -11,7 +11,9 @@ public class SendController {
 
     @RequestMapping("send")
     public String send(){
-        producer.send();
+        for (int i=0;i<100;i++){
+            producer.send();
+        }
         return "run successfully";
     }
 }
