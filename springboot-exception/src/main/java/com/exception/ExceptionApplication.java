@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author lryepoch
  * @date 2020/6/23 13:37
- * @description TODO 模拟异常拦截处理器
+ * @description TODO 全局异常统一处理
  */
 @SpringBootApplication
 public class ExceptionApplication {
