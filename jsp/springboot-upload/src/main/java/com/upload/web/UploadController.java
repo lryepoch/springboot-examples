@@ -1,12 +1,16 @@
 package com.upload.web;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,6 +63,37 @@ public class UploadController {
 
         return "show";
 
+    }
+
+    @PostMapping("upload2")
+    public String upload2(MultipartFile multipartFile, HttpServletRequest request) {
+        FileOutputStream imgOut = null;
+        try {
+            String path = "/image";
+            File dir = new File(path);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            String id = UUID.randomUUID().toString().replaceAll("-", "");
+            String fileName = multipartFile.getOriginalFilename();
+            String img = id + fileName.substring(fileName.lastIndexOf("."));
+
+            imgOut = new FileOutputStream(new File(dir, img));
+            imgOut.write(multipartFile.getBytes());
+            return "http://10.2.21.41" + path + img;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                imgOut.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
 }

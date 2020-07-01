@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 
+/**
+* @description
+* @author lryepoch
+* @date 2020/6/30 14:51 文件（图片）下载
+*
+*/
 @RestController
 public class DownloadController {
 
