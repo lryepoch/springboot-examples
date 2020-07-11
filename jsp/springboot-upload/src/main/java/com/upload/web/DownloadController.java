@@ -25,28 +25,37 @@ public class DownloadController {
         System.out.println(request.getSession());
         System.out.println(request.getSession().getServletContext());
         System.out.println(request.getSession().getServletContext().getRealPath("/"));
+        System.out.println("------------------------------");
+
         String fileName = "1556981245241微信图片_20170909010049.jpg";
 
         File file = new File(filePath + fileName);
+
         if (file.exists()) {
                 response.setContentType("application/force-download");
                 response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode(fileName, "UTF-8"));
+
                 byte[] buffer = new byte[1024];
                 FileInputStream fis = null;
                 BufferedInputStream bis = null;
+
             try {
                 fis = new FileInputStream(file);
                 bis = new BufferedInputStream(fis);
                 ServletOutputStream outputStream = response.getOutputStream();
+
                 int i = bis.read(buffer);
                 while (i != -1) {
                     outputStream.write(buffer, 0, i);
                     i = bis.read(buffer);
                 }
                 return "下载成功";
+
             } catch (Exception e) {
                 e.printStackTrace();
+
             } finally {
+
                 if (bis != null) {
                     try {
                         bis.close();
@@ -54,6 +63,7 @@ public class DownloadController {
                         e.printStackTrace();
                     }
                 }
+
                 if (fis != null) {
                     try {
                         fis.close();

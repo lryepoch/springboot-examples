@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 /**
@@ -65,7 +69,7 @@ public class UploadController {
 
     }
 
-    @PostMapping("upload2")
+    @PostMapping("/upload2")
     public String upload2(MultipartFile multipartFile, HttpServletRequest request) {
         FileOutputStream imgOut = null;
         try {
@@ -94,6 +98,25 @@ public class UploadController {
             }
         }
         return null;
+    }
+
+
+
+    private static String UPLOADED_FOLDER = "E://temp//";
+
+    @PostMapping("/upload3")
+    public String upload3(MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
+        if (file.isEmpty()){
+            redirectAttributes.addFlashAttribute("message","请选择一个文件！");
+            return "请选择一个文件！";
+        }
+
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(UPLOADED_FOLDER+file.getOriginalFilename());
+        Files.write(path, bytes);
+
+        redirectAttributes.addFlashAttribute("message","You successfully uploaded '"+file.getOriginalFilename()+"'");
+        return "上传成功";
     }
 
 }

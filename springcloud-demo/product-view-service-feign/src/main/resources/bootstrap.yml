@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    config:
+      label: master
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server  #配置服务器在 eureka server 里的服务名称，这样就可以定位 config-server
+    bus:            #新增bus总线配置
+      enabled: true
+      trace:
+        enabled: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+rabbitmq:     #新增 rabbitMQ 配置
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest

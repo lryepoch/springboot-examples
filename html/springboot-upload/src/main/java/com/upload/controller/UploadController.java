@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -47,10 +46,9 @@ public class UploadController {
         try {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
 
             log.info(String.valueOf(path.getFileName()));
-
-            Files.write(path, bytes);
             redirectAttributes.addFlashAttribute("message","上传成功");
 
         } catch (IOException e) {
@@ -63,4 +61,5 @@ public class UploadController {
     public String uploadStatus(){
         return "uploadStatus";
     }
+
 }
