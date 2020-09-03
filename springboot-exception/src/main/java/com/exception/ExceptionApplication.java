@@ -6,11 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author lryepoch
  * @date 2020/6/23 13:37
- * @description TODO 全局异常统一处理
+ * @description TODO 全局异常统一处理启动类
  */
 @SpringBootApplication
 public class ExceptionApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ExceptionApplication.class,args);
+        SpringApplication.run(ExceptionApplication.class, args);
     }
 }

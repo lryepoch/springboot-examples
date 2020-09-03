@@ -1,7 +1,7 @@
 package com.exception.util;
 
 import com.exception.config.ResultEnum;
-import com.exception.exception.SystemException;
+import com.exception.exception.CustomException;
 import org.springframework.validation.BindingResult;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.validation.BindingResult;
 public class ParamValidateUtil {
     public static void checkParams(BindingResult bindingResult){
         if (bindingResult.hasErrors()){
-            throw new SystemException(ResultEnum.ERR.getCode(),ResultEnum.ERR.getMsg());
+            throw new CustomException(ResultEnum.ERR.getCode(),ResultEnum.ERR.getMsg());
         }
     }
 }

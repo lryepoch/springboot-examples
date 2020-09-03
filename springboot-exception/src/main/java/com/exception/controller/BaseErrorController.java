@@ -1,7 +1,7 @@
 package com.exception.controller;
 
 import com.exception.config.ResultEnum;
-import com.exception.exception.SystemException;
+import com.exception.exception.CustomException;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +23,7 @@ public class BaseErrorController {
 //        int[] a = {1,2};
 //        int b=a[2];
 //        System.out.println(b);
-        throw new SystemException(ResultEnum.UNAUTHORIZED.getCode(),ResultEnum.UNAUTHORIZED.getMsg());
+        throw new CustomException(ResultEnum.UNAUTHORIZED.getCode(),ResultEnum.UNAUTHORIZED.getMsg());
 //        throw new SQLSyntaxErrorException("hhahhaha");
     }
 }

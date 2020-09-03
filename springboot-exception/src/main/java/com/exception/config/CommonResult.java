@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Result implements Serializable {
+public class CommonResult implements Serializable {
 
     private static final long serialVersionUID = -2884790828192232980L;
 
@@ -35,16 +35,16 @@ public class Result implements Serializable {
     //是否登录
 //    private boolean isLogin=true;
 
-    public static Result success(Object data){
-        return Result.builder().status(true).code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
+    public static CommonResult success(Object data){
+        return CommonResult.builder().status(true).code(ResultEnum.SUCCESS.getCode()).msg(ResultEnum.SUCCESS.getMsg()).data(data).build();
     }
 
-    public static Result success(){
+    public static CommonResult success(){
         return success(null);
     }
 
-    public static Result fail(Integer code, String msg){
-        return Result.builder().status(false).code(code).msg(msg).build();
+    public static CommonResult fail(Integer code, String msg){
+        return CommonResult.builder().status(false).code(code).msg(msg).build();
     }
 
 

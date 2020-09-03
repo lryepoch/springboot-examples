@@ -1,6 +1,5 @@
 package com.exception.exception;
 
-import com.exception.config.ResultEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -13,11 +12,10 @@ import lombok.experimental.Accessors;
 @Data
 @AllArgsConstructor
 @Accessors(chain = true)
-public class SystemException extends RuntimeException {
+public class CustomException extends RuntimeException {
 
     /**错误码*/
     private Integer code;
-
     /**错误信息*/
     private String msg;
 

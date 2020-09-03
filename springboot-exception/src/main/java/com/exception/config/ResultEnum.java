@@ -28,7 +28,6 @@ public enum ResultEnum {
 
     RUN_SQL_ERROR(1000,"执行SQL异常"),
 
-
     //服务器内部错误
     INTERNAL_SERVER_ERROR(500,"稍等片刻，管理员正在努力恢复中");
 
