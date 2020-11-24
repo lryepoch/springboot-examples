@@ -1,4 +1,4 @@
-package com.lry.kafka.producer;
+package com.lry.kafka.annotation.producer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

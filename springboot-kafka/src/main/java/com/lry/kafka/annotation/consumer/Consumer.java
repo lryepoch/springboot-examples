@@ -1,4 +1,4 @@
-package com.lry.kafka.consumer;
+package com.lry.kafka.annotation.consumer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

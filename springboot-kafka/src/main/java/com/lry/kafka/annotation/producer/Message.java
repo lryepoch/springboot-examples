@@ -1,4 +1,4 @@
-package com.lry.kafka.producer;
+package com.lry.kafka.annotation.producer;
 
 import java.util.Date;
 
