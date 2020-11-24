@@ -9,6 +9,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @description 使用redis注解
 * @author lryepoch
@@ -18,13 +20,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    @Autowired
+    @Resource
     private StudentMapper studentMapper;
 
     @Override
     @Cacheable(value = "select", key = "'@Cacheable：' + #id")  //用于查询
     public Student selectStudentById(Integer id) {
-
         return studentMapper.selectStudentById(id);
     }
 

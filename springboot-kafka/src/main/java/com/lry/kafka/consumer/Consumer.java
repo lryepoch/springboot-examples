@@ -12,12 +12,12 @@ import java.util.Optional;
 public class Consumer {
 
     @KafkaListener(topics = {"test"})
-    public void listen(ConsumerRecord<?, ?> record) {
+    public void listen(ConsumerRecord record) {
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
 
         if (kafkaMessage.isPresent()) {
             Object message = kafkaMessage.get();
-            log.info("【**message**】:"+String.valueOf(message));
+            log.info("【**message**】:" + message);
         }
 
         log.info("【**接收消息**】: offset:" + record.offset() + ",key:" + record.key() + ",value:" + record.value());
