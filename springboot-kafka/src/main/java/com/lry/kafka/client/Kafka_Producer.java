@@ -1,26 +1,27 @@
 package com.lry.kafka.client;
 
 import org.apache.kafka.clients.producer.Callback;
-import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @author lryepoch
  * @date 2020/11/24 19:57
- * @description TODO
+ * @description TODO 生产者
  */
 @Component
-public class KafkaProducer {
+public class Kafka_Producer {
 
     public String topic = KafkaConfig.topic;
 
-    @Autowired
-    Producer producer;
+    @Resource
+    KafkaProducer producer;
 
-    public void producer() throws Exception {
+    public void producer() {
 
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, "hello, Kafka!");
         try {
