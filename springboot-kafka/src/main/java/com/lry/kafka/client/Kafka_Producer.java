@@ -29,7 +29,7 @@ public class Kafka_Producer {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception exception) {
                     if (exception == null) {
-                        System.out.println(metadata.partition() + ":" + metadata.offset());
+                        System.out.println("message send to partition，" + metadata.partition() + ":" + metadata.offset());
                     }
                 }
             });

@@ -4,6 +4,7 @@ import com.template.config.RedisUtil;
 import com.template.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -24,7 +25,7 @@ public class RedisController {
     @Resource
     private RedisUtil redisUtil;
 
-    @RequestMapping("set")
+    @RequestMapping(value = "set", method = RequestMethod.GET)
     public boolean redisset(String key, String value) {
         User user = new User();
         user.setId(Long.valueOf(1));
@@ -33,16 +34,16 @@ public class RedisController {
         user.setAge(String.valueOf(20));
         user.setCreateTime(new Date());
 
-        return redisUtil.set(key, user, ExpireTime);
-//        return redisUtil.set(key, value);
+//        return redisUtil.set(key, user, ExpireTime);
+        return redisUtil.set(key, value);
     }
 
-    @RequestMapping("get")
+    @RequestMapping(value = "get", method = RequestMethod.GET)
     public Object redisget(String key) {
         return redisUtil.get(key);
     }
 
-    @RequestMapping("expire")
+    @RequestMapping(value = "expire", method = RequestMethod.GET)
     public boolean expire(String key) {
         return redisUtil.expire(key, ExpireTime);
     }

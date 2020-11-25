@@ -2,17 +2,16 @@ package com.annotation.controller;
 
 import com.annotation.entity.Student;
 import com.annotation.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.*;
 
-@EnableCaching
+import javax.annotation.Resource;
+
 @RestController
 public class StudentController {
-    @Autowired
+    @Resource
     private StudentService studentService;
 
-    @RequestMapping("/select/{id}")
+    @GetMapping("/select/{id}")
     public Student selectStudentById(@PathVariable("id") Integer id){
         return studentService.selectStudentById(id);
     }
@@ -22,7 +21,7 @@ public class StudentController {
         return studentService.addStudent(student);
     }
 
-    @RequestMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public int deleteStudent(@PathVariable Integer id){
         return studentService.deleteStudent(id);
     }
