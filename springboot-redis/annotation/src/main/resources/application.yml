@@ -8,6 +8,22 @@ spring:
     host: 127.0.0.1
     port: 6379
     database: 1
+    password:
+    lettuce:
+      pool:             # 连接池配置，Spring Boot默认用的是lettuce，需增加 commons-pool2 依赖。而不是 Jedis。
+        min-idle: 5
+        max-active: 10
+        max-idle: 8
+        max-wait: 1ms
+      shutdown-timeout: 100ms  #关闭超时时间，默认值100ms。在关闭客户端连接之前等待任务处理完成的最长时间，在这之后，无论任务是否执行完成，都会被执行器关闭。
+    timeout: 10000       #redis 连接超时时间ms
+  cache:
+    type: redis
+    cache-names: oneMin,oneDay,cache-user    # 缓存名称列表。与@CacheConfig(cacheNames = "cache-student")对应
+#    redis:
+#      time-to-live: 10s   #缓存超时时间ms。这里使用的time-to-live是对所有redis缓存统一配置的时间 实际使用会有不方便的地方 可能不同的缓存需要不同的超时时间
+#      cache-null-values: false    #是否缓存空值
+
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml

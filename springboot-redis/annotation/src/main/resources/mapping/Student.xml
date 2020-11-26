@@ -10,7 +10,13 @@
         where id = #{id}
     </select>
 
-    <insert id="addStudent">
+    <select id="getAllStudents" resultType="com.annotation.entity.Student">
+        select *
+        from student
+        order by id asc
+    </select>
+
+    <insert id="addStudent" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
         insert into student(age,sex,address)
         values (#{age},#{sex},#{address})
     </insert>
@@ -18,4 +24,20 @@
     <delete id="deleteStudent">
         delete from student where id = #{id}
     </delete>
+
+    <update id="updateStudent">
+        update student
+        <set>
+            <if test="age!=null">
+                age = #{age},
+            </if>
+            <if test="sex!=null and !sex.equals('')">
+                sex = #{sex},
+            </if>
+            <if test="address!=null and !address.equals('')">
+                address = #{address}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

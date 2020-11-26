@@ -20,9 +20,9 @@ import java.util.concurrent.TimeUnit;
 public class RedisUtil {
 
     @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private RedisTemplate<Object, Object> redisTemplate;
 
-    public RedisUtil(RedisTemplate<String, Object> redisTemplate) {
+    public RedisUtil(RedisTemplate<Object, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 

@@ -27,15 +27,23 @@ public class RedisController {
 
     @RequestMapping(value = "set", method = RequestMethod.GET)
     public boolean redisset(String key, String value) {
+        return redisUtil.set(key, value);
+    }
+
+    @RequestMapping(value = "expire", method = RequestMethod.GET)
+    public boolean expire(String key) {
+        return redisUtil.expire(key, ExpireTime);
+    }
+
+    @RequestMapping(value = "setObject", method = RequestMethod.GET)
+    public boolean redissetObject(String key) {
         User user = new User();
         user.setId(Long.valueOf(1));
         user.setGuid(String.valueOf(1));
         user.setName("zhangsan");
         user.setAge(String.valueOf(20));
         user.setCreateTime(new Date());
-
-//        return redisUtil.set(key, user, ExpireTime);
-        return redisUtil.set(key, value);
+        return redisUtil.set(key, user, ExpireTime);
     }
 
     @RequestMapping(value = "get", method = RequestMethod.GET)
@@ -43,8 +51,4 @@ public class RedisController {
         return redisUtil.get(key);
     }
 
-    @RequestMapping(value = "expire", method = RequestMethod.GET)
-    public boolean expire(String key) {
-        return redisUtil.expire(key, ExpireTime);
-    }
 }
