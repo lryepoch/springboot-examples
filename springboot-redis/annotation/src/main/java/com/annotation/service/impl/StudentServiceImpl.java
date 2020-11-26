@@ -15,7 +15,7 @@ import java.util.List;
 * @date 2020/9/5 15:17
 *
 */
-//指定缓存名称，对应配置文件中 spring.cache.cache-names=cache-user
+//指定缓存名称，对应配置文件中 spring.cache.cache-names=cache-student
 @CacheConfig(cacheNames = "oneMin")       //此处添加这个，具体到方法中就不需要声明cacheNames了
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -54,6 +54,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
 
+    @Override
     @Cacheable(value = "allStudentsCache", unless = "#result.size() == 0")  //value替换了全局cacheNames
     public List<Student> getAllStudents() {
         return studentMapper.getAllStudents();

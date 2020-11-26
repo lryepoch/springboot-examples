@@ -39,10 +39,10 @@ public class RedisConfig {
     /**
      * 自定义cacheManager缓存管理器
      *
-     * RedisCacheManager类型的 Bean，它间接实现了 Spring Cache的接口，有了它我们就可以直接使用 Spring中的缓存注解和接口了，
+     * RedisCacheManager类型的Bean，它间接实现了Spring Cache的接口，有了它我们就可以直接使用Spring中的缓存注解和接口了，
      * 而缓存的数据则会被自动存储到 Redis 中。
      *
-     * 注意：在单机的 Redis中，系统会自动提供这个 Bean，但如果是 Redis集群，则需要我们自己来提供。
+     * 注意：在单机的Redis中，系统会自动提供这个Bean，但如果是Redis集群，则需要我们自己来提供。
      *
      */
     @Bean
@@ -55,24 +55,25 @@ public class RedisConfig {
 
 
         /*--------------------------------设置多个缓存失效时间-------------------------------*/
-        //有个问题，序列化产生乱码？？
+        //有个问题，redisCacheConfigurationMap管理的cacheName在序列化时产生乱码？？
         Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>();
         //自定义设置缓存时间
         redisCacheConfigurationMap.put("oneDay", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(86400L))
                 .disableCachingNullValues());
-        redisCacheConfigurationMap.put("oneMin", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(60L))
+        redisCacheConfigurationMap.put("oneMin", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(30L))
                 .disableCachingNullValues());
 
         /* 配置oneDay、oneMin的超时时间为120s、60s*/
         //初始化一个RedisCacheWriter
         RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(factory);
         RedisCacheManager cacheManager1 = RedisCacheManager.builder(redisCacheWriter)
-                .cacheDefaults(cacheConfiguration())      //加载默认配置
+                //加载默认配置
+                .cacheDefaults(cacheConfiguration())
                 .withInitialCacheConfigurations(redisCacheConfigurationMap)
                 .transactionAware()
                 .build();
 
-        return cacheManager;
+        return cacheManager1;
     }
 
     @Bean
@@ -91,10 +92,14 @@ public class RedisConfig {
 
         //配置序列化（解决乱码问题）
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
-                .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))     //key采用string类型的序列化
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer))        //value采用json类型的序列化
-                .entryTtl(Duration.ofSeconds(30L))    //设置全局默认过期时间为60秒
-                .disableCachingNullValues();           //不缓存空值
+                //key采用string类型的序列化
+                .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
+                //value采用json类型的序列化
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer))
+                //设置全局默认过期时间为60秒
+//                .entryTtl(Duration.ofSeconds(30L))
+                //不缓存空值
+                .disableCachingNullValues();
 
         return config;
     }
