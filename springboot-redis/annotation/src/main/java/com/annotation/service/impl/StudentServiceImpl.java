@@ -55,7 +55,7 @@ public class StudentServiceImpl implements StudentService {
 
 
     @Override
-    @Cacheable(value = "oneDay", unless = "#result.size() == 0")  //value替换了全局cacheNames
+    @Cacheable(value = "allStudentsCache", unless = "#result.size() == 0")  //value替换了全局cacheNames
     public List<Student> getAllStudents() {
         return studentMapper.getAllStudents();
     }

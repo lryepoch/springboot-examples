@@ -18,6 +18,12 @@ public class PubController {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
 
+    /**
+    *
+     *
+     *
+     *
+    */
     private static AtomicInteger count = new AtomicInteger();
 
     @PostMapping("/message")
