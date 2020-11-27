@@ -1,0 +1,6 @@
+spring:
+  mail:
+    username: lryepoch@qq.com
+    password: dtdifsjpazcgddhi     #上面获取设置的授权码
+    host: smtp.qq.com
+    default-encoding: utf-8
