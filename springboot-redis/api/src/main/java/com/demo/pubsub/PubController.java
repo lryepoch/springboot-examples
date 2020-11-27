@@ -19,10 +19,7 @@ public class PubController {
     private StringRedisTemplate stringRedisTemplate;
 
     /**
-    *
-     *
-     *
-     *
+    * AtomicInteger.incrementAndGet()方法的原子性
     */
     private static AtomicInteger count = new AtomicInteger();
 
