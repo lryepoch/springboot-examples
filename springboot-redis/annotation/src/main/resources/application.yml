@@ -19,7 +19,7 @@ spring:
     timeout: 10000       #redis 连接超时时间ms
   cache:
     type: redis
-    cache-names: oneMin,oneDay,cache-student   # 缓存名称列表。与@CacheConfig(cacheNames = "cache-student")对应
+#    cache-names: oneSecond,oneMin,oneDay,cache-student   # 缓存名称列表。与@CacheConfig(cacheNames = "cache-student")对应。因为在RedisConfig中配置了自定义cacheNames，好像在此也无需配置
 #    redis:
 #      time-to-live: 10s   #缓存超时时间ms。这里使用的time-to-live是对所有redis缓存统一配置的时间 实际使用会有不方便的地方 可能不同的缓存需要不同的超时时间
 #      cache-null-values: false    #是否缓存空值

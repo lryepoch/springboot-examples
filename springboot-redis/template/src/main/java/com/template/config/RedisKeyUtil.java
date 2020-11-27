@@ -3,7 +3,7 @@ package com.template.config;
 /**
  * @author lryepoch
  * @date 2020/11/25 19:25
- * @description TODO
+ * @description TODO keyGenerator……
  */
 public class RedisKeyUtil {
     /**

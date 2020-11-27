@@ -11,7 +11,7 @@
     <modules>
         <module>annotation</module>
         <module>template</module>
-        <module>demo</module>
+        <module>api</module>
     </modules>
 
     <properties>

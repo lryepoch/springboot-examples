@@ -16,7 +16,7 @@ public class RedisConfiguration {
     /**
      * 消息适配器
      *
-     * 绑定消息监听者和接收监听的方法,必须要注入这个监听器，不然会报错
+     * 绑定消息监听者(类)和接收监听的方法(方法),必须要注入这个监听器，不然会报错
      * @return MessageListenerAdapter
      */
     @Bean

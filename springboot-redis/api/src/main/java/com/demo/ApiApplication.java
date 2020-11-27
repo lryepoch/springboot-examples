@@ -12,8 +12,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @EnableSwagger
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableCors
-public class DemoApplication {
+public class ApiApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(ApiApplication.class, args);
     }
 }
