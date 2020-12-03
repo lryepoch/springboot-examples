@@ -57,15 +57,21 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
                 <configuration>
-                    <!--镜像构建后，docker仓库中镜像的名字-->
+                    <!--指定生成的镜像名-->
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <!--DockerFile文件在此项目中的路径-->
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <!--指定标签，这里指定镜像的版本，设置默认版本是latest-->
+                    <imageTags>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+                    <!--DockerFile文件在此项目中的路径，也可以在此自定义DockFile内容-->
+                    <dockerDirectory>/</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
+                            <!--jar包所在的路径，此处配置的即对应target目录-->
                             <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}</include>
+                            <!--用于指定需要复制的文件 需要包含的 jar包 ，这里对应的是 Dockerfile中添加的文件名-->
+                            <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
                 </configuration>
