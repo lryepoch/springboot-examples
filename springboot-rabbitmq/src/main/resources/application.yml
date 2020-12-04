@@ -12,10 +12,3 @@ spring:
           # 重试次数 默认为3次
           max-attempts: 5
 
-
-
-
-  spring.rabbitmq.listener.direct.retry.enabled=true
-
-  spring.rabbitmq.listener.direct.retry.max-attempts=5
-
