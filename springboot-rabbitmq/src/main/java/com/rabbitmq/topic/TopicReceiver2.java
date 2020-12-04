@@ -17,6 +17,6 @@ public class TopicReceiver2 {
 
     @RabbitHandler
     public void process(String message) {
-        log.info("Topic 消费者 2:" + message);
+        log.info("Topic 消费者 2：" + message);
     }
 }

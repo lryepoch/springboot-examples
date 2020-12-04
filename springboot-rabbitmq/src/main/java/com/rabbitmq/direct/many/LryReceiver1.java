@@ -1,4 +1,4 @@
-package com.rabbitmq.many;
+package com.rabbitmq.direct.many;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @RabbitListener(queues = "lry")
-public class LryReceiver2 {
+public class LryReceiver1 {
 
     @RabbitHandler
     public void process(String lry){
-        log.info("消费者 2："+lry);
+        log.info("消费者 1："+lry);
     }
 }

@@ -1,6 +1,5 @@
-package com.rabbitmq.config;
+package com.rabbitmq.topic;
 
-import com.rabbitmq.topic.TopicSender;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author lryepoch
  * @date 2020/5/25 17:43
- * @description TODO 注册
+ * @description TODO 主题模式注册
  */
 @Configuration
 public class TopicRabbitConfig {

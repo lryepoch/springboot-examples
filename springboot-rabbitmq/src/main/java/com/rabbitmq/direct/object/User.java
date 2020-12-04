@@ -1,4 +1,4 @@
-package com.rabbitmq.object;
+package com.rabbitmq.direct.object;
 
 import lombok.Data;
 
@@ -23,4 +23,5 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 '}';
     }
+
 }

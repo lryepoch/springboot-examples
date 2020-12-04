@@ -1,6 +1,6 @@
 package com.rabbitmq;
 
-import com.rabbitmq.hello.HelloSender;
+import com.rabbitmq.direct.hello.HelloSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HelloTest {
+
     @Autowired
     private HelloSender helloSender;
 

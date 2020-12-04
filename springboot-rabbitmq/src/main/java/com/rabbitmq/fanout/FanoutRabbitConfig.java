@@ -1,4 +1,4 @@
-package com.rabbitmq.config;
+package com.rabbitmq.fanout;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author lryepoch
  * @date 2020/5/25 16:17
- * @description TODO 注册
+ * @description TODO 广播模式注册
  */
 @Configuration
 public class FanoutRabbitConfig {

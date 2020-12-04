@@ -1,4 +1,4 @@
-package com.rabbitmq.many;
+package com.rabbitmq.direct.many;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;

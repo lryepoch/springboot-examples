@@ -16,21 +16,15 @@ public class TopicSender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
 
-    public void send(){
-        String context = "hi, I am message all";
-        log.info("生产者："+context);
-        rabbitTemplate.convertAndSend("topicExchange","topic.1",context);
-    }
-
-    public void send1(){
+    public void send1() {
         String context = "hi, I am message 1";
-        log.info("生产者："+context);
-        rabbitTemplate.convertAndSend("topicExchange","topic.message",context);
+        log.info("生产者：" + context);
+        rabbitTemplate.convertAndSend("topicExchange", "topic.message", context);
     }
 
-    public void send2(){
+    public void send2() {
         String context = "hi, I am message 2";
-        log.info("生产者："+context);
-        rabbitTemplate.convertAndSend("topicExchange","topic.messages",context);
+        log.info("生产者：" + context);
+        rabbitTemplate.convertAndSend("topicExchange", "topic.messages", context);
     }
 }

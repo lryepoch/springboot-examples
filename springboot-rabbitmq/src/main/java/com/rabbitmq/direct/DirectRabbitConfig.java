@@ -1,4 +1,4 @@
-package com.rabbitmq.config;
+package com.rabbitmq.direct;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author lryepoch
  * @date 2020/5/25 17:18
- * @description TODO 注册
+ * @description TODO 指定队列模式注册
  */
 @Configuration
-public class RabbitConfig {
+public class DirectRabbitConfig {
 
     @Bean
     public Queue helloQueue(){

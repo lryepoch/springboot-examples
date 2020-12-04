@@ -1,4 +1,4 @@
-package com.rabbitmq.many;
+package com.rabbitmq.direct.object;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -7,18 +7,17 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author lryepoch
- * @date 2020/5/25 16:39
- * @description TODO 特殊指定队列模式
+ * @date 2020/5/25 15:54
+ * @description TODO 指定队列模式
  */
 @Component
 @Slf4j
-public class LrySender1 {
+public class ObjectSender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
 
-    public void send(int i) {
-        String context = "spring boot lry queue" + i;
-        log.info("生产者1：" + context);
-        rabbitTemplate.convertAndSend("lry", context);
+    public void send(User user){
+        log.info("生产者："+user.toString());
+        rabbitTemplate.convertAndSend("object", user);
     }
 }

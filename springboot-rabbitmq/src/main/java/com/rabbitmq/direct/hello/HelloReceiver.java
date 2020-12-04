@@ -1,4 +1,4 @@
-package com.rabbitmq.object;
+package com.rabbitmq.direct.hello;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -7,16 +7,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author lryepoch
- * @date 2020/5/25 15:54
+ * @date 2020/5/25 15:44
  * @description TODO
  */
 @Component
-@RabbitListener(queues = "object")
+@RabbitListener(queues = "hello")
 @Slf4j
-public class ObjectReceiver {
+public class HelloReceiver {
 
     @RabbitHandler
-    public void process(User user) {
-        log.info("消费者：" + user);
+    public void process(String hello) {
+        log.info("消费者:" + hello);
     }
 }
