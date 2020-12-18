@@ -1,8 +1,8 @@
 package com.rabbitmq;
 
 
-import com.rabbitmq.direct.many.LrySender1;
-import com.rabbitmq.direct.many.LrySender2;
+import com.rabbitmq.v1.direct.many.LrySender1;
+import com.rabbitmq.v1.direct.many.LrySender2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

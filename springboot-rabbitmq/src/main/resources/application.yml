@@ -11,4 +11,8 @@ spring:
           enabled: true
           # 重试次数 默认为3次
           max-attempts: 5
+    #消息发送到交换器确认
+    publisher-confirms: true
+    #消息发送到队列确认
+    publisher-returns: true
 

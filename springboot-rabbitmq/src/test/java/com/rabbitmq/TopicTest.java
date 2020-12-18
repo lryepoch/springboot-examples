@@ -1,6 +1,6 @@
 package com.rabbitmq;
 
-import com.rabbitmq.topic.TopicSender;
+import com.rabbitmq.v1.topic.TopicSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

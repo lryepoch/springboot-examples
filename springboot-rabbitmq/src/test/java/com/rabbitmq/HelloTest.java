@@ -1,6 +1,6 @@
 package com.rabbitmq;
 
-import com.rabbitmq.direct.hello.HelloSender;
+import com.rabbitmq.v1.direct.hello.HelloSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

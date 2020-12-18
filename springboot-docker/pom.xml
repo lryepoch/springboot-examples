@@ -49,7 +49,7 @@
     <build>
         <!-- 引用我们的项目名字 -->
         <finalName>${project.artifactId}</finalName>
-        
+
         <plugins>
             <!--maven plugin-->
             <plugin>

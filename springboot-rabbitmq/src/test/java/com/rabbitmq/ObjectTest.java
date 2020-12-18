@@ -1,7 +1,7 @@
 package com.rabbitmq;
 
-import com.rabbitmq.direct.object.ObjectSender;
-import com.rabbitmq.direct.object.User;
+import com.rabbitmq.v1.direct.object.ObjectSender;
+import com.rabbitmq.v1.direct.object.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
