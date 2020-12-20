@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>jpa</name>
     <description>springboot-jpa</description>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

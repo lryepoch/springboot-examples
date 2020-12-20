@@ -1,0 +1,9 @@
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      #es的连接地址及端口号
+      cluster-nodes: 127.0.0.1:9300
+      #es集群的名称
+      cluster-name: elasticsearch
