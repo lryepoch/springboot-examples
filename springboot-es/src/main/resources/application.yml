@@ -7,3 +7,15 @@ spring:
       cluster-nodes: 127.0.0.1:9300
       #es集群的名称
       cluster-name: elasticsearch
+  datasource:
+    url: jdbc:mysql://localhost:3306/mall_es?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/*/*Mapper.xml
+
+logging:
+  level:
+    com.es.dao: debug

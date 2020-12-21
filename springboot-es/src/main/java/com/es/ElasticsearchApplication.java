@@ -1,5 +1,6 @@
 package com.es;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description TODO es demo
  */
 @SpringBootApplication
+@MapperScan("com.es.dao")
 public class ElasticsearchApplication {
     public static void main(String[] args) {
         SpringApplication.run(ElasticsearchApplication.class, args);
