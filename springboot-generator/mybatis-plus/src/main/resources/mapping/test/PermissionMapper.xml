@@ -3,7 +3,7 @@
 <mapper namespace="com.plus.test.mapper.PermissionMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.plus.test.model.Permission">
+    <resultMap id="BaseResultMap" type="com.plus.test.entity.Permission">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="desc_" property="desc" />

@@ -19,7 +19,6 @@ import java.util.Scanner;
 
 /**
  * MyBatisPlus代码生成器
- * Created on 2020/8/20.
  */
 public class MyBatisPlusGenerator {
 
@@ -31,21 +30,21 @@ public class MyBatisPlusGenerator {
 
         // 代码生成器
         AutoGenerator autoGenerator = new AutoGenerator();
-        //初始化全局配置
+        //1.初始化全局配置
         autoGenerator.setGlobalConfig(initGlobalConfig(projectPath));
-        //初始化数据源配置
+        //2.初始化数据源配置
         autoGenerator.setDataSource(initDataSourceConfig());
-        //初始化包配置
+        //3.初始化包配置
         autoGenerator.setPackageInfo(initPackageConfig(moduleName));
-        //初始化自定义配置
+        //4.初始化自定义配置
         autoGenerator.setCfg(initInjectionConfig(projectPath, moduleName));
-        //初始化模板配置
+        //5.初始化模板配置
         autoGenerator.setTemplate(initTemplateConfig());
-        //初始化策略配置
+        //6.初始化策略配置
         autoGenerator.setStrategy(initStrategyConfig(tableNames));
-
+        //默认模板引擎
         autoGenerator.setTemplateEngine(new VelocityTemplateEngine());
-
+        //执行生成
         autoGenerator.execute();
     }
 
@@ -74,11 +73,14 @@ public class MyBatisPlusGenerator {
         globalConfig.setAuthor("lryepoch");
         //是否打开输出目录，默认为true
         globalConfig.setOpen(false);
+        ////实体属性是否swagger2注解
         globalConfig.setSwagger2(true);
+        //生成ResultMap
         globalConfig.setBaseResultMap(true);
         //是否覆盖已有文件
         globalConfig.setFileOverride(true);
         globalConfig.setDateType(DateType.ONLY_DATE);
+        //自定义文件命名，注意 %s 会自动填充表实体属性！
         globalConfig.setEntityName("%s");
         globalConfig.setMapperName("%sMapper");
         globalConfig.setXmlName("%sMapper");
@@ -113,8 +115,40 @@ public class MyBatisPlusGenerator {
 //        packageConfig.setService("service");
 //        packageConfig.setServiceImpl("impl");
 //        packageConfig.setMapper("dao");
-        packageConfig.setEntity("model");
+//        packageConfig.setEntity("model");
+//        packageConfig.setXml("");
         return packageConfig;
+    }
+
+    /**
+     * 初始化自定义配置
+     */
+    private static InjectionConfig initInjectionConfig(String projectPath, String moduleName) {
+        // 自定义配置
+        InjectionConfig injectionConfig = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // 可用于自定义属性
+            }
+        };
+//        // 如果模板引擎是 freemarker
+//        String templatePath = "/templates/mapper.xml.ftl";
+
+        // 模板引擎是Velocity
+        String templatePath = "/templates/mapper.xml.vm";
+        // 自定义输出配置
+        List<FileOutConfig> focList = new ArrayList<>();
+        // 自定义配置会被优先输出
+        focList.add(new FileOutConfig(templatePath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath + "/src/main/resources/mapping/" + moduleName
+                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+            }
+        });
+        injectionConfig.setFileOutConfigList(focList);
+        return injectionConfig;
     }
 
     /**
@@ -133,9 +167,15 @@ public class MyBatisPlusGenerator {
      */
     private static StrategyConfig initStrategyConfig(String[] tableNames) {
         StrategyConfig strategyConfig = new StrategyConfig();
+
+//        // 此处可以修改为您的表前缀
+//        strategyConfig.setTablePrefix(new String[]{"t_"});
+
+        // 数据库表映射到实体的命名策略
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
+        // 数据库表字段映射到实体的命名策略
         strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
-        //是否为lombok模型
+        // 是否使用Lombok简化代码
         strategyConfig.setEntityLombokModel(true);
         //生成@RestController控制器
         strategyConfig.setRestControllerStyle(true);
@@ -143,39 +183,15 @@ public class MyBatisPlusGenerator {
         if (tableNames.length == 1 && tableNames[0].contains("*")) {
             String[] likeStr = tableNames[0].split("_");
             String likePrefix = likeStr[0] + "_";
+            // 模糊匹配表名
             strategyConfig.setLikeTable(new LikeTable(likePrefix));
         } else {
+            // 需要生成的表
             strategyConfig.setInclude(tableNames);
+//            // 排除的表名
+//            strategyConfig.setExclude("upms_role");
         }
         return strategyConfig;
-    }
-
-    /**
-     * 初始化自定义配置
-     */
-    private static InjectionConfig initInjectionConfig(String projectPath, String moduleName) {
-        // 自定义配置
-        InjectionConfig injectionConfig = new InjectionConfig() {
-            @Override
-            public void initMap() {
-                // 可用于自定义属性
-            }
-        };
-        // 模板引擎是Velocity
-        String templatePath = "/templates/mapper.xml.vm";
-        // 自定义输出配置
-        List<FileOutConfig> focList = new ArrayList<>();
-        // 自定义配置会被优先输出
-        focList.add(new FileOutConfig(templatePath) {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapping/" + moduleName
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
-            }
-        });
-        injectionConfig.setFileOutConfigList(focList);
-        return injectionConfig;
     }
 
 }

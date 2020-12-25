@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author lryepoch
- * @since 2020-12-23
+ * @since 2020-12-24
  */
 @RestController
 @RequestMapping("/test/rolePermission")

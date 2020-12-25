@@ -49,7 +49,7 @@ public class CategoryController {
         response.setContentType("text/plain");
         response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 
-        OutputStream outputStream = null;
+        ServletOutputStream outputStream = null;
 
         BufferedOutputStream buffer = null;
 
