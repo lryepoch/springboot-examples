@@ -3,9 +3,14 @@ server:
 
 spring:
   application:
-    name: mall_authority
+    name:
   profiles:
     active: dev
+  #自定义spring security账户
+  security:
+    user:
+      password: 123456
+      name: cai
 
 mybatis-plus:
   mapper-locations: classpath:/mapping/**/*Mapper.xml

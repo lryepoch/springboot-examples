@@ -40,6 +40,11 @@ public class GlobalExceptionHandler {
         return CommonResult.validateFailed(message);
     }
 
+    /**
+     * @author lryepoch
+     * @date 2020/12/26 11:39
+     * @description BindException捕获BindingResult
+     */
     @ResponseBody
     @ExceptionHandler(value = BindException.class)
     public CommonResult handleValidException(BindException e) {
