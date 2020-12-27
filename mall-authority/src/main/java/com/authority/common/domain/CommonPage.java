@@ -1,4 +1,4 @@
-package com.authority.common.api;
+package com.authority.common.domain;
 
 import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

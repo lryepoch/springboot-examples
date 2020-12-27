@@ -1,16 +1,15 @@
-package com.authority.modules.service;
+package com.authority.common.service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 /**
- * @author lryepoch
- * @date 2020/12/26 16:25
- * @description TODO redis操作Service
+ * @Author lryepoch
+ * @CreateDate 2020/12/27 0:20
+ * @Description redis操作Service
  */
 public interface RedisService {
-
     /**
      * 保存属性
      */
@@ -180,5 +179,4 @@ public interface RedisService {
      * 从List结构中移除属性
      */
     Long lRemove(String key, long count, Object value);
-
 }

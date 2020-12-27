@@ -1,13 +1,12 @@
 package com.authority.modules.controller;
 
 
-import com.authority.common.api.CommonResult;
+import com.authority.common.domain.CommonResult;
 import com.authority.modules.entity.UmsResourceCategory;
 import com.authority.modules.service.UmsResourceCategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

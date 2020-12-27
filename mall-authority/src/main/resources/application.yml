@@ -42,7 +42,7 @@ secure:
       - /swagger-ui.html
       - /swagger-resources/**
       - /swagger/**
-      - /**/v2/api-docs
+      - /**/v2/dto-docs
       - /**/*.js
       - /**/*.css
       - /**/*.png

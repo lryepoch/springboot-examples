@@ -1,6 +1,6 @@
 package com.authority.common.exception;
 
-import com.authority.common.api.IErrorCode;
+import com.authority.common.domain.IErrorCode;
 
 /**
  * @author lryepoch

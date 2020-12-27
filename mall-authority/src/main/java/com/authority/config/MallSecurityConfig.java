@@ -1,0 +1,54 @@
+package com.authority.config;
+
+import com.authority.modules.entity.UmsResource;
+import com.authority.modules.service.UmsAdminService;
+import com.authority.modules.service.UmsResourceService;
+import com.authority.security.component.DynamicSecurityService;
+import com.authority.security.config.SecurityConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * @author lryepoch
+ * @date 2020/12/27 17:37
+ * @description mall-security模块相关配置
+ */
+//@Configuration
+//@EnableWebFluxSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+//public class MallSecurityConfig extends SecurityConfig {
+//    @Autowired
+//    private UmsAdminService adminService;
+//    @Autowired
+//    private UmsResourceService resourceService;
+//
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        //获取登录用户信息
+//        return username -> adminService.loadUserByUsername(username);
+//    }
+//
+//    @Bean
+//    public DynamicSecurityService dynamicSecurityService() {
+//        return new DynamicSecurityService() {
+//            @Override
+//            public Map<String, ConfigAttribute> loadDataSource() {
+//                Map<String, ConfigAttribute> map = new ConcurrentHashMap<>();
+//                List<UmsResource> resourceList = resourceService.list();
+//                for (UmsResource resource : resourceList) {
+//                    map.put(resource.getUrl(), org.springframework.security.access.SecurityConfig(resource.getId() + ":" + resource.getName()));
+//                }
+//                return map;
+//            }
+//        };
+//    }
+//}

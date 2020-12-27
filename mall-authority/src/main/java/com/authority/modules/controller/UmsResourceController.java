@@ -1,7 +1,7 @@
 package com.authority.modules.controller;
 
-import com.authority.common.api.CommonPage;
-import com.authority.common.api.CommonResult;
+import com.authority.common.domain.CommonPage;
+import com.authority.common.domain.CommonResult;
 import com.authority.modules.entity.UmsResource;
 import com.authority.modules.service.UmsResourceService;
 import com.authority.security.component.DynamicSecurityMetadataSource;

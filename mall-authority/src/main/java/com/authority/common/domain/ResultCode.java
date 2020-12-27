@@ -1,4 +1,4 @@
-package com.authority.common.api;
+package com.authority.common.domain;
 
 
 /**
