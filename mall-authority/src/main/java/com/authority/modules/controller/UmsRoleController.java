@@ -3,6 +3,8 @@ package com.authority.modules.controller;
 
 import com.authority.common.domain.CommonPage;
 import com.authority.common.domain.CommonResult;
+import com.authority.modules.entity.UmsMenu;
+import com.authority.modules.entity.UmsResource;
 import com.authority.modules.entity.UmsRole;
 import com.authority.modules.service.UmsRoleService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -89,5 +91,36 @@ public class UmsRoleController {
         }
         return CommonResult.failed();
     }
+
+    @ApiOperation("获取角色相关菜单")
+    @RequestMapping(value = "/listMenu/{roleId}", method = RequestMethod.GET)
+    public CommonResult<List<UmsMenu>> listMenu(@PathVariable Long roleId){
+        List<UmsMenu> roleList = roleService.listMenu(roleId);
+        return CommonResult.success(roleList);
+    }
+
+    @ApiOperation("获取角色相关资源")
+    @RequestMapping(value = "/listResource/{roleId}", method = RequestMethod.GET)
+    public CommonResult<List<UmsResource>> listResource(@PathVariable Long roleId) {
+        List<UmsResource> roleList = roleService.listResource(roleId);
+        return CommonResult.success(roleList);
+    }
+
+    @ApiOperation("给角色分配菜单")
+    @RequestMapping(value = "/allocMenu", method = RequestMethod.POST)
+    public CommonResult allocMenu(@RequestParam Long roleId,
+                                  @RequestParam List<Long> menuIds) {
+        int count=roleService.allocMenu(roleId, menuIds);
+        return CommonResult.success(count);
+    }
+
+    @ApiOperation("给角色分配资源")
+    @RequestMapping(value = "/allocResource", method = RequestMethod.POST)
+    public CommonResult allocResource(@RequestParam Long roleId,
+                                      @RequestParam List<Long> resourceIds){
+        int count = roleService.allocResource(roleId, resourceIds);
+        return CommonResult.success(count);
+    }
+
 }
 

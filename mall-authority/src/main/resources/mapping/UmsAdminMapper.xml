@@ -17,10 +17,13 @@
     </resultMap>
 
     <select id="getAdminIdList" resultType="Long">
-        select distinct ar.admin_id
-        from ums_role_resource_relation rr
-        left join ums_admin_role_relation ar on rr.role_id = ar.role_id
-        where rr.resource_id = #{resourceId}
+        select
+            distinct ar.admin_id
+        from
+            ums_role_resource_relation rr
+            left join ums_admin_role_relation ar on rr.role_id = ar.role_id
+        where
+            rr.resource_id = #{resourceId}
     </select>
 
 </mapper>

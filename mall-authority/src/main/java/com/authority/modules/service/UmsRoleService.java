@@ -1,5 +1,7 @@
 package com.authority.modules.service;
 
+import com.authority.modules.entity.UmsMenu;
+import com.authority.modules.entity.UmsResource;
 import com.authority.modules.entity.UmsRole;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -36,4 +38,37 @@ public interface UmsRoleService extends IService<UmsRole> {
      * @description 分页获取角色列表
      */
     Page<UmsRole> list(String keyword, Integer pageSize, Integer pageNum);
+
+    /**
+     * @author lryepoch
+     * @date 2020/12/28 8:56
+     * @description 获取角色相关菜单
+     */
+    List<UmsMenu> listMenu(Long roleId);
+
+    /**
+     * @author lryepoch
+     * @date 2020/12/28 8:56
+     * @description 获取角色相关资源
+     */
+    List<UmsResource> listResource(Long roleId);
+
+    /**
+     * @author lryepoch
+     * @date 2020/12/28 8:56
+     * @description 给角色分配菜单
+     */
+    int allocMenu(Long roleId, List<Long> menuIds);
+
+    /**
+     * @author lryepoch
+     * @date 2020/12/28 8:56
+     * @description 给角色分配资源
+     */
+    int allocResource(Long roleId, List<Long> resourceIds);
+
+    /**
+    * 根据管理员ID获取对应菜单
+    */
+    List<UmsMenu> getMenuList(Long id);
 }
