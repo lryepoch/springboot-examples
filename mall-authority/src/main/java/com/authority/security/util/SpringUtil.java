@@ -3,12 +3,14 @@ package com.authority.security.util;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 /**
  * @author lryepoch
  * @date 2020/12/28 16:19
  * @description TODO Spring工具类
  */
+@Component
 public class SpringUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
