@@ -25,6 +25,7 @@ public class LoginController {
         try {
             subject.login(token);
             Session session = subject.getSession();
+            //设置会话
             session.setAttribute("subject", subject);
             return "redirect:index";
         } catch (AuthenticationException e) {

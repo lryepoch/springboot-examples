@@ -45,11 +45,11 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login1");
+        shiroFilterFactoryBean.setLoginUrl("/login");
         // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index1");
-        //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized1");
+        shiroFilterFactoryBean.setSuccessUrl("/index");
+        //未授权界面
+        shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized");
 
         //拦截器.
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
@@ -60,6 +60,8 @@ public class ShiroConfig {
         //配置映射关系
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/index", "anon");
+        filterChainDefinitionMap.put("/static/**", "anon");
+        filterChainDefinitionMap.put("/config/**", "anon");
         filterChainDefinitionMap.put("/doLogout", "logout");
 //        filterChainDefinitionMap.put("/**", "authc");
         filterChainDefinitionMap.put("/**", "url");
@@ -68,16 +70,16 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
+    public URLPathMatchingFilter getURLPathMatchingFilter(){
+        return new URLPathMatchingFilter();
+    }
+
     @Bean
     public SecurityManager securityManager(){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //设置realm
         securityManager.setRealm(getMyShiroRealm());
         return securityManager;
-    }
-
-    public URLPathMatchingFilter getURLPathMatchingFilter(){
-        return new URLPathMatchingFilter();
     }
 
     @Bean
@@ -125,7 +127,7 @@ public class ShiroConfig {
     }
 
     /**
-     *  开启shiro aop注解支持.
+     *  开启shiro aop注解支持。//    @RequiresPermissions("deleteOrder")
      *  使用代理方式;所以需要开启代码支持;
      * @param securityManager
      * @return

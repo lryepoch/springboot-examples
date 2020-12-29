@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.OutputStream;
 import java.util.HashSet;
 
+/**
+ * @description 多线程下载数据库数据到txt文件
+ */
 public class MultiThreadFileController {
 
 //    public static BlockingQueue blockingQueue = new LinkedBlockingQueue(100);

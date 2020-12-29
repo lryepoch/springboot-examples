@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * @author lryepoch
  * @date 2020/9/29 11:42
- * @description TODO
+ * @description TODO swagger接口文档
  */
 @Configuration
 @EnableSwagger2

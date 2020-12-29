@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 /**
 * @description
 * @author lryepoch
-* @date 2020/6/30 14:51 文件（图片）下载
+* @date 2020/6/30 14:51 文件（图片）下载   http://localhost:8082/download    ，直接下载
 *
 */
 @RestController

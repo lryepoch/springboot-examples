@@ -35,7 +35,7 @@
        <a href="?start=${page.pages}">[末  页]</a>
     </div>
     <div>当前第${page.pageNum }/${page.pages }页，共${page.total }条记录</div>
-    
+    ------------------------------------------------------------------------
 	<br>
 	<h3>添加记录</h3>
 	<form action="addCategory" method="post">

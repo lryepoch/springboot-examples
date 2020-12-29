@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 /**
  * @author lryepoch
  * @date 2020/5/26 9:33
- * @description TODO
+ * @description TODO 项目地址：http://localhost:8080/
  */
 @Controller
 @Slf4j
@@ -26,15 +26,15 @@ public class UploadController {
     private static String UPLOADED_FOLDER = "E://temp//";
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "upload";
     }
 
     @PostMapping("/upload")
-    public String singleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes, HttpServletRequest request){
+    public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
+        //上传文件不能为空
         if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message","输入文件不能为空");
+            attributes.addFlashAttribute("message", "输入文件不能为空");
             return "redirect:/uploadStatus";
         }
 
@@ -49,7 +49,7 @@ public class UploadController {
             Files.write(path, bytes);
 
             log.info(String.valueOf(path.getFileName()));
-            redirectAttributes.addFlashAttribute("message","上传成功");
+            attributes.addFlashAttribute("message", "上传成功");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class UploadController {
     }
 
     @GetMapping("/uploadStatus")
-    public String uploadStatus(){
+    public String uploadStatus() {
         return "uploadStatus";
     }
 

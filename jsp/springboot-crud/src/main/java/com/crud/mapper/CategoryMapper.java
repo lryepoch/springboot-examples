@@ -10,21 +10,26 @@ import org.apache.ibatis.annotations.Update;
 
 import com.crud.bean.Category;
 
+/**
+ * @author lryepoch
+ * @date 2020/12/29 15:09
+ * @description interface 成员默认修饰符public static final；方法默认修饰符public abstract
+ */
 @Mapper
 public interface CategoryMapper {
 	
 	@Select("select * from category_")
-	public List<Category> findAll();
+	List<Category> findAll();
 
 	@Insert("insert into category_(name) values(#{name})")
-	public int save(Category category);
+	int save(Category category);
 
 	@Select("select * from category_ where id=#{id}")
-	public Category get(int id);
+	Category get(int id);
 
 	@Update("update category_ set name=#{name} where id=#{id}")
-	public int update(Category category);
+	int update(Category category);
 
 	@Delete("delete from category_ where id=#{id}")
-	public void delete(int id);
+	void delete(int id);
 }

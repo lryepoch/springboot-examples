@@ -29,6 +29,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class UploadController {
 
+    /**
+     * @author lryepoch
+     * @date 2020/12/29 15:27
+     * @description 访问http://localhost:8082/uploadPage，跳转到uploadPage.jsp页面
+     */
     @RequestMapping("/uploadPage")
     public String uploadPage() {
         return "uploadPage";
@@ -65,6 +70,7 @@ public class UploadController {
 
         model.addAttribute("file", fileName);
 
+        //跳转到show.jsp页面展示上传图片
         return "show";
 
     }

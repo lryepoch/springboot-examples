@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * @author lryepoch
  * @date 2020/5/18 18:41
- * @description TODO
+ * @description TODO 自定义Realm
  */
 public class MyShiroRealm extends AuthorizingRealm {
     @Autowired

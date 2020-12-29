@@ -12,35 +12,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @GetMapping(value = "/login")
+    @RequestMapping(value = "/login")
     public String login() {
         return "login";
     }
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     public String index() {
         return "index";
     }
 
-    @RequestMapping("unauthorized")
+    @RequestMapping("/unauthorized")
     public String noPerms() {
         return "unauthorized";
     }
 
 //    @RequiresPermissions("deleteOrder")
-    @RequestMapping("deleteOrder")
+    @RequestMapping("/deleteOrder")
     public String deleteOrder(){
         return "deleteOrder";
     }
 
 //    @RequiresPermissions("deleteProduct")
-    @RequestMapping("deleteProduct")
+    @RequestMapping("/deleteProduct")
     public String deleteProduct(){
         return "deleteProduct";
     }
 
 //    @RequiresPermissions("listProduct")
-    @RequestMapping("listProduct")
+    @RequestMapping("/listProduct")
     public String listProduct(){
         return "listProduct";
     }

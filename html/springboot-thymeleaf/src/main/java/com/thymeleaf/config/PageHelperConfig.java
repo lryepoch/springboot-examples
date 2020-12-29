@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
+/**
+* 分页合理化
+*/
 @Configuration
 public class PageHelperConfig {
  

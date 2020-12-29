@@ -9,6 +9,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+* 多线程下载数据库数据到txt文件
+*/
 public class SingleThreadFileController {
 
     /*    @RequestMapping("/test1")

@@ -13,7 +13,7 @@ import java.util.List;
 public class TestController {
  
     @RequestMapping("/test")
-    public String test(Model m) {
+    public String test(Model model) {
     	String htmlContent = "<p style='color:red'> 红色文字</p>";
     	Product currentProduct =new Product(5,"product e", 200);
     	boolean testBoolean = true;
@@ -27,14 +27,13 @@ public class TestController {
     	ps.add(new Product(4,"product d", 200));
     	ps.add(currentProduct);
     	ps.add(new Product(6,"product f", 200));
-    	ps.add(new Product(7,"product g", 200));    	
-    	
-    	m.addAttribute("now", now);
-    	m.addAttribute("ps", ps);
-    	m.addAttribute("htmlContent", htmlContent);
-    	m.addAttribute("currentProduct", currentProduct);
-    	m.addAttribute("testBoolean", testBoolean);
-    	
+    	ps.add(new Product(7,"product g", 200));
+
+		model.addAttribute("now", now);
+		model.addAttribute("ps", ps);
+		model.addAttribute("htmlContent", htmlContent);
+		model.addAttribute("currentProduct", currentProduct);
+		model.addAttribute("testBoolean", testBoolean);
 
         return "test";
     }

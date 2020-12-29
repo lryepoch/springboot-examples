@@ -1,6 +1,7 @@
 server:
   servlet:
     context-path: /shiro
+  port: 8082
 
 spring:
   datasource:
@@ -14,6 +15,12 @@ spring:
     encoding: UTF-8
     servlet:
       content-type: text/html
+    prefix: classpath:/templates/
+    suffix: .html
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
 
 mybatis:
   mapper-locations: classpath:/mapping/*Mapper.xml

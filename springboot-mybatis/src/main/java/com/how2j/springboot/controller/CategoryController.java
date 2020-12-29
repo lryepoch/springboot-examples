@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class CategoryController {
 
-	@Autowired
+	@Autowired(required = false)
 	CategoryMapper categoryMapper;
 	
 	@RequestMapping("/listCategory")
