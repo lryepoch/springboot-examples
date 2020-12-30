@@ -27,23 +27,29 @@ public class URLPathMatchingFilter extends PathMatchingFilter {
         log.info("拦截类里获取的requestURI:" + requestURI);
 
         Subject subject = SecurityUtils.getSubject();
-        log.info((String) subject.getPrincipal());
 
-        // 如果没有登录，就跳转到登录页面
+        log.info("subject：{}", subject.getPrincipal());
+
+        //检测到没有登录，就跳转到登录页面
         if (!subject.isAuthenticated()) {
             WebUtils.issueRedirect(request, response, "/login");
             return false;
         }
 
+        //看看这个路径权限里有没有维护（即查询数据库是否存在这个url），如果没有维护（不存在），一律放行(也可以改为一律不放行)
         boolean needInterceptor = permissionService.needInterceptor(requestURI);
-        log.info(needInterceptor + "");
+        log.info("needInterceptor: {}", needInterceptor);
 
+        //如果设置了swagger-ui.hmtl，那么可以直接访问swagger-ui.html（数据库中没有这条url）
         if (!needInterceptor) {
             return true;
         } else {
+            //查询当前用户有哪些权限url，进行比较
             boolean hasPermission = false;
             String userName = subject.getPrincipal().toString();
             Set<String> permissionUrls = permissionService.listPermissionURLs(userName);
+            log.info("permissionUrls: {}", permissionUrls);
+
             for (String url : permissionUrls) {
                 // 这就表示当前用户有这个权限
                 if (url.equals(requestURI)) {

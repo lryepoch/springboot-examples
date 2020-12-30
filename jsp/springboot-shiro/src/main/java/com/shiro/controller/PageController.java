@@ -2,7 +2,7 @@ package com.shiro.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author lryepoch
@@ -12,35 +12,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @RequestMapping(value = "/login")
+    /**
+    * 登录
+    */
+    @GetMapping(value = "/login")
     public String login() {
         return "login";
     }
 
-    @RequestMapping("/index")
+    /**
+    * 首页
+    */
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
 
-    @RequestMapping("/unauthorized")
+    /**
+    * 未授权
+    */
+    @GetMapping("/unauthorized")
     public String noPerms() {
         return "unauthorized";
     }
 
+    /**
+    * 删除订单
+    */
 //    @RequiresPermissions("deleteOrder")
-    @RequestMapping("/deleteOrder")
+    @GetMapping("/deleteOrder")
     public String deleteOrder(){
         return "deleteOrder";
     }
 
+    /**
+    * 删除产品
+    */
 //    @RequiresPermissions("deleteProduct")
-    @RequestMapping("/deleteProduct")
+    @GetMapping("/deleteProduct")
     public String deleteProduct(){
         return "deleteProduct";
     }
 
+    /**
+    * 查看产品
+    */
 //    @RequiresPermissions("listProduct")
-    @RequestMapping("/listProduct")
+    @GetMapping("/listProduct")
     public String listProduct(){
         return "listProduct";
     }

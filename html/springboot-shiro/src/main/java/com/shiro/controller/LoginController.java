@@ -21,6 +21,14 @@ public class LoginController {
     public String login(Model model, String name, String password) {
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(name, password);
+//        if (subject.hasRole("admin")) {
+//            logger.info("-----------啊啊啊啊--admin---------");
+//        }
+//        if (subject.hasRole("user")) {
+//            logger.info("-----------user---------");
+//        }
+//        return "sys/main";
+
         try {
             subject.login(token);
             Session session = subject.getSession();

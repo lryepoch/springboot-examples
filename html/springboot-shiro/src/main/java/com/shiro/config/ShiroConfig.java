@@ -60,11 +60,16 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/index", "anon");
         filterChainDefinitionMap.put("/doLogout", "logout");
-//        filterChainDefinitionMap.put("/**", "authc");
+        //配置不会被拦截的链接 顺序判断 相关静态资源
+        filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/**", "url");
         shiroFilterFactoryBean.setFilters(customisedFilter);
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
+    }
+
+    public URLPathMatchingFilter getURLPathMatchingFilter(){
+        return new URLPathMatchingFilter();
     }
 
     @Bean
@@ -73,10 +78,6 @@ public class ShiroConfig {
         //设置realm
         securityManager.setRealm(getMyShiroRealm());
         return securityManager;
-    }
-
-    public URLPathMatchingFilter getURLPathMatchingFilter(){
-        return new URLPathMatchingFilter();
     }
 
     @Bean
@@ -121,19 +122,6 @@ public class ShiroConfig {
         DefaultAdvisorAutoProxyCreator creator = new DefaultAdvisorAutoProxyCreator();
         creator.setProxyTargetClass(true);
         return creator;
-    }
-
-    /**
-     *  开启shiro aop注解支持.
-     *  使用代理方式;所以需要开启代码支持;
-     * @param securityManager
-     * @return
-     */
-    @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
-        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
-        return authorizationAttributeSourceAdvisor;
     }
 
 }

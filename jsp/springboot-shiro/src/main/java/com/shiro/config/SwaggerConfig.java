@@ -21,6 +21,7 @@ import java.util.List;
  * @author lryepoch
  * @date 2020/9/29 11:42
  * @description TODO swagger接口文档
+ *                  只有用户登录才能访问，因为在URLPathMatchingFilter。此时subject = SecurityUtils.getSubject()获取有效用户
  */
 @Configuration
 @EnableSwagger2

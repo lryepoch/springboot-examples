@@ -1,25 +1,17 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<div class="showing">
-
-    <div class="errorInfo">${error}</div>
-    <form th:action="@{/login}" method="post">
-        账号：
-        <td><input type="text" th:field="*{name}">
-            <span class="fieldError" th:if="${#fields.hasErrors('*{name}')}" th:errors="*{name}"></span>
-        </td>
-        密码：
-        <td>
-        <input type="password" th:field="*{password}">
-            <span class="fieldError" th:if="${#fields.hasErrors('*{password}')}" th:errors="*{password}"></span>
-        </td>
-        <input type="submit" th:value="登录">
+<div class="showing" style="width:500px;margin:20px auto;text-align: center">
+    <form action="login" method="post">
+        账号：<input type="text" th:name="name"/>
         <br>
+        密码：<input type="password" th:name="password"/>
+        <br>
+        <button type="submit">登录</button>
         <br>
         <div>
             <span class="desc">账号:zhang3 密码:12345 角色:admin</span><br>

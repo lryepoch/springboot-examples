@@ -17,30 +17,27 @@ public class PageController {
         return "login";
     }
 
-    @RequestMapping("index")
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
 
-    @RequestMapping("unauthorized")
+    @GetMapping("/unauthorized")
     public String noPerms() {
         return "unauthorized";
     }
 
-//    @RequiresPermissions("deleteOrder")
-    @RequestMapping("deleteOrder")
+    @GetMapping("/deleteOrder")
     public String deleteOrder(){
         return "deleteOrder";
     }
 
-//    @RequiresPermissions("deleteProduct")
-    @RequestMapping("deleteProduct")
+    @GetMapping("/deleteProduct")
     public String deleteProduct(){
         return "deleteProduct";
     }
 
-//    @RequiresPermissions("listProduct")
-    @RequestMapping("listProduct")
+    @GetMapping("/listProduct")
     public String listProduct(){
         return "listProduct";
     }
