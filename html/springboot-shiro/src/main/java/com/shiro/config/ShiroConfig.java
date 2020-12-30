@@ -52,9 +52,6 @@ public class ShiroConfig {
 
         //拦截器.
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
-        //自定义拦截器
-        Map<String, Filter> customisedFilter = new HashMap<>();
-        customisedFilter.put("url", getURLPathMatchingFilter());
 
         //配置映射关系
         filterChainDefinitionMap.put("/login", "anon");
@@ -62,8 +59,15 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/doLogout", "logout");
         //配置不会被拦截的链接 顺序判断 相关静态资源
         filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/**", "url");
-        shiroFilterFactoryBean.setFilters(customisedFilter);
+        //所有的url都必须认证通过才可以访问（注释此处，因为下面自定义了拦截器）
+        filterChainDefinitionMap.put("/**", "authc");
+
+        //自定义拦截器
+//        Map<String, Filter> customisedFilter = new HashMap<>();
+//        customisedFilter.put("url", getURLPathMatchingFilter());
+//        shiroFilterFactoryBean.setFilters(customisedFilter);
+//        filterChainDefinitionMap.put("/**", "url");
+
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }

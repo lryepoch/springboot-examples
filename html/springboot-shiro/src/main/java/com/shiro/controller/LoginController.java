@@ -21,19 +21,24 @@ public class LoginController {
     public String login(Model model, String name, String password) {
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(name, password);
-//        if (subject.hasRole("admin")) {
-//            logger.info("-----------啊啊啊啊--admin---------");
-//        }
-//        if (subject.hasRole("user")) {
-//            logger.info("-----------user---------");
-//        }
-//        return "sys/main";
-
         try {
+            //登录认证
             subject.login(token);
+
             Session session = subject.getSession();
             session.setAttribute("subject", subject);
-            return "redirect:index";
+
+            //授权方式：编程式。这是RBAC，基于角色的访问权限控制。
+            if (subject.hasRole("admin")) {
+                return "redirect:index";
+            }
+            else if (subject.hasRole("productManager")) {
+                return "redirect:index";
+            }
+            else if (subject.hasRole("orderManager")) {
+                return "redirect:index";
+            }
+            return "login";
         } catch (AuthenticationException e) {
             model.addAttribute("error", "验证失败");
             return "login";

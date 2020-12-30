@@ -4,6 +4,7 @@ import com.shiro.entity.User;
 import com.shiro.service.PermissionService;
 import com.shiro.service.RoleService;
 import com.shiro.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -22,6 +23,7 @@ import java.util.List;
  * @date 2020/5/18 18:41
  * @description TODO
  */
+@Slf4j
 public class MyShiroRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
@@ -42,13 +44,18 @@ public class MyShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        log.info("进入用户授权模块……");
+//        User user = (User) principals.getPrimaryPrincipal();
+        //从PrincipalCollection中获取登录用户的信息
+        String username = (String) getAvailablePrincipal(principals);
+//        user = userService.findByUsername(username);
+
+        List<String> roles = roleService.listRoleNames(username);
+        List<String> permissions = permissionService.listPermissionsNames(username);
+        log.info("roles：{}", roles);
+        log.info("permissions：{}", permissions);
+
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        User user = (User) principals.getPrimaryPrincipal();
-        user = userService.findByUsername(user.getName());
-
-        List<String> roles = roleService.listRoleNames(user.getName());
-        List<String> permissions = permissionService.listPermissionsNames(user.getName());
-
         info.addRoles(roles);
         info.addStringPermissions(permissions);
         return info;
@@ -62,13 +69,21 @@ public class MyShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-
+        log.info("进入用户登录模块……");
         String username = (String) token.getPrincipal();
 
         User user = userService.findByUsername(username);
         if (user == null) {
             return null;
         }
+        log.info("username: {}", username);
+        log.info("user：{}", user);
+        log.info("user.getName()：{}", user.getName());
+        log.info("user.getPassword()：{}", user.getPassword());
+        log.info("user.getSalt()：{}", user.getSalt());
+        log.info("ByteSource.Util.bytes(user.getSalt())：{}", ByteSource.Util.bytes(user.getSalt()));
+        log.info("getName()：{}", getName());
+
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getName(),//用户名
                 user.getPassword(),//密码

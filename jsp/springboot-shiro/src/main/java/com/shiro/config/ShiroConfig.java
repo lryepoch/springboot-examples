@@ -83,7 +83,10 @@ public class ShiroConfig {
         //所有的url都必须认证通过才可以访问（注释此处，因为下面自定义了拦截器）
 //        filterChainDefinitionMap.put("/**", "authc");
 
-        //自定义拦截器(即访问自定义的url时，进行权限判断)
+        //自定义拦截器(即访问自定义的url时，进行权限判断)。
+        /**
+        * 基于资源的访问权限控制，这与基于角色的访问权限控制是不一样的
+        */
         Map<String, Filter> customisedFilter = new HashMap<>();
         customisedFilter.put("url", getURLPathMatchingFilter());
         log.info("customisedFilter：{}", customisedFilter);
