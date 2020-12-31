@@ -15,6 +15,11 @@ import org.springframework.stereotype.Component;
  *                   但是这个ApplicationContextAware的不同地方在于，实现了这个接口的bean，
  *                   当spring容器初始化的时候，会自动的将ApplicationContext注入进来
  *
+ *                   因为URLPathMatchingFilter 没有被声明为@Bean, 那么换句话说 URLPathMatchingFilter 就没有被Spring管理起来，
+ *                   那么也就无法在里面注入 PermissionService类了。
+ *                   但是在业务上URLPathMatchingFilter 里面又必须使用PermissionService类，怎么办呢? 就借助SpringContextUtils 这个工具类，
+ *                   来获取PermissionService的实例。
+ *
  */
 @Component
 public class SpringContextUtils implements ApplicationContextAware {

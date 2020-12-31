@@ -9,12 +9,12 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 /**
  * @author lryepoch
  * @date 2020/5/19 18:54
- * @description TODO
+ * @description TODO springboot + shiro + jsp
  */
 @MapperScan(basePackages = "com.shiro.mapper")
 @SpringBootApplication
 public class ShiroApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ShiroApplication.class,args);
+        SpringApplication.run(ShiroApplication.class, args);
     }
 }

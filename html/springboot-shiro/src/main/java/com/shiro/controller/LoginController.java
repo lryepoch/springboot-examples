@@ -24,21 +24,9 @@ public class LoginController {
         try {
             //登录认证
             subject.login(token);
-
             Session session = subject.getSession();
             session.setAttribute("subject", subject);
-
-            //授权方式：编程式。这是RBAC，基于角色的访问权限控制。
-            if (subject.hasRole("admin")) {
-                return "redirect:index";
-            }
-            else if (subject.hasRole("productManager")) {
-                return "redirect:index";
-            }
-            else if (subject.hasRole("orderManager")) {
-                return "redirect:index";
-            }
-            return "login";
+            return "redirect:index";
         } catch (AuthenticationException e) {
             model.addAttribute("error", "验证失败");
             return "login";

@@ -2,7 +2,6 @@ package com.shiro.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author lryepoch
@@ -39,7 +38,7 @@ public class PageController {
     /**
     * 删除订单
     */
-//    @RequiresPermissions("deleteOrder")
+//    @RequiresPermissions("deleteOrder")       //定义注解也不会进入doGetAuthorizationInfo()方法
     @GetMapping("/deleteOrder")
     public String deleteOrder(){
         return "deleteOrder";

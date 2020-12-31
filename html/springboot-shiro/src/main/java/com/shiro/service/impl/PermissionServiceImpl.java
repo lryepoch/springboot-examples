@@ -78,4 +78,10 @@ public class PermissionServiceImpl implements PermissionService {
         }
         return result;
     }
+
+    @Override
+    public List<Permission> findAll() {
+        PermissionExample example = new PermissionExample();
+        return permissionMapper.selectByExample(example);
+    }
 }

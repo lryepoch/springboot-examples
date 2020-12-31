@@ -1,5 +1,7 @@
 package com.shiro.controller;
 
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,16 +29,19 @@ public class PageController {
         return "unauthorized";
     }
 
+//    @RequiresRoles("admin")     //这个注解表示：该方法需要admin这个角色才能访问
     @GetMapping("/deleteOrder")
     public String deleteOrder(){
         return "deleteOrder";
     }
 
+//    @RequiresRoles(value={"admin","productManager"}, logical = Logical.OR)  //这个注解表示：该方法需要"admin","productManager"这个角色才能访问
     @GetMapping("/deleteProduct")
     public String deleteProduct(){
         return "deleteProduct";
     }
 
+//    @RequiresRoles(value={"admin","productManager"}, logical = Logical.OR)  //这个注解表示：该方法需要"admin","productManager"这个角色才能访问
     @GetMapping("/listProduct")
     public String listProduct(){
         return "listProduct";

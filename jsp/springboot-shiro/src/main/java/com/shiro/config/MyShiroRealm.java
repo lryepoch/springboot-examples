@@ -42,7 +42,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      * @return
      * @RequiresPermissions这个注解起始就是在执行SecurityUtils.getSubject().isPermitted（）
      *
-     * 该方法没有被执行！！！！！！！！！！
+     * ！！！！！！！！！！！！！！！！！该方法没有被执行！！！！！！！！！！！！
      * subject.isPermitted()
      *
      */

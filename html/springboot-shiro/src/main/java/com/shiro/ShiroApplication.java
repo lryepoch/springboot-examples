@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author lryepoch
  * @date 2020/5/19 18:54
- * @description TODO
+ * @description TODO springboot + shiro + thymeleaf
  */
 @MapperScan(basePackages = "com.shiro.mapper")
 @SpringBootApplication

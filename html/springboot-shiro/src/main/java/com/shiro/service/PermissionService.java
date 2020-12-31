@@ -1,5 +1,7 @@
 package com.shiro.service;
 
+import com.shiro.entity.Permission;
+
 import java.util.List;
 import java.util.Set;
 
@@ -14,4 +16,6 @@ public interface PermissionService {
     boolean needInterceptor(String requestURI);
 
     Set<String> listPermissionURLs(String userName);
+
+    List<Permission> findAll();
 }

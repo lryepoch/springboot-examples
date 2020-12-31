@@ -23,8 +23,8 @@ public class LoginController {
         UsernamePasswordToken token = new UsernamePasswordToken(name, password);
         try {
             subject.login(token);
+            //设置会话，目的在页面获取当前用户
             Session session = subject.getSession();
-            //设置会话
             session.setAttribute("subject", subject);
             return "redirect:index";
         } catch (AuthenticationException e) {
@@ -33,3 +33,16 @@ public class LoginController {
         }
     }
 }
+
+
+//授权方式：编程式。这是RBAC，基于角色的访问权限控制。
+//            if (subject.hasRole("admin")) {
+//                return "redirect:index";
+//            }
+//            else if (subject.hasRole("productManager")) {
+//                return "redirect:index";
+//            }
+//            else if (subject.hasRole("orderManager")) {
+//                return "redirect:index";
+//            }
+//            return "login";

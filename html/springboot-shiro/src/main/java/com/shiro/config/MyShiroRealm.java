@@ -45,10 +45,8 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         log.info("进入用户授权模块……");
-//        User user = (User) principals.getPrimaryPrincipal();
         //从PrincipalCollection中获取登录用户的信息
         String username = (String) getAvailablePrincipal(principals);
-//        user = userService.findByUsername(username);
 
         List<String> roles = roleService.listRoleNames(username);
         List<String> permissions = permissionService.listPermissionsNames(username);
@@ -76,18 +74,17 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (user == null) {
             return null;
         }
-        log.info("username: {}", username);
-        log.info("user：{}", user);
-        log.info("user.getName()：{}", user.getName());
-        log.info("user.getPassword()：{}", user.getPassword());
-        log.info("user.getSalt()：{}", user.getSalt());
-        log.info("ByteSource.Util.bytes(user.getSalt())：{}", ByteSource.Util.bytes(user.getSalt()));
+        log.info("用户名: {}", username);
+        log.info("用户：{}", user);
+        log.info("加密后密码：{}", user.getPassword());
+        log.info("盐字符串：{}", user.getSalt());
+        log.info("加盐：即使相同的密码不同的盐加密后的结果也不同：{}", ByteSource.Util.bytes(user.getSalt()));
         log.info("getName()：{}", getName());
 
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getName(),//用户名
                 user.getPassword(),//密码
-                ByteSource.Util.bytes(user.getSalt()),//salt=username+salt
+                ByteSource.Util.bytes(user.getSalt()),
                 getName());//realm name
         return authenticationInfo;
     }
