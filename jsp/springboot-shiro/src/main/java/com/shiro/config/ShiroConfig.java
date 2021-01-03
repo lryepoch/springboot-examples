@@ -69,17 +69,6 @@ public class ShiroConfig {
 //         * perms:该资源必须拥有对某个资源的权限才能访问
 //         * role:该资源必须拥有某个角色权限才能访问
 //         */
-//        // 拦截
-//        Map<String, String> filterMap = new LinkedHashMap<>();
-//        // 第一种方式：把固定的访问路径配置进去
-//        /*filterMap.put("/user/add", "authc");
-//        filterMap.put("/user/update", "authc");*/
-//        // 第二种方式：使用通配符 * 来配置
-//        filterMap.put("/user/add", "perms[user:add]");
-//        filterMap.put("/user/update", "perms[user:update]");
-//        filterMap.put("/user/*", "authc");
-//        // 授权，正常情况下，没有授权会跳转到未授权的页面
-
 
         //配置映射关系
         filterChainDefinitionMap.put("/login", "anon");

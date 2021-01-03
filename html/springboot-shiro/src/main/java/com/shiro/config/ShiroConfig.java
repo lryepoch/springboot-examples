@@ -1,6 +1,5 @@
 package com.shiro.config;
 
-import com.shiro.entity.Permission;
 import com.shiro.service.PermissionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -15,15 +14,10 @@ import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSource
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.Filter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -35,16 +29,6 @@ import java.util.Map;
 @Configuration
 @Slf4j
 public class ShiroConfig {
-    @Autowired
-    private PermissionService permissionService;
-
-    private static ShiroConfig shiroConfig;
-
-    @PostConstruct
-    public void init(){
-        shiroConfig = this;
-        shiroConfig.permissionService = this.permissionService;
-    }
 
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
@@ -57,26 +41,31 @@ public class ShiroConfig {
      * 3、部分过滤器可指定参数，如perms，roles
      */
     @Bean
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, PermissionService permissionService) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
-        //设置未认证(登录)时，访问需要认证的资源时跳转的页面
+        //设置未认证(登录)时，访问需要认证的资源时跳转登录url
         shiroFilterFactoryBean.setLoginUrl("/login");
-        //登录成功后要跳转的链接
+        //登录成功后要跳转首页url
         shiroFilterFactoryBean.setSuccessUrl("/index");
-        //未授权界面
+        //未授权url
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized");
 
 //        // 添加shiro的内置过滤器
 //        /**
 //         * anon:无需认证就可以访问
 //         * authc:必须认证了才能够访问
-//         * user:用户拦截器，用户已经身份验证/记住我登录的都可
+//         * user:用户拦截器，用户已经身份验证/记住我登录的都可访问
 //         * perms:该资源必须拥有对某个资源的权限才能访问
 //         * role:该资源必须拥有某个角色权限才能访问
 //         */
+
+        /* 自定义filter注册，跨域访问导致shiro拦截失效的问题 */
+//        Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
+//        filters.put("authc", new MyAuthenticationFilter());
+//        filters.put("roles", new MyAuthorizationFilter());
 
         //拦截器
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
@@ -89,15 +78,21 @@ public class ShiroConfig {
 
         //授权过滤器
         //注意：当前授权拦截后，shiro会自动跳转到未授权页面
-//        filterChainDefinitionMap.put("/listProduct", "roles[admin,productManager]");
-//        filterChainDefinitionMap.put("/deleteProduct", "roles[admin,productManager]");
-//        filterChainDefinitionMap.put("/deleteOrder", "roles[admin,productManager]");
+        //此种方式有问题！！！！！！！！
+//        filterChainDefinitionMap.put("/listProduct", "authc,roles[admin]");
+//        filterChainDefinitionMap.put("/listProduct", "authc,roles[productManager]");
+//        filterChainDefinitionMap.put("/deleteProduct", "authc,roles[admin]");
+//        filterChainDefinitionMap.put("/deleteProduct", "authc,roles[productManager]");
+//        filterChainDefinitionMap.put("/deleteOrder", "authc,roles[admin]");
 
         //注册数据库中所有的权限及其对应url
-//        List<Permission> allPermission = shiroConfig.permissionService.findAll();//数据库中查询所有权限
-//        for (Permission p : allPermission) {
-//            filterChainDefinitionMap.put(p.getUrl(), "perms[" + p.getName() + "]");    //拦截器中注册所有的权限
+//        for (Permission permission : permissions) {
+//            filterChainDefinitionMap.put(permission.getUrl(), "perms[" + permission.getName() + "]");    //拦截器中注册所有的权限
 //        }
+//        此种方式正常
+        filterChainDefinitionMap.put("/listProduct","perms[listProduct]");
+        filterChainDefinitionMap.put("/deleteProduct","perms[deleteProduct]");
+        filterChainDefinitionMap.put("/deleteOrder","perms[deleteOrder]");
 
         //其他路径则需要登录才能访问
         filterChainDefinitionMap.put("/**", "authc");

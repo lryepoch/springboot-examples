@@ -22,6 +22,9 @@ public class LoginController {
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(name, password);
         try {
+//            记住我
+//            token.setRememberMe(true);
+
             //登录认证
             subject.login(token);
             Session session = subject.getSession();

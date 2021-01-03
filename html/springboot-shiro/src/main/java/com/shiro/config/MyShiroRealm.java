@@ -15,6 +15,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ import java.util.List;
  * @description TODO
  */
 @Slf4j
+@Component
 public class MyShiroRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
@@ -74,18 +76,19 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (user == null) {
             return null;
         }
-        log.info("用户名: {}", username);
-        log.info("用户：{}", user);
-        log.info("加密后密码：{}", user.getPassword());
-        log.info("盐字符串：{}", user.getSalt());
-        log.info("加盐：即使相同的密码不同的盐加密后的结果也不同：{}", ByteSource.Util.bytes(user.getSalt()));
-        log.info("getName()：{}", getName());
+        log.info("登录传入的username: {}", username);
+        log.info("根据用户名查询数据库user信息：{}", user);
+        log.info("从数据库中获取的password：{}", user.getPassword());
+        log.info("从数据库中查询出先前随机生成盐字符串：{}", user.getSalt());
+        //为了防止各个用户初始密码一致导致泄密，而相同的密码不同的盐加密后的结果也不同
+        log.info("对取出的盐进行编码：{}", ByteSource.Util.bytes(user.getSalt()));
+        log.info("当前shiro名称：{}", getName());
 
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getName(),//用户名
-                user.getPassword(),//密码
+                user.getName(),             //用户名
+                user.getPassword(),         //从数据库查询出来的安全密码
                 ByteSource.Util.bytes(user.getSalt()),
-                getName());//realm name
+                getName());                 //realm name
         return authenticationInfo;
     }
 }
