@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public interface RedisService {
     /**
-     * 保存属性
+     * 保存属性（设置过期时间）
      */
     void set(String key, Object value, long time);
 

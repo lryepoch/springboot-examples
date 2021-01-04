@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:19
- * @description TODO Spring工具类
+ * @description TODO Spring工具类，在ApplicationContextAware的实现类中，就可以通过这个上下文环境对象得到Spring容器中的Bean。
+ *                   看到—Aware就知道是干什么的了，就是属性注入的，但是这个ApplicationContextAware的不同地方在于，实现了这个接口的bean，
+ *                   当spring容器初始化的时候，会自动的将ApplicationContext注入进来。
  */
 @Component
 public class SpringUtil implements ApplicationContextAware {

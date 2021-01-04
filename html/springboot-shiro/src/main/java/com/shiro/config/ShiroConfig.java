@@ -17,6 +17,7 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -67,6 +68,10 @@ public class ShiroConfig {
 //        filters.put("authc", new MyAuthenticationFilter());
 //        filters.put("roles", new MyAuthorizationFilter());
 
+//        Map<String, Filter> filterMap = new LinkedHashMap<>();
+//        filterMap.put("rolesFilter", new RolesFilter());
+//        shiroFilterFactoryBean.setFilters(filterMap);
+
         //拦截器
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         //登录
@@ -96,6 +101,7 @@ public class ShiroConfig {
 
         //其他路径则需要登录才能访问
         filterChainDefinitionMap.put("/**", "authc");
+//        filterChainDefinitionMap.put("/**", "rolesFilter[admin,productManager]");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;

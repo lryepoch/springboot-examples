@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name:
+    name: mall-authority
   profiles:
     active: dev
   #自定义spring security账户
@@ -34,7 +34,7 @@ redis:
     admin: 'ums:admin'
     resourceList: 'ums:resourceList'
   expire:
-    common: 86400  #24小时
+    common: 86400  #24小时，此时时间单位是：秒
 
 secure:
   ignored:
@@ -42,7 +42,7 @@ secure:
       - /swagger-ui.html
       - /swagger-resources/**
       - /swagger/**
-      - /**/v2/dto-docs
+      - /**/v2/api-docs
       - /**/*.js
       - /**/*.css
       - /**/*.png

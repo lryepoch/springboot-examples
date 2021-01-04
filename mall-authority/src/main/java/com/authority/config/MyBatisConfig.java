@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * @Author lryepoch
  * @CreateDate 2020/12/27 17:31
- * @Description MyBatis配置类
+ * @Description MyBatisPlus插件扩展_PaginationInterceptor分页插件
  */
 @Configuration
 @EnableTransactionManagement

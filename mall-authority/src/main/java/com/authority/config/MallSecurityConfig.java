@@ -32,6 +32,11 @@ public class MallSecurityConfig extends SecurityConfig {
     @Autowired
     private UmsResourceService resourceService;
 
+    /**
+     * @author lryepoch
+     * @date 2021/1/4 11:00
+     * @description UserDetailsService接口只提供一个方法loadUserByUsername()，
+     */
     @Bean
     public UserDetailsService userDetailsService() {
         //获取登录用户信息

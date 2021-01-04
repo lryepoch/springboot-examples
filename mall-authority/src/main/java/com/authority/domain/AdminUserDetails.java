@@ -13,7 +13,17 @@ import java.util.stream.Collectors;
 /**
  * @author lryepoch
  * @date 2020/12/28 11:28
- * @description TODO SpirngSecurity需要的用户详情
+ * @description TODO SpirngSecurity需要的用户详情。UserDetails接口实现仅仅存储用户的信息
+ *
+ * UserDetails 默认提供了：
+ * 用户的权限集，默认需要添加ROLE_ 前缀
+ * 用户的加密后的密码，不加密会使用{noop}前缀
+ * 应用内唯一的用户名
+ * 账户是否过期
+ * 账户是否锁定
+ * 凭证是否过期
+ * 用户是否可用
+ *
  */
 public class AdminUserDetails implements UserDetails {
     private UmsAdmin umsAdmin;

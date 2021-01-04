@@ -17,8 +17,10 @@ import java.util.Iterator;
  * @description TODO 动态权限决策管理器，用于判断用户是否有访问权限
  */
 public class DynamicAccessDecisionManager implements AccessDecisionManager {
+
     @Override
-    public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
+    public void decide(Authentication authentication, Object object,
+                       Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
         // 当接口未被配置资源时直接放行
         if (CollUtil.isEmpty(configAttributes)) {
             return;
@@ -46,4 +48,5 @@ public class DynamicAccessDecisionManager implements AccessDecisionManager {
     public boolean supports(Class<?> aClass) {
         return true;
     }
+
 }

@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * @author lryepoch
+     * @date 2021/1/4 10:43
+     * @description 自定义异常
+     */
     @ResponseBody
     @ExceptionHandler(value = ApiException.class)
     public CommonResult handle(ApiException e) {
@@ -26,6 +31,11 @@ public class GlobalExceptionHandler {
         return CommonResult.failed(e.getMessage());
     }
 
+    /**
+     * @author lryepoch
+     * @date 2021/1/4 10:43
+     * @description MethodArgumentNotValidException异常
+     */
     @ResponseBody
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public CommonResult handleValidException(MethodArgumentNotValidException e) {
@@ -43,7 +53,7 @@ public class GlobalExceptionHandler {
     /**
      * @author lryepoch
      * @date 2020/12/26 11:39
-     * @description BindException捕获BindingResult
+     * @description 自定义BindException异常，捕获BindingResult
      */
     @ResponseBody
     @ExceptionHandler(value = BindException.class)
