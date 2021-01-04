@@ -12,6 +12,15 @@ spring:
       password: 123456
       name: cai
 
+# swagger配置
+#swagger:
+#  # 是否开启swagger
+#  enabled: true
+#  title: mall_接口文档
+#  # 全局统一鉴权配置
+#  authorization:
+#    key-name: mall
+
 mybatis-plus:
   mapper-locations: classpath:/mapping/**/*Mapper.xml
   global-config:
