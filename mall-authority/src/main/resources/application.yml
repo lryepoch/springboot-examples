@@ -7,10 +7,10 @@ spring:
   profiles:
     active: dev
   #自定义spring security账户
-  security:
-    user:
-      password: 123456
-      name: cai
+#  security:
+#    user:
+#      password: 123456
+#      name: cai
 
 # swagger配置
 #swagger:

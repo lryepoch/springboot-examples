@@ -16,7 +16,7 @@
         <result column="status" property="status"/>
     </resultMap>
 
-    <select id="getAdminIdList" resultType="Long">
+    <select id="getAdminIdList" resultType="java.lang.Long">
         select
             distinct ar.admin_id
         from

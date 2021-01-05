@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
  */
 @Api(tags = "UmsAdminController", description = "后台用户管理")
 @RestController
-@RequestMapping("/modules/umsAdmin")
+@RequestMapping("/admin")
 public class UmsAdminController {
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;

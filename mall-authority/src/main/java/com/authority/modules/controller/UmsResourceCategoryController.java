@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Api(tags = "UmsResourceCategoryController", description = "后台资源分类管理")
 @RestController
-@RequestMapping("/modules/umsResourceCategory")
+@RequestMapping("/resourceCategory")
 public class UmsResourceCategoryController {
     @Autowired
     private UmsResourceCategoryService umsResourceCategoryService;

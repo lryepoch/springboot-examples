@@ -13,7 +13,7 @@
         <result column="sort" property="sort" />
     </resultMap>
 
-    <select id="getRoleList">
+    <select id="getRoleList" resultType="com.authority.modules.entity.UmsRole">
         select
             r.*
         from

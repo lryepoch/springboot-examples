@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Api(tags = "UmsRoleController", description = "后台用户角色管理")
 @RestController
-@RequestMapping("/modules/umsRole")
+@RequestMapping("/role")
 public class UmsRoleController {
     @Autowired
     private UmsRoleService roleService;

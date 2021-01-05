@@ -12,7 +12,7 @@
         <result column="category_id" property="categoryId" />
     </resultMap>
 
-    <select id="getResourceListByRoleId">
+    <select id="getResourceListByRoleId" resultType="com.authority.modules.entity.UmsResource">
         select
             r.id id,
             r.create_time createTime,
@@ -27,7 +27,7 @@
             r.id
     </select>
 
-    <select id="getResourceList">
+    <select id="getResourceList" resultType="com.authority.modules.entity.UmsResource">
         select
             ur.id id,
             ur.create_time createTime,

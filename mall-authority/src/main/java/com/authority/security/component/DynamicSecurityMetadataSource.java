@@ -14,7 +14,7 @@ import java.util.*;
 /**
  * @author lryepoch
  * @date 2020/12/26 14:20
- * @description TODO 动态权限数据源，用于获取动态权限规则
+ * @description TODO 动态权限数据源，用于获取动态权限规则(请求经过：3)
  */
 public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
@@ -34,6 +34,7 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
+        //查询所有的资源resource
         if (configAttributeMap == null){
             this.loadDataSource();
         }

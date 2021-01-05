@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Api(tags = "UmsMenuController", description = "后台菜单管理")
 @RestController
-@RequestMapping("/modules/umsMenu")
+@RequestMapping("/menu")
 public class UmsMenuController {
     @Autowired
     private UmsMenuService menuService;

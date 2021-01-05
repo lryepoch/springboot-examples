@@ -14,6 +14,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig extends BaseSwaggerConfig {
 
+    /**
+     * 添加摘要信息
+     */
     @Override
     public SwaggerProperties swaggerProperties() {
         return SwaggerProperties.builder()

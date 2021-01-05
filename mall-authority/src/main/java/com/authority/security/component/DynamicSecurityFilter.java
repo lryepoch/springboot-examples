@@ -18,7 +18,7 @@ import java.io.IOException;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:12
- * @description TODO 动态权限过滤器，用于实现基于路径的动态权限过滤
+ * @description TODO 动态权限过滤器，用于实现基于路径的动态权限过滤(请求经过：2)
  */
 public class DynamicSecurityFilter extends AbstractSecurityInterceptor implements Filter {
 
@@ -57,6 +57,7 @@ public class DynamicSecurityFilter extends AbstractSecurityInterceptor implement
         InterceptorStatusToken token = super.beforeInvocation(fi);
         try {
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+            //跳转到DynamicSecurityMetadataSource
         } finally {
             super.afterInvocation(token, null);
         }

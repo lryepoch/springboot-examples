@@ -44,6 +44,9 @@ public abstract class BaseSwaggerConfig {
                 .build();
     }
 
+    /**
+     * 安全模式，这里指定token通过Authorization头请求头传递
+     */
     private List<ApiKey> securitySchemes() {
         //设置请求头信息
         List<ApiKey> result = new ArrayList<>();
@@ -52,6 +55,9 @@ public abstract class BaseSwaggerConfig {
         return result;
     }
 
+    /**
+     * 安全上下文
+     */
     private List<SecurityContext> securityContexts() {
         //设置需要登录认证的路径
         List<SecurityContext> result = new ArrayList<>();
@@ -66,6 +72,9 @@ public abstract class BaseSwaggerConfig {
                 .build();
     }
 
+    /**
+     * 默认的安全上引用
+     */
     private List<SecurityReference> defaultAuth() {
         List<SecurityReference> result = new ArrayList<>();
         AuthorizationScope authorizationScope = new AuthorizationScope("global","accessEverything");

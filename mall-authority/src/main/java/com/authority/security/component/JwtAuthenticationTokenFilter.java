@@ -21,7 +21,7 @@ import java.io.IOException;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:00
- * @description TODO JWT登录授权过滤器
+ * @description TODO JWT登录授权过滤器(发起请求：1)
  */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationTokenFilter.class);
@@ -35,21 +35,21 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private String tokenHead;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader(this.tokenHead);
-        if (authHeader!=null && authHeader.startsWith(this.tokenHead)){
+        if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
             // The part after "Bearer "
             String authToken = authHeader.substring(this.tokenHead.length());
             String username = jwtTokenUtil.getUserNameFromToken(authToken);
-            LOGGER.info("checking username:{}", username);
-            if (username!=null&& SecurityContextHolder.getContext().getAuthentication()==null){
+            LOGGER.info("从token中获取的用户名称为: {}", username);
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-                if (jwtTokenUtil.validateToken(authToken, userDetails)){
+                //判断token中的username和数据库中的username是否一致
+                if (jwtTokenUtil.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    LOGGER.info("authenticated user:{}", username);
+                    LOGGER.info("authenticated中设置的用户名为:{}", username);
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 }
             }

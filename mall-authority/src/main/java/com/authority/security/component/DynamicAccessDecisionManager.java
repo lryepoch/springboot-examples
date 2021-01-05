@@ -14,7 +14,7 @@ import java.util.Iterator;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:15
- * @description TODO 动态权限决策管理器，用于判断用户是否有访问权限
+ * @description TODO 动态权限决策管理器，用于判断用户是否有访问权限(请求经过：4)
  */
 public class DynamicAccessDecisionManager implements AccessDecisionManager {
 
