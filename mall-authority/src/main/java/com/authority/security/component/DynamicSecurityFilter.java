@@ -1,8 +1,8 @@
 package com.authority.security.component;
 
 import com.authority.security.config.IgnoreUrlsConfig;
-import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.access.SecurityMetadataSource;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
 import org.springframework.security.access.intercept.InterceptorStatusToken;
