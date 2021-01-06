@@ -22,6 +22,7 @@ import java.io.IOException;
  * @author lryepoch
  * @date 2020/12/28 16:00
  * @description TODO JWT登录授权过滤器(发起请求：1)
+ *                   使用的是OncePerRequestFilter，目的是为了保证每次request 只触发一次filter
  */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationTokenFilter.class);
@@ -38,18 +39,21 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader(this.tokenHeader);
+
         if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
             // The part after "Bearer "
             String authToken = authHeader.substring(this.tokenHead.length());
             String username = jwtTokenUtil.getUserNameFromToken(authToken);
             LOGGER.info("从token中获取的用户名称为: {}", username);
+
+            //SecurityContextHolder.getContext().getAuthentication()检索身份验证对象，比缓存要快
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
                 //判断token中的username和数据库中的username是否一致
                 if (jwtTokenUtil.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    LOGGER.info("authenticated中设置的用户名为: {}", username);
+                    LOGGER.info("从数据库、redis中获取/authenticated设置的用户名为: {}", userDetails.getUsername());
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 }
             }

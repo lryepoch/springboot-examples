@@ -40,7 +40,8 @@ public class MallSecurityConfig extends SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         //获取登录用户信息
-        return username -> adminService.loadUserByUsername(username);
+        UserDetailsService userDetailsService = username -> adminService.loadUserByUsername(username);
+        return userDetailsService;
     }
 
     @Bean

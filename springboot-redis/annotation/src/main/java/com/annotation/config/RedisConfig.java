@@ -38,12 +38,11 @@ public class RedisConfig {
 
     /**
      * 自定义cacheManager缓存管理器，可自定义多个cacheManager
-     *
+     * <p>
      * RedisCacheManager类型的Bean，它间接实现了Spring Cache的接口，有了它我们就可以直接使用Spring中的缓存注解和接口了，
      * 而缓存的数据则会被自动存储到 Redis 中。
-     *
+     * <p>
      * 注意：在单机的Redis中，系统会自动提供这个Bean，但如果是Redis集群，则需要我们自己来提供。
-     *
      */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory factory) {

@@ -73,7 +73,7 @@ public class UmsAdminController {
     @ApiOperation(value = "刷新token")
     @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)
     public CommonResult refreshToken(HttpServletRequest request) {
-        String token = request.getHeader(tokenHead);
+        String token = request.getHeader(tokenHeader);
         String refreshToken = umsAdminService.refreshToken(token);
         if (refreshToken == null) {
             return CommonResult.failed("token已经过期！");

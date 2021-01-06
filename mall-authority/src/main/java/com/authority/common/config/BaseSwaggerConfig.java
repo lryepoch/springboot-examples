@@ -21,7 +21,7 @@ import java.util.List;
 public abstract class BaseSwaggerConfig {
 
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         SwaggerProperties swaggerProperties = swaggerProperties();
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo(swaggerProperties))
@@ -29,12 +29,15 @@ public abstract class BaseSwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getApiBasePackage()))
                 .paths(PathSelectors.any())
                 .build();
-        if (swaggerProperties.isEnableSecurity()){
+        if (swaggerProperties.isEnableSecurity()) {
             docket.securitySchemes(securitySchemes()).securityContexts(securityContexts());
         }
         return docket;
     }
 
+    /**
+     * swagger 文档描述
+     */
     private ApiInfo apiInfo(SwaggerProperties swaggerProperties) {
         return new ApiInfoBuilder()
                 .title(swaggerProperties.getTitle())
@@ -50,7 +53,7 @@ public abstract class BaseSwaggerConfig {
     private List<ApiKey> securitySchemes() {
         //设置请求头信息
         List<ApiKey> result = new ArrayList<>();
-        ApiKey apiKey = new ApiKey("Authorization","Authorization","header");
+        ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
         result.add(apiKey);
         return result;
     }
@@ -77,7 +80,7 @@ public abstract class BaseSwaggerConfig {
      */
     private List<SecurityReference> defaultAuth() {
         List<SecurityReference> result = new ArrayList<>();
-        AuthorizationScope authorizationScope = new AuthorizationScope("global","accessEverything");
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
         authorizationScopes[0] = authorizationScope;
         result.add(new SecurityReference("Authorization", authorizationScopes));
@@ -85,7 +88,7 @@ public abstract class BaseSwaggerConfig {
     }
 
     /**
-    * 自定义Swagger配置
-    */
+     * 自定义Swagger配置
+     */
     public abstract SwaggerProperties swaggerProperties();
 }

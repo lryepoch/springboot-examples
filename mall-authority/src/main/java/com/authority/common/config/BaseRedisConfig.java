@@ -31,6 +31,7 @@ public class BaseRedisConfig {
         RedisSerializer<Object> serializer = redisSerializer();
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
+        //key序列化成字符串，value序列化成json
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setValueSerializer(serializer);
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
@@ -39,11 +40,15 @@ public class BaseRedisConfig {
         return redisTemplate;
     }
 
+    /**
+    * value序列化
+    */
     @Bean
     public RedisSerializer<Object> redisSerializer() {
         //创建JSON序列化器
         Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
+        // 指定要序列化的域(范围)，field,get和set,以及修饰符范围，ANY指的是包括private和public
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         //必须设置，否则无法将JSON转化为对象，会转化成Map类型
         objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
@@ -51,8 +56,11 @@ public class BaseRedisConfig {
         return serializer;
     }
 
+    /**
+    * 缓存管理器设置过期时间
+    */
     @Bean
-    public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory){
+    public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory) {
         RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
         //设置Redis缓存有效期为1天
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
@@ -62,7 +70,7 @@ public class BaseRedisConfig {
     }
 
     @Bean
-    public RedisService redisService(){
+    public RedisService redisService() {
         return new RedisServiceImpl();
     }
 }

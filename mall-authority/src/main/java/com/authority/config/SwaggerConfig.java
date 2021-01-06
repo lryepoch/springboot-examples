@@ -19,11 +19,15 @@ public class SwaggerConfig extends BaseSwaggerConfig {
      */
     @Override
     public SwaggerProperties swaggerProperties() {
+
+        //构造一个SwaggerProperties对象
         return SwaggerProperties.builder()
                 .apiBasePackage("com.authority.modules")
                 .title("mall-authority脚手架接口文档")
                 .description("mall-authority脚手架相关接口文档")
                 .contactName("lryepoch")
+                .contactEmail("lryepoch@163.com")
+                .contactUrl("www.github.com/lryepoch")
                 .version("1.0")
                 .enableSecurity(true)
                 .build();

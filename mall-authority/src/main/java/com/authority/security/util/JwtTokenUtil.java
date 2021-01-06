@@ -50,15 +50,12 @@ public class JwtTokenUtil {
     }
 
     /**
-     * 负责生成JWT的token
+     * 根据负责生成JWT的token
      */
     public String generateToken(Map<String, Object> claims) {
-        // 数字签名算法
-//        SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
-
         return Jwts.builder()
-                .setClaims(claims)
-                .setExpiration(generateExpirationDate())
+                .setClaims(claims)//sub+created
+                .setExpiration(generateExpirationDate())//exp
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
@@ -119,7 +116,7 @@ public class JwtTokenUtil {
      * 判断token在指定时间内是否刚刚刷新过
      *
      * @param token 原token
-     * @param time  指定时间（秒）
+     * @param time  指定时间（秒）30*60s
      */
     private boolean tokenRefreshJustBefore(String token, int time) {
         Claims claims = getClaimsFromToken(token);

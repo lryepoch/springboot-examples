@@ -23,11 +23,11 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
     private DynamicSecurityService dynamicSecurityService;
 
     @PostConstruct
-    public void loadDataSource(){
+    public void loadDataSource() {
         configAttributeMap = dynamicSecurityService.loadDataSource();
     }
 
-    public void clearDataSource(){
+    public void clearDataSource() {
         configAttributeMap.clear();
         configAttributeMap = null;
     }
@@ -35,7 +35,7 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         //查询所有的资源resource
-        if (configAttributeMap == null){
+        if (configAttributeMap == null) {
             this.loadDataSource();
         }
         List<ConfigAttribute> configAttributes = new ArrayList<>();
@@ -45,9 +45,9 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
         PathMatcher pathMatcher = new AntPathMatcher();
         Iterator<String> iterator = configAttributeMap.keySet().iterator();
         //获取访问该路径所需资源
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             String pattern = iterator.next();
-            if (pathMatcher.match(pattern, path)){
+            if (pathMatcher.match(pattern, path)) {
                 configAttributes.add(configAttributeMap.get(pattern));
             }
         }

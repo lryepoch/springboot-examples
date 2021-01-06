@@ -51,15 +51,15 @@ import java.util.List;
 public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> implements UmsAdminService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
 
-    @Autowired
+    @Autowired(required = false)
     private UmsAdminLoginLogMapper umsAdminLoginLogMapper;
     @Autowired
     private UmsAdminCacheService umsAdminCacheService;
     @Autowired
     private UmsAdminRoleRelationService umsAdminRoleRelationService;
-    @Autowired
+    @Autowired(required = false)
     private UmsRoleMapper umsRoleMapper;
-    @Autowired
+    @Autowired(required = false)
     private UmsResourceMapper resourceMapper;
     @Autowired(required = false)
     private PasswordEncoder passwordEncoder;
@@ -224,6 +224,10 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         umsAdminCacheService.delAdmin(id);
         boolean success = removeById(id);
         umsAdminCacheService.delResourceList(id);
+        //还要删除用户角色关系表数据
+        QueryWrapper<UmsAdminRoleRelation> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(UmsAdminRoleRelation::getAdminId, id);
+        umsAdminRoleRelationService.remove(queryWrapper);
         return success;
     }
 
@@ -244,7 +248,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         if (!passwordEncoder.matches(updateAdminPasswordParam.getOldPassword(), umsAdmin.getPassword())) {
             return -3;
         }
-        umsAdmin.setPassword(updateAdminPasswordParam.getNewPassword());
+        umsAdmin.setPassword(passwordEncoder.encode(updateAdminPasswordParam.getNewPassword()));
         updateById(umsAdmin);
         umsAdminCacheService.delAdmin(umsAdmin.getId());
         return 1;

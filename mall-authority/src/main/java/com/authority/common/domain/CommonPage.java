@@ -11,10 +11,25 @@ import java.util.List;
  * @description TODO 分页数据封装类
  */
 public class CommonPage<T> {
+    /**
+     * 页码
+     */
     private Integer pageNum;
+    /**
+     * 每页大小
+     */
     private Integer pageSize;
+    /**
+     * 总页数
+     */
     private Integer totalPage;
+    /**
+     * 总记录数
+     */
     private Long total;
+    /**
+     * 记录列表
+     */
     private List<T> list;
 
     /**
@@ -22,12 +37,13 @@ public class CommonPage<T> {
      * @date 2020/12/26 15:07
      * @description 将Mybatis plus 分页结果转化为通用结果
      */
-    public static <T> CommonPage<T> restPage(Page<T> pageResult){
+    public static <T> CommonPage<T> restPage(Page<T> pageResult) {
         CommonPage<T> result = new CommonPage<>();
+        //Convert.toInt()适合将object类类型转换成int类型，会返回0而不会产生任何异常
         result.setPageNum(Convert.toInt(pageResult.getCurrent()));
         result.setPageSize(Convert.toInt(pageResult.getSize()));
         result.setTotal(pageResult.getTotal());
-        result.setTotalPage(Convert.toInt(pageResult.getTotal()/pageResult.getSize()+1));
+        result.setTotalPage(Convert.toInt(pageResult.getTotal() / pageResult.getSize() + 1));
         result.setList(pageResult.getRecords());
         return result;
     }

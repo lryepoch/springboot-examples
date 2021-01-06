@@ -15,9 +15,7 @@ import org.springframework.web.filter.CorsFilter;
 public class GlobalCorsConfig {
 
     /**
-     * @author lryepoch
-     * @date 2020/12/25 19:24
-     * @description 允许跨域调用的过滤器
+     * 允许跨域调用的过滤器
      */
     @Bean
     public CorsFilter corsFilter(){

@@ -5,6 +5,7 @@ import com.authority.modules.entity.*;
 import com.authority.modules.mapper.UmsMenuMapper;
 import com.authority.modules.mapper.UmsResourceMapper;
 import com.authority.modules.mapper.UmsRoleMapper;
+import com.authority.modules.mapper.UmsRoleMenuRelationMapper;
 import com.authority.modules.service.UmsAdminCacheService;
 import com.authority.modules.service.UmsRoleMenuRelationService;
 import com.authority.modules.service.UmsRoleResourceRelationService;
@@ -32,14 +33,16 @@ import java.util.List;
 public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> implements UmsRoleService {
     @Autowired
     private UmsAdminCacheService umsAdminCacheService;
-    @Autowired
+    @Autowired(required = false)
     private UmsMenuMapper umsMenuMapper;
-    @Autowired
+    @Autowired(required = false)
     private UmsResourceMapper umsResourceMapper;
     @Autowired
     private UmsRoleMenuRelationService umsRoleMenuRelationService;
     @Autowired
     private UmsRoleResourceRelationService umsRoleResourceRelationService;
+    @Autowired(required = false)
+    private UmsRoleMenuRelationMapper umsRoleMenuRelationMapper;
 
     @Override
     public boolean create(UmsRole role) {
@@ -53,12 +56,20 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
     public boolean delete(List<Long> ids) {
         boolean success = removeByIds(ids);
         umsAdminCacheService.delResourceListByRoleIds(ids);
+        //还要删除角色菜单关系表数据
+        QueryWrapper<UmsRoleMenuRelation> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.lambda().in(UmsRoleMenuRelation::getRoleId, ids);
+        umsRoleMenuRelationService.remove(queryWrapper1);
+        //删除角色资源关系表数据
+        QueryWrapper<UmsRoleResourceRelation> queryWrapper2 = new QueryWrapper<>();
+        queryWrapper2.lambda().in(UmsRoleResourceRelation::getRoleId, ids);
+        umsRoleResourceRelationService.remove(queryWrapper2);
         return success;
     }
 
     @Override
     public Page<UmsRole> list(String keyword, Integer pageSize, Integer pageNum) {
-        Page<UmsRole> page = new Page<>(pageSize, pageNum);
+        Page<UmsRole> page = new Page<>(pageNum, pageSize);
         QueryWrapper<UmsRole> wrapper = new QueryWrapper<>();
         LambdaQueryWrapper<UmsRole> lambda = wrapper.lambda();
         if (StrUtil.isNotEmpty(keyword)) {
@@ -85,7 +96,7 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
         umsRoleMenuRelationService.remove(wrapper);
         //批量插入新关系
         List<UmsRoleMenuRelation> relations = new ArrayList<>();
-        for (Long menuId:menuIds){
+        for (Long menuId : menuIds) {
             UmsRoleMenuRelation relation = new UmsRoleMenuRelation();
             relation.setRoleId(roleId);
             relation.setMenuId(menuId);
@@ -103,7 +114,7 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
         umsRoleResourceRelationService.remove(wrapper);
         //批量插入新关系
         List<UmsRoleResourceRelation> relationList = new ArrayList<>();
-        for (Long resourceId:resourceIds){
+        for (Long resourceId : resourceIds) {
             UmsRoleResourceRelation relation = new UmsRoleResourceRelation();
             relation.setRoleId(roleId);
             relation.setResourceId(resourceId);

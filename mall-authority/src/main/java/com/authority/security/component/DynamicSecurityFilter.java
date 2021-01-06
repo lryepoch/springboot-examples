@@ -57,7 +57,6 @@ public class DynamicSecurityFilter extends AbstractSecurityInterceptor implement
         InterceptorStatusToken token = super.beforeInvocation(fi);
         try {
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
-            //跳转到DynamicSecurityMetadataSource
         } finally {
             super.afterInvocation(token, null);
         }
@@ -72,6 +71,9 @@ public class DynamicSecurityFilter extends AbstractSecurityInterceptor implement
         return FilterInvocation.class;
     }
 
+    /**
+    * 跳转到DynamicSecurityMetadataSource
+    */
     @Override
     public SecurityMetadataSource obtainSecurityMetadataSource() {
         return dynamicSecurityMetadataSource;
