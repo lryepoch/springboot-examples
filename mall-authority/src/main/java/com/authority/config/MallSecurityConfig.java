@@ -23,6 +23,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author lryepoch
  * @date 2020/12/27 17:37
  * @description mall-security模块相关配置
+ *              Spring Security默认是禁用注解的，要想开启注解，需要在继承WebSecurityConfigurerAdapter的类上加@EnableGlobalMethodSecurity注解，
+ *              并在该类中将AuthenticationManager定义为Bean。
  */
 @Configuration
 @EnableWebSecurity

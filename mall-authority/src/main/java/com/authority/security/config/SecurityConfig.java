@@ -80,6 +80,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());
     }
 
+    /**
+     * public interface PasswordEncoder {
+     *      String encode(CharSequence rawPassword);
+     *      boolean matches(CharSequence rawPassword, String encodedPassword);
+     *      default boolean upgradeEncoding(String encodedPassword) {
+     *          return false;
+     *      }
+     * }
+     * encode 方法用来对明文密码进行加密，返回加密之后的密文。
+     * matches 方法是一个密码校对方法，在用户登录的时候，将用户传来的明文密码和数据库中保存的密文密码作为参数，传入到这个方法中去，根据返回的 Boolean 值判断用户密码是否输入正确。
+     * upgradeEncoding 是否还要进行再次加密，这个一般来说就不用了。
+     *
+     * 配置这个，控制台将不会再产生随机密码了。同时会覆盖yml文件配置的自定义用户和密码
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

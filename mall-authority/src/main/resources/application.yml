@@ -6,11 +6,11 @@ spring:
     name: mall-authority
   profiles:
     active: dev
-  #自定义spring security账户
+  #自定义spring security账户，配置指定的用户和密码
 #  security:
 #    user:
-#      password: 123456
-#      name: cai
+#      password: 123456 #默认是自动生成的一段字符串
+#      name: cai        #默认是user
 
 # swagger配置
 #swagger:
