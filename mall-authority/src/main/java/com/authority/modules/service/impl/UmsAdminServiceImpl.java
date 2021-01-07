@@ -72,7 +72,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         BeanUtils.copyProperties(umsAdminParam, umsAdmin);
         umsAdmin.setCreateTime(new Date());
         umsAdmin.setStatus(1);
-        //查询是否有相同用户名的用户
+        //查询是否有相同用户名的用户，用户名唯一
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
         wrapper.lambda().eq(UmsAdmin::getUsername, umsAdmin.getUsername());
         List<UmsAdmin> umsAdminList = list(wrapper);
@@ -100,8 +100,11 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
             }
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            //登录后返回token
             token = jwtTokenUtil.generateToken(userDetails);
-//            updateLoginTimeByUsername(username);
+            //更新登录时间
+            updateLoginTimeByUsername(username);
+            //插入登录日志
             insertLoginLog(username);
         } catch (Exception e) {
             LOGGER.warn("登录异常：{}", e.getMessage());
@@ -114,10 +117,13 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
      */
     private void insertLoginLog(String username) {
         UmsAdmin admin = getAdminByUsername(username);
-        if (admin == null) return;
+        if (admin == null) {
+            return;
+        }
         UmsAdminLoginLog loginLog = new UmsAdminLoginLog();
         loginLog.setAdminId(admin.getId());
         loginLog.setCreateTime(new Date());
+        //获取当前ip地址
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         loginLog.setIp(request.getRemoteAddr());
@@ -167,6 +173,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
+        //先从缓存中查询
         UmsAdmin admin = umsAdminCacheService.getAdmin(username);
         if (admin != null) {
             return admin;
@@ -199,17 +206,22 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         return page(page, wrapper);
     }
 
+    /**
+    * MyBatis-Plus默认配置策略是：当更新数据库值时，传过来的字段为NULL时，则忽略更新。
+    */
     @Override
     public boolean update(Long id, UmsAdmin admin) {
+        //设置id
         admin.setId(id);
         UmsAdmin rawAdmin = getById(id);
-        if (rawAdmin.getPassword().equals(admin.getPassword())) {
+        if (rawAdmin.getPassword().equals(passwordEncoder.encode(admin.getPassword()))) {
             //与原加密密码相同的不需要修改
             admin.setPassword(null);
         } else {
-            //与原加密密码不同的需要加密修改
+            //密码不需要修改
             if (StrUtil.isEmpty(admin.getPassword())) {
                 admin.setPassword(null);
+            //与原加密密码不同的需要加密修改
             } else {
                 admin.setPassword(passwordEncoder.encode(admin.getPassword()));
             }
@@ -221,8 +233,11 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
 
     @Override
     public boolean delete(Long id) {
+        //删除用户信息缓存
         umsAdminCacheService.delAdmin(id);
+        //删除数据库记录
         boolean success = removeById(id);
+        //删除用户拥有的资源缓存
         umsAdminCacheService.delResourceList(id);
         //还要删除用户角色关系表数据
         QueryWrapper<UmsAdminRoleRelation> queryWrapper = new QueryWrapper<>();

@@ -43,7 +43,7 @@ public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu> impl
             //没有父菜单时为一级菜单
             umsMenu.setLevel(0);
         } else {
-            //有父菜单时选择根据父菜单level设置
+            //有父菜单时，在父菜单level的基础上+1
             UmsMenu parentMenu = getById(umsMenu.getParentId());
             if (parentMenu != null) {
                 umsMenu.setLevel(parentMenu.getLevel() + 1);
@@ -74,6 +74,7 @@ public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu> impl
         List<UmsMenu> menuList = list();
         List<UmsMenuNode> result = menuList.stream()
                 .filter(menu -> menu.getParentId().equals(0L))
+                //过滤出父菜单，父菜单跟总菜单比较
                 .map(menu -> convertMenuNode(menu, menuList))
                 .collect(Collectors.toList());
         return result;
@@ -87,7 +88,8 @@ public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu> impl
         BeanUtils.copyProperties(menu, node);
         List<UmsMenuNode> children = menuList.stream()
                 .filter(subMenu -> subMenu.getParentId().equals(menu.getId()))
-                .map(subMenu -> convertMenuNode(subMenu, menuList)).collect(Collectors.toList());
+                .map(subMenu -> convertMenuNode(subMenu, menuList))  //递归查找
+                .collect(Collectors.toList());
         node.setChildren(children);
         return node;
     }

@@ -61,7 +61,7 @@ public class JwtTokenUtil {
     }
 
     /**
-     * 生成token的过期时间
+     * 生成token的过期时间(过期时长统一设置了)
      */
     private Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
@@ -103,7 +103,7 @@ public class JwtTokenUtil {
         Claims claims = null;
         try {
             claims = Jwts.parser()
-                    .setSigningKey(secret)
+                    .setSigningKey(secret)//jwt加解密的秘钥
                     .parseClaimsJws(token)
                     .getBody();
         } catch (Exception e) {
@@ -111,6 +111,14 @@ public class JwtTokenUtil {
         }
         return claims;
     }
+
+//    public static void main(String[] args) {
+//        String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJjcmVhdGVkIjoxNjEwMDA0OTU4Mjc4LCJleHAiOjE2MTA2MDk3NTh9.9xACZvyZO4ZvdM5-bJQ3YcH9_SRQs3F4_yD521fBlErgQJ7biW9BPSF2uNPUmU9hEWxFIXX4ADYOCJbe9CneTQ";
+//        Claims claims = Jwts.parser().setSigningKey("mall-admin-secret")
+//                            .parseClaimsJws(token)
+//                            .getBody();
+//        System.out.println(claims); //{sub=string, created=1610004958278, exp=1610609758}
+//    }
 
     /**
      * 判断token在指定时间内是否刚刚刷新过

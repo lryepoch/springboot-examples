@@ -5,6 +5,8 @@ import com.authority.modules.service.UmsAdminService;
 import com.authority.modules.service.UmsResourceService;
 import com.authority.security.component.DynamicSecurityService;
 import com.authority.security.config.SecurityConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MallSecurityConfig extends SecurityConfig {
+    private static final Logger logger = LoggerFactory.getLogger(MallSecurityConfig.class);
 
     @Autowired
     private UmsAdminService adminService;
@@ -41,6 +44,7 @@ public class MallSecurityConfig extends SecurityConfig {
     public UserDetailsService userDetailsService() {
         //获取登录用户信息
         UserDetailsService userDetailsService = username -> adminService.loadUserByUsername(username);
+        logger.info("MallSecurityConfig.userDetailsService: {}");
         return userDetailsService;
     }
 
@@ -52,6 +56,7 @@ public class MallSecurityConfig extends SecurityConfig {
                 Map<String, ConfigAttribute> map = new ConcurrentHashMap<>();
                 List<UmsResource> resourceList = resourceService.list();
                 for (UmsResource resource : resourceList) {
+                    logger.info("MallSecurityConfig.loadDataSource: {}", resource);
                     map.put(resource.getUrl(), new org.springframework.security.access.SecurityConfig(resource.getId() + ":" + resource.getName()));
                 }
                 return map;

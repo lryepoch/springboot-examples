@@ -2,6 +2,8 @@ package com.authority.security.config;
 
 import com.authority.security.component.*;
 import com.authority.security.util.JwtTokenUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
@@ -20,9 +22,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * @Author lryepoch
  * @CreateDate 2020/12/27 17:49
- * @Description 对SpringSecurity的配置的扩展，支持自定义白名单资源路径和查询用户逻辑
+ * @Description TODO 对SpringSecurity的配置的扩展，支持自定义白名单资源路径和查询用户逻辑
  */
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Autowired(required = false)
     private DynamicSecurityService dynamicSecurityService;
@@ -31,22 +34,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = httpSecurity
                 .authorizeRequests();
-        // 禁用缓存
+        //禁用缓存
 //        httpSecurity.headers().cacheControl().disable();
+        logger.info("0.1.进入HttpSecurity");
 
-        //不需要保护的资源路径允许访问
+        //不需要保护的资源路径允许访问，此处配置目的是为了过滤swagger等静态资源，与/admin/login等无关
         for (String url : ignoreUrlsConfig().getUrls()) {
+            logger.info("0.url:{}", url);
             registry.antMatchers(url).permitAll();
         }
         //允许跨域请求的OPTIONS请求
         registry.antMatchers(HttpMethod.OPTIONS)
                 .permitAll();
-        // 任何请求需要身份认证
+        //任何请求需要身份认证
         registry.and()
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
-                // 关闭跨站请求防护及不使用session
+                //关闭跨站请求防护及不使用session
                 .and()
                 .csrf()
                 .disable()
@@ -57,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler())
                 .authenticationEntryPoint(restAuthenticationEntryPoint())
-                // 自定义权限拦截器JWT过滤器
+                //自定义权限拦截器JWT过滤器
                 .and()
                 .addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         //有动态权限配置时添加动态权限校验过滤器
@@ -68,6 +73,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        logger.info("0.0.进入AuthenticationManagerBuilder");
+        //方法userDetailsService()，存在于类MallSecurityConfig中。
+        //这个类的作用就是去获取用户信息,比如从数据库中获取。这样的话,AuthenticationManager在认证用户身份信息的时候，就会从中获取用户身份, 和从http中拿的用户身份做对比。
         auth.userDetailsService(userDetailsService())
                 .passwordEncoder(passwordEncoder());
     }

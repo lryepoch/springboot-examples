@@ -6,10 +6,7 @@ import com.authority.modules.mapper.UmsMenuMapper;
 import com.authority.modules.mapper.UmsResourceMapper;
 import com.authority.modules.mapper.UmsRoleMapper;
 import com.authority.modules.mapper.UmsRoleMenuRelationMapper;
-import com.authority.modules.service.UmsAdminCacheService;
-import com.authority.modules.service.UmsRoleMenuRelationService;
-import com.authority.modules.service.UmsRoleResourceRelationService;
-import com.authority.modules.service.UmsRoleService;
+import com.authority.modules.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -41,6 +38,8 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
     private UmsRoleMenuRelationService umsRoleMenuRelationService;
     @Autowired
     private UmsRoleResourceRelationService umsRoleResourceRelationService;
+    @Autowired
+    private UmsAdminRoleRelationService umsAdminRoleRelationService;
     @Autowired(required = false)
     private UmsRoleMenuRelationMapper umsRoleMenuRelationMapper;
 
@@ -55,15 +54,20 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
     @Override
     public boolean delete(List<Long> ids) {
         boolean success = removeByIds(ids);
+        //删除资源相关的缓存，因为用户是根据角色而绑定的资源权限
         umsAdminCacheService.delResourceListByRoleIds(ids);
-        //还要删除角色菜单关系表数据
-        QueryWrapper<UmsRoleMenuRelation> queryWrapper1 = new QueryWrapper<>();
-        queryWrapper1.lambda().in(UmsRoleMenuRelation::getRoleId, ids);
-        umsRoleMenuRelationService.remove(queryWrapper1);
+        //删除用户角色关系表数据
+        QueryWrapper<UmsAdminRoleRelation> qw1 = new QueryWrapper<>();
+        qw1.lambda().in(UmsAdminRoleRelation::getRoleId, ids);
+        umsAdminRoleRelationService.remove(qw1);
+        //删除角色菜单关系表数据
+        QueryWrapper<UmsRoleMenuRelation> qw2 = new QueryWrapper<>();
+        qw2.lambda().in(UmsRoleMenuRelation::getRoleId, ids);
+        umsRoleMenuRelationService.remove(qw2);
         //删除角色资源关系表数据
-        QueryWrapper<UmsRoleResourceRelation> queryWrapper2 = new QueryWrapper<>();
-        queryWrapper2.lambda().in(UmsRoleResourceRelation::getRoleId, ids);
-        umsRoleResourceRelationService.remove(queryWrapper2);
+        QueryWrapper<UmsRoleResourceRelation> qw3 = new QueryWrapper<>();
+        qw3.lambda().in(UmsRoleResourceRelation::getRoleId, ids);
+        umsRoleResourceRelationService.remove(qw3);
         return success;
     }
 
@@ -102,6 +106,7 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
             relation.setMenuId(menuId);
             relations.add(relation);
         }
+        //批量插入
         umsRoleMenuRelationService.saveBatch(relations);
         return menuIds.size();
     }
@@ -120,7 +125,9 @@ public class UmsRoleServiceImpl extends ServiceImpl<UmsRoleMapper, UmsRole> impl
             relation.setResourceId(resourceId);
             relationList.add(relation);
         }
+        //批量插入
         umsRoleResourceRelationService.saveBatch(relationList);
+        //删除资源缓存
         umsAdminCacheService.delResourceListByRole(roleId);
         return resourceIds.size();
     }

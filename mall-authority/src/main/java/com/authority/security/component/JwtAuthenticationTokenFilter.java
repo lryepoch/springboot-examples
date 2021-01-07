@@ -21,7 +21,7 @@ import java.io.IOException;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:00
- * @description TODO JWT登录授权过滤器(发起请求：1)
+ * @description TODO JWT登录授权过滤器(发起请求：1)。 设置用户信息
  *                   使用的是OncePerRequestFilter，目的是为了保证每次request 只触发一次filter
  */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
@@ -41,23 +41,25 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader(this.tokenHeader);
 
         if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
-            // The part after "Bearer "
+            // authToken is the part after "Bearer "
             String authToken = authHeader.substring(this.tokenHead.length());
             String username = jwtTokenUtil.getUserNameFromToken(authToken);
-            LOGGER.info("从token中获取的用户名称为: {}", username);
+            LOGGER.info("1.从token中获取的用户名称为: {}", username);
 
-            //SecurityContextHolder.getContext().getAuthentication()检索身份验证对象，比缓存要快
+            //SecurityContextHolder.getContext().getAuthentication()读取身份验证对象（用户登录的时候设置好了），比缓存要快
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+
                 //判断token中的username和数据库中的username是否一致
                 if (jwtTokenUtil.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    LOGGER.info("从数据库、redis中获取/authenticated设置的用户名为: {}", userDetails.getUsername());
+                    LOGGER.info("1.在authenticationToken设置的用户名为: {}", userDetails.getUsername());
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 }
             }
         }
+        //将请求转发给过滤器链上的下一个对象。这里的下一个指的是下一个filter，如果没有filter那就是你请求的资源。 一般filter都是一个链
         filterChain.doFilter(request, response);
     }
 }

@@ -86,7 +86,7 @@ public class UmsAdminController {
 
     @ApiOperation(value = "获取当前登录用户信息")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public CommonResult getAdminInfo(Principal principal) {
+    public CommonResult getAdminInfo(Principal principal) {     //principal从AdminUserDetails读取信息
         if (principal == null) {
             return CommonResult.unauthorized(null);
         }
@@ -96,6 +96,7 @@ public class UmsAdminController {
         data.put("username", umsAdmin.getUsername());
         data.put("menus", umsRoleService.getMenuList(umsAdmin.getId()));
         data.put("icon", umsAdmin.getIcon());
+        //获取用户拥有的角色
         List<UmsRole> roleList = umsAdminService.getRoleList(umsAdmin.getId());
         if (CollUtil.isNotEmpty(roleList)) {
             List<String> roles = roleList.stream().map(UmsRole::getName).collect(Collectors.toList());

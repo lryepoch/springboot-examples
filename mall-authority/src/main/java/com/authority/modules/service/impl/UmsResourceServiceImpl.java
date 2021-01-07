@@ -31,7 +31,7 @@ public class UmsResourceServiceImpl extends ServiceImpl<UmsResourceMapper, UmsRe
     @Override
     public boolean create(UmsResource umsResource) {
         umsResource.setCreateTime(new Date());
-        //
+        //当前资源新建的，不涉及到用户的使用，所以无需删除资源缓存
         return save(umsResource);
     }
 

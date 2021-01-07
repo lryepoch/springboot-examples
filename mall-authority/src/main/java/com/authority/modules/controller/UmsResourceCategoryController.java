@@ -59,7 +59,7 @@ public class UmsResourceCategoryController {
 
     @ApiOperation("根据ID删除后台资源")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-    public CommonResult delete(@PathVariable Long id){
+    public CommonResult delete(@PathVariable Long id) {
         boolean success = umsResourceCategoryService.removeById(id);
         if (success) {
             return CommonResult.success(null);

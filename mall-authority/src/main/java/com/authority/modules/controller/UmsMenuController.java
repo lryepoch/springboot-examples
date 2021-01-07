@@ -5,7 +5,10 @@ import com.authority.common.domain.CommonPage;
 import com.authority.common.domain.CommonResult;
 import com.authority.modules.dto.UmsMenuNode;
 import com.authority.modules.entity.UmsMenu;
+import com.authority.modules.entity.UmsRoleMenuRelation;
 import com.authority.modules.service.UmsMenuService;
+import com.authority.modules.service.UmsRoleMenuRelationService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +31,8 @@ import java.util.List;
 public class UmsMenuController {
     @Autowired
     private UmsMenuService menuService;
+    @Autowired
+    private UmsRoleMenuRelationService umsRoleMenuRelationService;
 
     @ApiOperation("添加后台菜单")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -63,6 +68,10 @@ public class UmsMenuController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public CommonResult delete(@PathVariable Long id) {
         boolean success = menuService.removeById(id);
+        //删除角色菜单关系表数据
+        QueryWrapper<UmsRoleMenuRelation> wrapper = new QueryWrapper<>();
+        wrapper.lambda().eq(UmsRoleMenuRelation::getMenuId, id);
+        umsRoleMenuRelationService.remove(wrapper);
         if (success) {
             return CommonResult.success(null);
         } else {
