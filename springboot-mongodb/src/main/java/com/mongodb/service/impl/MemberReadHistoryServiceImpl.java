@@ -1,12 +1,10 @@
 package com.mongodb.service.impl;
 
-import com.mongodb.dao.MemberReadHistoryMapper;
+import com.mongodb.dao.MemberReadHistoryRepository;
 import com.mongodb.entity.MemberReadHistory;
 import com.mongodb.service.MemberReadHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,8 +20,11 @@ import java.util.List;
 @Service
 public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
     @Autowired
-    private MemberReadHistoryMapper memberReadHistoryMapper;
+    private MemberReadHistoryRepository memberReadHistoryRepository;
 
+    /**
+    * 第二种方法：MongoTemplate操作mongodb
+    */
     @Resource
     private MongoTemplate mongoTemplate;
 
@@ -31,7 +32,7 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
     public int create(MemberReadHistory memberReadHistory) {
         memberReadHistory.setId(null);
         memberReadHistory.setCreateTime(new Date());
-        MemberReadHistory save = memberReadHistoryMapper.save(memberReadHistory);
+        MemberReadHistory save = memberReadHistoryRepository.save(memberReadHistory);
 
 //        MemberReadHistory save1 = mongoTemplate.save(memberReadHistory);
 
@@ -46,7 +47,7 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
             memberReadHistory.setId(id);
             deleteList.add(memberReadHistory);
         }
-        memberReadHistoryMapper.deleteAll(deleteList);
+        memberReadHistoryRepository.deleteAll(deleteList);
 
 //        mongoTemplate.remove();
 
@@ -55,7 +56,7 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
 
     @Override
     public List<MemberReadHistory> list(Long memberId) {
-        List<MemberReadHistory> list = memberReadHistoryMapper.findByMemberIdOrderByCreateTimeDesc(memberId);
+        List<MemberReadHistory> list = memberReadHistoryRepository.findByMemberIdOrderByCreateTimeDesc(memberId);
 
 //        Query query = new Query(Criteria.where("memberId").is(memberId));
 //        MemberReadHistory list = mongoTemplate.findOne(query, MemberReadHistory.class);

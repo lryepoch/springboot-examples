@@ -10,7 +10,7 @@ import java.util.List;
  * @CreateDate 2020/12/20 15:54
  * @Description dao
  */
-public interface MemberReadHistoryMapper extends MongoRepository<MemberReadHistory, String> {
+public interface MemberReadHistoryRepository extends MongoRepository<MemberReadHistory, String> {
     /**
      * @author lryepoch
      * @date 2020/12/20 15:31

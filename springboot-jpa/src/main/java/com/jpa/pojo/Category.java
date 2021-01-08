@@ -1,4 +1,4 @@
-package com.springboot.jpa.pojo;
+package com.jpa.pojo;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -19,4 +19,5 @@ public class Category implements Serializable {
 
 	@Column(name = "description")
 	private String description;
+
 }

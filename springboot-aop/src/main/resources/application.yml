@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: INFO
+    com.aop.dao: DEBUG
+  file:
+    name: D:/logs/springboot-aop.log

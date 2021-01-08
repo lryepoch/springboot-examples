@@ -4,6 +4,7 @@ spring:
       host: 127.0.0.1
       port: 27017
       database: mall-port
+#      uri: mongodb://xiongneng:123456@localhost:27017/test  #配置数据库的账号和密码
 logging:
   level:
     #com.listenrobot.common.http.filter.HttpLoggingFilter: DEBUG

@@ -5,6 +5,6 @@ spring:
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
-      hibernate:
-        ddl-auto: update      #第一次建表用create，之后用update
-      show-sql: true        #在控制台打印sql
+    hibernate:
+      ddl-auto: update      #第一次建表用create，之后用update
+    show-sql: true        #在控制台打印sql

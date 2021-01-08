@@ -1,6 +1,6 @@
-package com.springboot.jpa.controller;
-import com.springboot.jpa.dao.CategoryDAO;
-import com.springboot.jpa.pojo.Category;
+package com.jpa.controller;
+import com.jpa.dao.CategoryDAO;
+import com.jpa.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -1,6 +1,6 @@
-package com.springboot.jpa.dao;
+package com.jpa.dao;
 
-import com.springboot.jpa.pojo.Category;
+import com.jpa.pojo.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * @author lryepoch
