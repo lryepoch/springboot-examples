@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author lryepoch
  * @date 2020/5/20 19:13
- * @description TODO 编写工具类SpringContextUtils以实例化UserService
+ * @description TODO 编写工具类SpringContextUtils以实例化UserService、PermissionService等Bean
  */
 @Component
 public class SpringContextUtils implements ApplicationContextAware {
