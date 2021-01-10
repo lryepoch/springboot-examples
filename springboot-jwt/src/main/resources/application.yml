@@ -1,0 +1,8 @@
+server:
+  port: 8085
+logging:
+  level:
+    ROOT: INFO
+    com:
+      jwt: DEBUG
+#  file: D:/logs/pos-api.log
