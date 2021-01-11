@@ -26,12 +26,11 @@ public class LoginController {
     @Resource
     private ManagerInfoService managerInfoService;
 
-    private static final Logger _logger = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @PostMapping("/login")
-    public BaseResponse<String> login(@RequestHeader(name="Content-Type", defaultValue = "application/json") String contentType,
-                                      @RequestBody LoginParam loginParam) {
-        _logger.info("用户请求登录获取Token");
+    public BaseResponse<String> login(@RequestBody LoginParam loginParam) {
+        logger.info("用户请求登录获取Token");
         String username = loginParam.getUsername();
         String password = loginParam.getPassword();
         ManagerInfo user = managerInfoService.findByUsername(username);
@@ -39,9 +38,14 @@ public class LoginController {
         String salt = user.getSalt();
         //原密码加密（通过username + salt作为盐）
         String encodedPassword = ShiroKit.md5(password, username + salt);
+        logger.info("用户输入密码："+password);
+        logger.info("username + salt作为盐: "+username + salt);
+        logger.info("加密后密码: "+encodedPassword);
         if (user.getPassword().equals(encodedPassword)) {
+            logger.info("正常，则返回token");
             return new BaseResponse<>(true, "Login success", JWTUtil.sign(username, encodedPassword));
         } else {
+            logger.info("不正常，则抛出异常");
             throw new UnauthorizedException();
         }
     }

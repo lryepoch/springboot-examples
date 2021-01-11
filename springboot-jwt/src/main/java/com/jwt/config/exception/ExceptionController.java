@@ -27,7 +27,7 @@ public class ExceptionController {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(UnauthorizedException.class)
     public BaseResponse handle401() {
-        return new BaseResponse<>(false, "UnauthorizedException", null);
+        return new BaseResponse<>(false, "未授权", null);
     }
 
     // 捕捉其他所有异常

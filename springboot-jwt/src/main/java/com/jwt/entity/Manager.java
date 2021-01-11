@@ -5,12 +5,8 @@ import java.util.Date;
 
 /**
  * 后台管理用户表
- *
- * @author 熊能
- * @version 1.0
- * @since 2018/01/02
  */
-public class Manager {
+public class Manager implements Serializable{
 
     private static final long serialVersionUID = 1L;
 

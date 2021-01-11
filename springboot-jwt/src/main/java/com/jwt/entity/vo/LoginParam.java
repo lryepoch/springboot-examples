@@ -2,10 +2,6 @@ package com.jwt.entity.vo;
 
 /**
  * 登录认证接口参数
- *
- * @author XiongNeng
- * @version 1.0
- * @since 2018/1/9
  */
 public class LoginParam {
     /**

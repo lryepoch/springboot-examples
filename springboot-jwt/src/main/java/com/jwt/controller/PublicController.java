@@ -1,13 +1,12 @@
 package com.jwt.controller;
 
+import com.jwt.config.ShiroKit;
 import com.jwt.config.model.BaseResponse;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 机具管理API接口类
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api/v1")
 public class PublicController {
 
-    private static final Logger _logger = LoggerFactory.getLogger(PublicController.class);
+    private static final Logger logger = LoggerFactory.getLogger(PublicController.class);
 
     /**
      * 入网绑定查询接口
@@ -25,10 +24,13 @@ public class PublicController {
      *
      * @RequiresAuthentication 验证用户是否登录，等同于方法subject.isAuthenticated() 结果为true时。
      */
-    @RequestMapping(value = "/join", method = RequestMethod.GET)
-    @RequiresAuthentication
-    public BaseResponse join(@RequestParam("imei") String imei) {
-        _logger.info("入网查询接口 start... imei=" + imei);
+    @GetMapping(value = "/join")
+//    @RequiresAuthentication
+    public BaseResponse join() {
+        if (ShiroKit.notAuthenticated()){
+            throw new UnauthorizedException();
+        }
+        logger.info("入网查询接口……");
         BaseResponse result = new BaseResponse();
         result.setSuccess(true);
         result.setMsg("已入网并绑定了网点");

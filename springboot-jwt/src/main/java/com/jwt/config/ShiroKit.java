@@ -21,9 +21,9 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 
 /**
- * shiro工具类
- *
- * @author dafei, Chill Zhuang
+ * @author lryepoch
+ * @date 2021/1/11 13:49
+ * @description shiro工具类
  */
 public class ShiroKit {
 
@@ -77,8 +77,7 @@ public class ShiroKit {
      * @return 属于该角色：true，否则false
      */
     public static boolean hasRole(String roleName) {
-        return getSubject() != null && roleName != null
-                && roleName.length() > 0 && getSubject().hasRole(roleName);
+        return getSubject() != null && roleName != null && roleName.length() > 0 && getSubject().hasRole(roleName);
     }
 
     /**
@@ -118,9 +117,7 @@ public class ShiroKit {
      * @return 拥有权限：true，否则false
      */
     public static boolean hasPermission(String permission) {
-        return getSubject() != null && permission != null
-                && permission.length() > 0
-                && getSubject().isPermitted(permission);
+        return getSubject() != null && permission != null && permission.length() > 0 && getSubject().isPermitted(permission);
     }
 
     /**

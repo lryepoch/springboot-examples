@@ -9,6 +9,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
+/**
+ * @author lryepoch
+ * @date 2021/1/11 13:49
+ * @description jwt工具类
+ */
 public class JWTUtil {
 
     private static final Logger log = LoggerFactory.getLogger(JWTUtil.class);
@@ -45,12 +50,14 @@ public class JWTUtil {
         JWTVerifier verifier = JWT.require(algorithm)
                 .withClaim("username", username)
                 .build();
+        //如果出错抛出JWTVerificationException，否则返回true
         DecodedJWT jwt = verifier.verify(token);
+        log.info("校验token是否正确, jwt: {}", jwt);
         return true;
     }
 
     /**
-     * 获得token中的信息无需secret解密也能获得
+     * 获得token中的信息，无需secret解密也能获得
      *
      * @return token中包含的用户名
      */

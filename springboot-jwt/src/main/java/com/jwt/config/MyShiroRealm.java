@@ -18,12 +18,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Description  : 身份校验核心类
+ * @author lryepoch
+ * @date 2021/1/11 13:49
+ * @description 自定义realm
  */
-
 public class MyShiroRealm extends AuthorizingRealm {
 
-    private static final Logger _logger = LoggerFactory.getLogger(MyShiroRealm.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyShiroRealm.class);
 
     @Autowired
     ManagerInfoService managerInfoService;
@@ -52,7 +53,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken auth)
             throws AuthenticationException {
-        _logger.info("MyShiroRealm.doGetAuthenticationInfo()");
+        logger.info("登录认证->MyShiroRealm.doGetAuthenticationInfo()");
 
         String token = (String) auth.getCredentials();
         // 解密获得username，用于和数据库进行对比
@@ -72,7 +73,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (!JWTUtil.verify(token, username, managerInfo.getPassword())) {
             throw new AuthenticationException("Token认证失败");
         }
-
+        logger.info("token: {}", token);
         return new SimpleAuthenticationInfo(token, token, "my_realm");
     }
 
@@ -98,7 +99,7 @@ public class MyShiroRealm extends AuthorizingRealm {
          * 当放到缓存中时，这样的话，doGetAuthorizationInfo就只会执行一次了，
          * 缓存过期之后会再次执行。
          */
-        _logger.info("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
+        logger.info("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
         String username = JWTUtil.getUsername(principals.toString());
 
         // 下面的可以使用缓存提升速度
@@ -108,9 +109,11 @@ public class MyShiroRealm extends AuthorizingRealm {
 
         //设置相应角色的权限信息
         for (SysRole role : managerInfo.getRoles()) {
+            logger.info("role: {}",role);
             //设置角色
             authorizationInfo.addRole(role.getRole());
             for (Permission p : role.getPermissions()) {
+                logger.info("permission: {}",p);
                 //设置权限
                 authorizationInfo.addStringPermission(p.getPermission());
             }

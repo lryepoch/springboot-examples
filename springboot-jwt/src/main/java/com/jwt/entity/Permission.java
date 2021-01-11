@@ -5,12 +5,8 @@ import java.util.Date;
 
 /**
  * 权限表
- *
- * @author 熊能
- * @version 1.0
- * @since 2018/01/02
  */
-public class Permission {
+public class Permission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

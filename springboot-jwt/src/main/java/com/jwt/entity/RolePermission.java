@@ -5,12 +5,8 @@ import java.util.Date;
 
 /**
  * 角色权限关联表
- *
- * @author 熊能
- * @version 1.0
- * @since 2018/01/02
  */
-public class RolePermission {
+public class RolePermission implements Serializable{
 
     private static final long serialVersionUID = 1L;
 

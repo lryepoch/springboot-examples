@@ -7,6 +7,7 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -16,10 +17,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Description  : Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。
- * 既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
+ * @Description: Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。
+ *              既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
  */
-
 @Configuration
 @Order(1)
 public class ShiroConfig {
@@ -64,10 +64,6 @@ public class ShiroConfig {
         // 其他的
         filterChainDefinitionMap.put("/**", "jwt");
 
-        // 访问401和404页面不通过我们的Filter
-        filterChainDefinitionMap.put("/401", "anon");
-        filterChainDefinitionMap.put("/404", "anon");
-
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
@@ -75,7 +71,7 @@ public class ShiroConfig {
     @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        // 设置realm.
+        //设置realm
         securityManager.setRealm(myShiroRealm());
         //注入缓存管理器
         securityManager.setCacheManager(ehCacheManager());
@@ -102,19 +98,6 @@ public class ShiroConfig {
     }
 
     /**
-     * 开启shiro aop注解支持. 使用代理方式; 所以需要开启代码支持;
-     *
-     * @param securityManager 安全管理器
-     * @return 授权Advisor
-     */
-    @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
-        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
-        return authorizationAttributeSourceAdvisor;
-    }
-
-    /**
      * shiro缓存管理器;
      * 需要注入对应的其它的实体类中：
      * 1、安全管理器：securityManager
@@ -127,6 +110,26 @@ public class ShiroConfig {
         EhCacheManager cacheManager = new EhCacheManager();
         cacheManager.setCacheManagerConfigFile("classpath:ehcache.xml");
         return cacheManager;
+    }
+
+    /**
+     * 开启shiro aop注解支持. 使用代理方式; 所以需要开启代码支持;
+     *
+     * @param securityManager 安全管理器
+     * @return 授权Advisor
+     */
+    @Bean
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
+        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+        return authorizationAttributeSourceAdvisor;
+    }
+
+    @Bean
+    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
+        advisorAutoProxyCreator.setProxyTargetClass(true);
+        return advisorAutoProxyCreator;
     }
 
 }

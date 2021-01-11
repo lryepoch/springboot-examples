@@ -34,9 +34,6 @@ public class ManagerInfo extends Manager implements Serializable {
      */
     private List<SysRole> roles;// 一个用户具有多个角色
 
-    public ManagerInfo() {
-    }
-
     public List<SysRole> getRoles() {
         return roles;
     }
@@ -52,11 +49,15 @@ public class ManagerInfo extends Manager implements Serializable {
         return getUsername() + getSalt();
     }
 
+    public ManagerInfo() {
+    }
+
     @Override
     public String toString() {
         return "username:" + getUsername() + "|name=" + getName();
     }
 
+    /*setter and getter*/
     public String getStateStr() {
         return stateStr;
     }
