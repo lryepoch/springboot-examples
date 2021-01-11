@@ -1,5 +1,6 @@
-package com.thymeleaf.config;
+package com.thymeleaf.config.filter;
 
+import com.thymeleaf.config.ApplicationContextUtil;
 import com.thymeleaf.service.PermissionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -8,6 +9,7 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.thymeleaf.spring5.context.SpringContextUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -21,14 +23,14 @@ import java.util.Set;
 @Slf4j
 public class URLPathMatchingFilter extends PathMatchingFilter {
 
-    @Autowired
-    PermissionService permissionService;
+    //    @Autowired
+    private PermissionService permissionService;
 
     @Override
     protected boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
         log.info("进入PathMatchingFilter->onPreHandle……");
         if (null == permissionService) {
-            permissionService = SpringContextUtils.getContext().getBean(PermissionService.class);
+            permissionService = ApplicationContextUtil.getBean(PermissionService.class);
         }
         String requestURI = getPathWithinApplication(request);
         log.info("当前请求的URL: {}", requestURI);

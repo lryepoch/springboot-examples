@@ -40,9 +40,10 @@ public class MyShiroRealm extends AuthorizingRealm {
      * SecurityUtils.getSubject().isPermitted（）这个方法，
      * 授权后用户角色及权限会保存在缓存中的
      *
-     * @param principals
-     * @return
-     * @RequiresPermissions这个注解起始就是在执行SecurityUtils.getSubject().isPermitted（）
+     * @RequiresPermissions 等同于执行SecurityUtils.getSubject().isPermitted（）
+     * @RequiresAuthentication 验证用户是否登录，等同于方法subject.isAuthenticated() ，它们都会回调doGetAuthorizationInfo()方法
+     *
+     *
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {

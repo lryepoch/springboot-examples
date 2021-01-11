@@ -1,4 +1,4 @@
-package com.thymeleaf.config;
+package com.thymeleaf.config.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.subject.Subject;
@@ -19,13 +19,17 @@ public class RolesFilter extends AuthorizationFilter {
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         log.info("进入角色查询拦截器……");
         Subject subject = getSubject(request, response);
+        log.info("subject：{}", subject);
         String[] rolesArray = (String[]) mappedValue;
-        log.info("rolesArray：{}", rolesArray);
+        for (String role : rolesArray) {
+            log.info("rolesArray：{}", role);
+        }
 
-        if (rolesArray == null || rolesArray.length == 0) { //没有角色限制，有权限访问
+        if (rolesArray == null || rolesArray.length == 0) { //没有角色限制，有访问权限
             return true;
         }
         for (int i = 0; i < rolesArray.length; i++) {
+            log.info("当前用户是否拥有当前访问权限的角色：{}", subject.hasRole(rolesArray[i]));
             if (subject.hasRole(rolesArray[i])) { //若当前用户是rolesArray中的任何一个，则有权限访问
                 return true;
             }

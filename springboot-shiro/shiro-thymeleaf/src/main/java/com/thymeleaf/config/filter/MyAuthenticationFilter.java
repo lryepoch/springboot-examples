@@ -1,18 +1,21 @@
-package com.thymeleaf.config;
+package com.thymeleaf.config.filter;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 
 /**
  * @Author lryepoch
  * @CreateDate 2021/1/2 18:26
- * @Description 未登录过滤器，重写方法为【跨域的预检访问】放行
+ * @Description 未登录过滤器，重写方法为【跨域的预检访问】放行（参考）
  */
 public class MyAuthenticationFilter extends FormAuthenticationFilter {
 
@@ -46,32 +49,33 @@ public class MyAuthenticationFilter extends FormAuthenticationFilter {
              * 这就需要我们抓取这条访问，然后给他通过，否则只要是跨域的访问都会因为未登录或缺少权限而被拦截
              * （如果重写了isAccessAllowed，就无需下面的判断）
              */
-//			if (req.getMethod().equals(RequestMethod.OPTIONS.name())) {
-//				resp.setStatus(HttpStatus.OK.value());
-//				return true;
-//			}
+            if (req.getMethod().equals(RequestMethod.OPTIONS.name())) {
+                resp.setStatus(HttpStatus.OK.value());
+                return true;
+            }
+
             /*
              * 跨域的第二次请求就是普通情况的request了，在这对他进行拦截
              */
-//            String ajaxHeader = req.getHeader(CustomSessionManager.AUTHORIZATION);
-//            if (StringUtils.isNotBlank(ajaxHeader)) {
-//                // 前端Ajax请求，则不会重定向
-//                resp.setHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
-//                resp.setHeader("Access-Control-Allow-Credentials", "true");
-//                resp.setContentType("application/json; charset=utf-8");
-//                resp.setCharacterEncoding("UTF-8");
-//                resp.setStatus(HttpStatus.UNAUTHORIZED.value());//设置未登录状态码
-//                PrintWriter out = resp.getWriter();
-////				Map<String, String> result = new HashMap<>();
-////				result.put("MESSAGE", "未登录用户");
-//                String result = "{\"MESSAGE\":\"未登录用户\"}";
-//                out.println(result);
-//                out.flush();
-//                out.close();
-//            } else {
-//                // == 如果是普通访问重定向至shiro配置的登录页面 == //
-//                saveRequestAndRedirectToLogin(request, response);
-//            }
+            String ajaxHeader = req.getHeader("CustomSessionManager.AUTHORIZATION");
+            if (StringUtils.isNotBlank(ajaxHeader)) {
+                // 前端Ajax请求，则不会重定向
+                resp.setHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
+                resp.setHeader("Access-Control-Allow-Credentials", "true");
+                resp.setContentType("application/json; charset=utf-8");
+                resp.setCharacterEncoding("UTF-8");
+                resp.setStatus(HttpStatus.UNAUTHORIZED.value());//设置未登录状态码
+                PrintWriter out = resp.getWriter();
+//				Map<String, String> result = new HashMap<>();
+//				result.put("MESSAGE", "未登录用户");
+                String result = "{\"MESSAGE\":\"未登录用户\"}";
+                out.println(result);
+                out.flush();
+                out.close();
+            } else {
+                // == 如果是普通访问重定向至shiro配置的登录页面 == //
+                saveRequestAndRedirectToLogin(request, response);
+            }
         }
         return false;
     }

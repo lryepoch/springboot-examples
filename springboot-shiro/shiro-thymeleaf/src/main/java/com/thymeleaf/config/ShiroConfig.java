@@ -1,16 +1,17 @@
 package com.thymeleaf.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.thymeleaf.config.filter.RolesFilter;
+import com.thymeleaf.config.filter.URLPathMatchingFilter;
 import com.thymeleaf.entity.User;
-import com.thymeleaf.service.PermissionService;
+import com.thymeleaf.entity.UserExample;
+import com.thymeleaf.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
-import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.mgt.SecurityManager;
@@ -23,13 +24,12 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -41,6 +41,19 @@ import java.util.Map;
 @Configuration
 @Slf4j
 public class ShiroConfig {
+
+//    @Autowired
+//    private UserMapper userMapper;
+
+
+//    @PostConstruct
+//    public void init() {
+//        UserExample userExample = new UserExample();
+//        userExample.or().andNameEqualTo("zhang3");
+//        List<User> users = userMapper.selectByExample(userExample);
+//        salt1 = users.get(0).getSalt();
+//        log.info("从数据库查询出来的盐值：" + salt1);
+//    }
 
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
@@ -85,19 +98,15 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/doLogout", "logout");
 
 
-//      /* 自定义filter注册，跨域访问导致shiro拦截失效的问题 */
-        //1.此种方式有问题！
-//        Map<String, Filter> filterMap = new LinkedHashMap<>();
-//        filterMap.put("rolesFilter", new RolesFilter());
-//        shiroFilterFactoryBean.setFilters(filterMap);
-
-//      //2.此种方式有问题！！！
-        filterChainDefinitionMap.put("/listProduct", "roles[productManager]");
-        filterChainDefinitionMap.put("/listProduct", "roles[admin]");
-
-        filterChainDefinitionMap.put("/deleteProduct", "roles[admin]");
-        filterChainDefinitionMap.put("/deleteProduct", "roles[productManager]");
-        filterChainDefinitionMap.put("/deleteOrder", "roles[admin]");
+//      /* 自定义filter注册 */
+        /*角色拦截器，回调了doGetAuthorizationInfo()方法*/
+        Map<String, Filter> filterMap = new LinkedHashMap<>();
+        filterMap.put("rolesOr", roleFilter());
+        shiroFilterFactoryBean.setFilters(filterMap);
+        //由于Shiro filterChainDefinitions中 roles默认是and。比如：roles[system,general] ，表示同时需要“system”和“general” 2个角色（权限）才通过认证，缺一不可。
+        filterChainDefinitionMap.put("/listProduct", "authc, rolesOr[admin,productManager]");
+        filterChainDefinitionMap.put("/deleteProduct", "authc, rolesOr[productManager,admin]");
+        filterChainDefinitionMap.put("/deleteOrder", "authc, rolesOr[admin]");
 
 
 //      /* 拦截器中注册所有的权限 */
@@ -109,7 +118,7 @@ public class ShiroConfig {
 //        filterChainDefinitionMap.put("/deleteProduct","perms[deleteProduct]");
 //        filterChainDefinitionMap.put("/deleteOrder","perms[deleteOrder]");
 
-//      //2.此种方式正常，但是没有调用doGetAuthorizationInfo。还要注释掉下面的 filterChainDefinitionMap.put("/**", "authc");
+//      //2.此种方式正常，但是回调doGetAuthorizationInfo()方法。还要注释掉下面的 filterChainDefinitionMap.put("/**", "authc");
 //        Map<String, Filter> customisedFilter = new HashMap<>();
 //        customisedFilter.put("url", getURLPathMatchingFilter());
 //        shiroFilterFactoryBean.setFilters(customisedFilter);
@@ -121,6 +130,10 @@ public class ShiroConfig {
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
+    }
+
+    public RolesFilter roleFilter() {
+        return new RolesFilter();
     }
 
     public URLPathMatchingFilter getURLPathMatchingFilter() {
@@ -195,12 +208,12 @@ public class ShiroConfig {
 //        myShiroRealm.setAuthorizationCachingEnabled(true);
 //        //缓存AuthorizationInfo信息的缓存名称, 在ehcache-shiro.xml中有对应缓存的配置
 //        myShiroRealm.setAuthorizationCacheName("authorizationCache");
-        myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
+        myShiroRealm.setCredentialsMatcher(new CredentialsMatcher());
         return myShiroRealm;
     }
 
     /**
-     * 凭证匹配器
+     * 凭证匹配器1
      * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理，所以我们需要修改下doGetAuthenticationInfo中的代码）
      */
     @Bean
@@ -215,26 +228,41 @@ public class ShiroConfig {
         return hashedCredentialsMatcher;
     }
 
-    //自定义密码比较器 new CredentialsMatcher()
+    /**
+     * 凭证匹配器2，自定义密码比较器 new CredentialsMatcher()
+     */
     public class CredentialsMatcher extends SimpleCredentialsMatcher {
         @Override
         public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
             UsernamePasswordToken usertoken = (UsernamePasswordToken) token;
-            //所需加密的参数，即用户输入的密码
-            String source = String.valueOf(usertoken.getPassword());
-            log.info("用户输入的密码:{}", source);
+
+            UserExample userExample = new UserExample();
+            userExample.or().andNameEqualTo(usertoken.getUsername());
+            //注意getBean(String s) bean在spring中对象名小写开头
+            List<User> users = ((UserMapper)ApplicationContextUtil.getBean("userMapper")).selectByExample(userExample);
             //[盐] 一般为用户名或随机数
-            String salt = usertoken.getUsername();
-            log.info("salt值:{}", salt);
+            String salt = users.get(0).getSalt();
+            log.info("==从数据库查询出来的盐值==：" + salt);
+
+            //所需加密的参数，即用户输入的密码
+            String password = String.valueOf(usertoken.getPassword());
+            log.info("用户输入的密码:{}", password);
+
             //加密次数
             int hashIterations = 2;
-            SimpleHash sh = new SimpleHash("md5", source, salt, hashIterations);
+            SimpleHash sh = new SimpleHash("md5", password, salt, hashIterations);
             String Strsh = sh.toHex();
             //打印最终结果
             log.info("加密后的密码：" + Strsh);
+
             //获得数据库中的密码
+//            其中info.getCredentials()获取到的值为MyRealm中doGetAuthenticationInfo方法
+//            SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(user,
+//                    user.getPassword(),this.getClass().getName());
+//            传入的user.getPassword.
             String dbPassword = (String) getCredentials(info);
             log.info("而数据库中密码：" + dbPassword);
+
             //进行密码的比对
             return this.equals(Strsh, dbPassword);
         }
@@ -253,7 +281,7 @@ public class ShiroConfig {
 
     /**
      * Spring的一个bean，由Advisor决定对哪些类的方法进行AOP代理
-     *
+     * <p>
      * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
      * 配置以下两个bean(DefaultAdvisorAutoProxyCreator 和 AuthorizationAttributeSourceAdvisor)即可实现此功能
      *
@@ -268,9 +296,9 @@ public class ShiroConfig {
 
     /**
      * 开启aop注解支持
-     *
+     * <p>
      * 启动Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
-     *
+     * <p>
      * 配置以下两个bean(DefaultAdvisorAutoProxyCreator和AuthorizationAttributeSourceAdvisor)即可实现此功能
      *
      * @param securityManager
@@ -284,8 +312,8 @@ public class ShiroConfig {
     }
 
     /**
-    * session
-    */
+     * session
+     */
     @Bean(name = "sessionManager")
     public DefaultWebSessionManager defaultWebSessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
