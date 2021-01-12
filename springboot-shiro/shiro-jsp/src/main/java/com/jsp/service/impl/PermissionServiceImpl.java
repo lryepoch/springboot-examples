@@ -9,6 +9,7 @@ import com.jsp.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,13 +22,13 @@ import java.util.Set;
  */
 @Service
 public class PermissionServiceImpl implements PermissionService {
-    @Autowired
+    @Resource
     private PermissionMapper permissionMapper;
-    @Autowired
+    @Resource
     private RoleService roleService;
-    @Autowired
+    @Resource
     private RoleMapper roleMapper;
-    @Autowired
+    @Resource
     private RolePermissionMapper rolePermissionMapper;
 
     @Override
@@ -77,5 +78,35 @@ public class PermissionServiceImpl implements PermissionService {
             }
         }
         return result;
+    }
+
+    @Override
+    public List<Permission> list() {
+        return null;
+    }
+
+    @Override
+    public Permission get(long id) {
+        return null;
+    }
+
+    @Override
+    public void update(Permission permission) {
+
+    }
+
+    @Override
+    public void add(Permission permission) {
+
+    }
+
+    @Override
+    public void delete(long id) {
+
+    }
+
+    @Override
+    public List<Permission> list(Role role) {
+        return null;
     }
 }

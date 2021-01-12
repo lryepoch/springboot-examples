@@ -7,6 +7,7 @@ import com.jsp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     UserMapper userMapper;
 
     @Override
@@ -29,5 +30,30 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         return users.get(0);
+    }
+
+    @Override
+    public List<User> list() {
+        return null;
+    }
+
+    @Override
+    public User get(long id) {
+        return null;
+    }
+
+    @Override
+    public void delete(long id) {
+
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+
+    @Override
+    public void add(User u) {
+
     }
 }

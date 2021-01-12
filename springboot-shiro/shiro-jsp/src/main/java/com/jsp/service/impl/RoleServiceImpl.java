@@ -11,6 +11,7 @@ import com.jsp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,9 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
     @Autowired
     UserService userService;
-    @Autowired
+    @Resource
     UserRoleMapper userRoleMapper;
-    @Autowired
+    @Resource
     RoleMapper roleMapper;
 
     @Override
@@ -40,5 +41,35 @@ public class RoleServiceImpl implements RoleService {
             roles.add(role.getName());
         }
         return roles;
+    }
+
+    @Override
+    public List<Role> list() {
+        return null;
+    }
+
+    @Override
+    public Role get(long id) {
+        return null;
+    }
+
+    @Override
+    public void update(Role role) {
+
+    }
+
+    @Override
+    public void add(Role role) {
+
+    }
+
+    @Override
+    public void delete(long id) {
+
+    }
+
+    @Override
+    public List<Role> listRoles(User user) {
+        return null;
     }
 }

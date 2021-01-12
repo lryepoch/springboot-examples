@@ -1,5 +1,8 @@
 package com.jsp.service;
 
+import com.jsp.entity.Role;
+import com.jsp.entity.User;
+
 import java.util.List;
 
 /**
@@ -9,4 +12,16 @@ import java.util.List;
  */
 public interface RoleService {
     List<String> listRoleNames(String name);
+
+    List<Role> list();
+
+    Role get(long id);
+
+    void update(Role role);
+
+    void add(Role role);
+
+    void delete(long id);
+
+    List<Role> listRoles(User user);
 }
