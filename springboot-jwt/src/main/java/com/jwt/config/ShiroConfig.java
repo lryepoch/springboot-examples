@@ -18,7 +18,14 @@ import java.util.Map;
 
 /**
  * @Description: Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachServlet 来主控制一样。
- *              既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
+ * 既然是使用 Filter 一般也就能猜到，是通过URL规则来进行过滤和权限校验，所以我们需要定义一系列关于URL的规则和访问权限。
+ */
+
+/**
+ * @order，使用注解方式使bean的加载顺序得到控制
+ * @order(value=1)
+ * @order(value=2)
+ * 值越小，越先被加载。
  */
 @Configuration
 @Order(1)
