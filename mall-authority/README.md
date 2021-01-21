@@ -1,10 +1,4 @@
-# mall-tiny
-
-<p>
-<a href="#公众号"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-macrozheng-blue.svg" alt="公众号"></a>
-<a href="https://github.com/macrozheng/mall"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE-mall-blue.svg" alt="后台项目"></a>
-<a href="https://github.com/macrozheng/mall-admin-web"><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/badge/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE-mall--admin--web-green.svg" alt="前端项目"></a>
-</p>
+# mall-authority
 
 ## 简介
 
@@ -105,7 +99,7 @@ resources
 
 ### 项目运行
 
-直接运行启动类`MallTinyApplication`的`main`函数即可。
+直接运行启动类`AuthorityApplication`的`main`函数即可。
 
 ### 业务代码开发流程
 
@@ -271,7 +265,7 @@ public interface UmsMenuMapper extends BaseMapper<UmsMenu> {
 
 ### 项目部署
 
-mall-tiny已经集成了Docker插件，可以打包成Docker镜像来部署，具体参考：[使用Maven插件为SpringBoot应用构建Docker镜像](https://mp.weixin.qq.com/s/q2KDzHbPkf3Q0EY8qYjYgw)
+mall-authority已经集成了Docker插件，可以打包成Docker镜像来部署，具体参考：[使用Maven插件为SpringBoot应用构建Docker镜像](https://mp.weixin.qq.com/s/q2KDzHbPkf3Q0EY8qYjYgw)
 
 ### 其他说明
 
@@ -339,17 +333,3 @@ public class UmsAdminController {
     }
 }
 ```
-
-## 公众号
-
-mall项目全套学习教程连载中，关注公众号「**macrozheng**」第一时间获取。
-
-加微信群交流，公众号后台回复「**加群**」即可。
-
-![公众号图片](http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg)
-
-## 许可证
-
-[Apache License 2.0](https://github.com/macrozheng/mall-tiny/blob/master/LICENSE)
-
-Copyright (c) 2018-2020 macrozheng
