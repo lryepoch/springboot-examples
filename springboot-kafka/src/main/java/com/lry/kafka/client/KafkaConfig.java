@@ -27,9 +27,14 @@ public class KafkaConfig implements InitializingBean {
 
     public final String groupId = "group.01";
 
+    /**
+    * 消费者配置
+    */
     public Properties customerConfigs() {
         Properties props = new Properties();
+        //kafka集群的地址和端口
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
+        //消费者组id
         props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         //自动位移提交
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
@@ -39,16 +44,20 @@ public class KafkaConfig implements InitializingBean {
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 10000);
         //位移丢失和位移越界后的恢复起始位置
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-                StringDeserializer.class.getName());
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-                StringDeserializer.class.getName());
+        //key序列化
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        //value序列化
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 
         return props;
     }
 
+    /**
+    * 生产者配置
+    */
     public Properties producerConfigs() {
         Properties props = new Properties();
+        //kafka集群的地址和端口
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         //20M 消息缓存
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 20000000);
@@ -60,8 +69,11 @@ public class KafkaConfig implements InitializingBean {
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
         //生产者会在ProducerBatch被填满或者等待超过LINGER_MS_CONFIG时发送
         props.put(ProducerConfig.LINGER_MS_CONFIG, 1);
+        //key序列化
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+        //value序列化
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+        //发送producer的一个辨识id
         props.put(ProducerConfig.CLIENT_ID_CONFIG, "producer.client.id.demo");
 
         return props;

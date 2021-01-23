@@ -18,13 +18,15 @@ public class Kafka_Producer {
 
     public String topic = KafkaConfig.topic;
 
+    //注入自定义生产者
     @Resource
     KafkaProducer producer;
 
+    //可定义一个controller调用该方法
     public void producer() {
-
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, "hello, Kafka!");
         try {
+            //异步
             producer.send(record, new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception exception) {

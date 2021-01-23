@@ -28,7 +28,8 @@ public class Kafka_Consumer implements InitializingBean {
         //每个线程一个KafkaConsumer实例，且线程数设置成分区数，最大化提高消费能力
         int consumerThreadNum = 2;
         for (int i = 0; i < consumerThreadNum; i++) {
-            new KafkaConsumerThread(kafkaConfig.customerConfigs(), topic).start();
+            new KafkaConsumerThread(kafkaConfig.customerConfigs(), topic)
+                    .start();
         }
     }
 
