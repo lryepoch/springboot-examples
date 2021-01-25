@@ -19,8 +19,11 @@ spring:
       group-id: test-consumer-group     # 指定默认消费者group id
       auto-offset-reset: latest         #Kafka中没有初始偏移或如果当前偏移在服务器上不再存在时,默认区最新 ，有三个选项 【latest, earliest, none】
       enable-auto-commit: true          #是否开启自动提交
-      auto-commit-interval: 100         #自动提交的时间间隔
+      auto-commit-interval: 100         #提交偏移量的时间间隔，默认5000ms
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer          #消息key的解码方式
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer        #消息体的解码方式
 
 
+kafka:
+  broker:
+    list: 127.0.0.1:9092

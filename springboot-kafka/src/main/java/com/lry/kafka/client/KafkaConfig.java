@@ -1,5 +1,6 @@
 package com.lry.kafka.client;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -16,7 +17,13 @@ import java.util.Properties;
  * @author lryepoch
  * @date 2020/11/24 19:55
  * @description TODO 第二种方法：基于客户端实现
+ * <p>
+ * 总结：
+ * 1、Spring为bean提供了两种初始化bean的方式，实现InitializingBean接口，实现afterPropertiesSet方法，或者在配置文件中通过init-method指定，两种方式可以同时使用。
+ * 2、实现InitializingBean接口是直接调用afterPropertiesSet方法，比通过反射调用init-method指定的方法效率要高一点，但是init-method方式消除了对spring的依赖。
+ * 3、如果调用afterPropertiesSet方法时出错，则不调用init-method指定的方法。
  */
+@Slf4j
 @Configuration
 public class KafkaConfig implements InitializingBean {
 
@@ -27,9 +34,15 @@ public class KafkaConfig implements InitializingBean {
 
     public final String groupId = "group.01";
 
+    //集群认证文件
+//    static {
+//        System.setProperty("java.security.auth.login.config", "E:\\IdeaProjects\\springboot-kafka\\src\\main\\kerberos\\jaas.conf");
+//        System.setProperty("java.security.krb5.conf", "E:\\IdeaProjects\\springboot-kafka\\src\\main\\kerberos\\krb5.conf");
+//    }
+
     /**
-    * 消费者配置
-    */
+     * 消费者配置
+     */
     public Properties customerConfigs() {
         Properties props = new Properties();
         //kafka集群的地址和端口
@@ -44,17 +57,21 @@ public class KafkaConfig implements InitializingBean {
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 10000);
         //位移丢失和位移越界后的恢复起始位置
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
-        //key序列化
+        //key反序列化
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        //value序列化
+        //value反序列化
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        //ACK有三种：0；1；-1
+        props.put(ProducerConfig.ACKS_CONFIG, "1");
+//        props.put("security.protocol", "SASL_PLAINTEXT");
+//        props.put("sasl.kerberos.service.name", "kafka");
 
         return props;
     }
 
     /**
-    * 生产者配置
-    */
+     * 生产者配置
+     */
     public Properties producerConfigs() {
         Properties props = new Properties();
         //kafka集群的地址和端口
@@ -76,6 +93,9 @@ public class KafkaConfig implements InitializingBean {
         //发送producer的一个辨识id
         props.put(ProducerConfig.CLIENT_ID_CONFIG, "producer.client.id.demo");
 
+//        props.put("security.protocol", "SASL_PLAINTEXT");
+//        props.put("sasl.kerberos.service.name", "kafka");
+
         return props;
     }
 
@@ -87,5 +107,6 @@ public class KafkaConfig implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
+        log.info("这里是KafkaConfig类……");
     }
 }

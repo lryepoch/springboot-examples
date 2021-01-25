@@ -19,14 +19,14 @@ public class Producer {
 
     private static Gson gson = new GsonBuilder().create();
 
-    public void send() {
+    public void send(int key) {
         Message message = new Message();
         message.setId("kafka" + System.currentTimeMillis());
         message.setMsg(UUID.randomUUID().toString());
         message.setSendTime(new Date());
 
-        kafkaTemplate.send("test", System.currentTimeMillis() + "", gson.toJson(message));
-        log.info("==>发送消息【Id】：{}", message.getId());
+        log.info("==>发送消息:{}, {}", key, message);
+        kafkaTemplate.send("test", key + "", gson.toJson(message));
 
         try {
             Thread.sleep(1000);

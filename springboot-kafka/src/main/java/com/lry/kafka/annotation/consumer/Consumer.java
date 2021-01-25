@@ -20,7 +20,7 @@ public class Consumer {
             log.info("【**message**】:" + message);
         }
 
-        log.info("【**接收消息**】: offset:" + record.offset() + ",key:" + record.key() + ",value:" + record.value());
+        log.info("【**接收消息**】, offset:" + record.offset() + " , key:" + record.key() + " , value:" + record.value() + " , partition:" + record.partition());
 
     }
 }
