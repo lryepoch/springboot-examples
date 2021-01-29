@@ -111,9 +111,9 @@ public class ShiroConfig {
         // 注入Realm
         // 可以添加多个认证，执行顺序是有影响的
         securityManager.setRealm(getMyShiroRealm());
-//        // 自定义缓存实现 使用redis。redis需要序列化设置，否则出错。因此注释
-//        securityManager.setCacheManager(cacheManager());
-//        // 自定义session管理 使用redis
+        // 使用redis缓存权限信息，用户登录后，一次性授权，需要序列化设置否则出错
+        securityManager.setCacheManager(cacheManager());
+//        // 自定义session管理 使用redis ,由于在LoginController中使用到session需要序列化，但暂无解决方案
 //        securityManager.setSessionManager(sessionManager());
         //设置rememberMe管理器
         securityManager.setRememberMeManager(cookieRememberMeManager);
@@ -261,7 +261,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
 

@@ -3,18 +3,24 @@ package com.thymeleaf.config;
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.thymeleaf.config.filter.RolesFilter;
 import com.thymeleaf.config.filter.URLPathMatchingFilter;
+import com.thymeleaf.entity.Permission;
+import com.thymeleaf.entity.PermissionExample;
 import com.thymeleaf.entity.User;
 import com.thymeleaf.entity.UserExample;
+import com.thymeleaf.mapper.PermissionMapper;
 import com.thymeleaf.mapper.UserMapper;
+import com.thymeleaf.service.PermissionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.Realm;
 import org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -24,13 +30,12 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.Filter;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -40,13 +45,10 @@ import java.util.Map;
  */
 @Configuration
 @Slf4j
+//@AutoConfigureAfter(LifecycleBeanPostProcessor.class)
 public class ShiroConfig {
 
-//    @Autowired
-//    private UserMapper userMapper;
-
-
-//    @PostConstruct
+    //    @PostConstruct
 //    public void init() {
 //        UserExample userExample = new UserExample();
 //        userExample.or().andNameEqualTo("zhang3");
@@ -54,6 +56,10 @@ public class ShiroConfig {
 //        salt1 = users.get(0).getSalt();
 //        log.info("从数据库查询出来的盐值：" + salt1);
 //    }
+
+    @Autowired
+    PermissionService permissionService;
+
 
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
@@ -99,26 +105,29 @@ public class ShiroConfig {
 
 
 //      /* 自定义filter注册 */
-        /*角色拦截器，回调了doGetAuthorizationInfo()方法*/
-        Map<String, Filter> filterMap = new LinkedHashMap<>();
-        filterMap.put("rolesOr", roleFilter());
-        shiroFilterFactoryBean.setFilters(filterMap);
-        //由于Shiro filterChainDefinitions中 roles默认是and。比如：roles[system,general] ，表示同时需要“system”和“general” 2个角色（权限）才通过认证，缺一不可。
-        filterChainDefinitionMap.put("/listProduct", "authc, rolesOr[admin,productManager]");
-        filterChainDefinitionMap.put("/deleteProduct", "authc, rolesOr[productManager,admin]");
-        filterChainDefinitionMap.put("/deleteOrder", "authc, rolesOr[admin]");
+        /*1.角色拦截器，回调了doGetAuthorizationInfo()方法*/
+//        Map<String, Filter> filterMap = new LinkedHashMap<>();
+//        filterMap.put("rolesOr", roleFilter());
+//        shiroFilterFactoryBean.setFilters(filterMap);
+//        //由于Shiro filterChainDefinitions中 roles默认是and。比如：roles[system,general] ，表示同时需要“system”和“general” 2个角色（权限）才通过认证，缺一不可。
+//        filterChainDefinitionMap.put("/listProduct", "authc, rolesOr[admin,productManager]");
+//        filterChainDefinitionMap.put("/deleteProduct", "authc, rolesOr[productManager,admin]");
+//        filterChainDefinitionMap.put("/deleteOrder", "authc, rolesOr[admin]");
 
 
-//      /* 拦截器中注册所有的权限 */
-//        for (Permission permission : permissions) {
-//            filterChainDefinitionMap.put(permission.getUrl(), "perms[" + permission.getName() + "]");
-//        }
-//      //1.此种方式正常，调用了doGetAuthorizationInfo
+        /* 拦截器中注册所有的权限 */
+        //2.1.此种方式正常，调用了doGetAuthorizationInfo()方法
+        List<Permission> permissionList = permissionService.findAll();
+        for (Permission permission : permissionList) {
+            filterChainDefinitionMap.put(permission.getUrl(), "perms[" + permission.getName() + "]");
+            log.info("访问资源路径：" + permission.getUrl(), "需要权限：" + permission.getName());
+        }
+//      //2.2.此种方式正常，调用了doGetAuthorizationInfo()方法。设置了缓存，只打印一遍
 //        filterChainDefinitionMap.put("/listProduct","perms[listProduct]");
 //        filterChainDefinitionMap.put("/deleteProduct","perms[deleteProduct]");
 //        filterChainDefinitionMap.put("/deleteOrder","perms[deleteOrder]");
 
-//      //2.此种方式正常，但是回调doGetAuthorizationInfo()方法。还要注释掉下面的 filterChainDefinitionMap.put("/**", "authc");
+//      //3.此种方式正常，但是没有回调doGetAuthorizationInfo()方法。还要注释掉下面的 filterChainDefinitionMap.put("/**", "authc");
 //        Map<String, Filter> customisedFilter = new HashMap<>();
 //        customisedFilter.put("url", getURLPathMatchingFilter());
 //        shiroFilterFactoryBean.setFilters(customisedFilter);
@@ -145,8 +154,10 @@ public class ShiroConfig {
     public SecurityManager securityManager() {
         log.info("进入ShiroConfig->SecurityManager");
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        //设置realm
-        securityManager.setRealm(getMyShiroRealm());
+        //设置realm，可以添加多个
+        List<Realm> realms = new ArrayList<>();
+        realms.add(getMyShiroRealm());
+        securityManager.setRealms(realms);
         //自定义session管理
         securityManager.setSessionManager(defaultWebSessionManager());
         //注入缓存管理器，管理如用户、角色、权限等的缓存
@@ -208,6 +219,7 @@ public class ShiroConfig {
 //        myShiroRealm.setAuthorizationCachingEnabled(true);
 //        //缓存AuthorizationInfo信息的缓存名称, 在ehcache-shiro.xml中有对应缓存的配置
 //        myShiroRealm.setAuthorizationCacheName("authorizationCache");
+        //设置加密规则
         myShiroRealm.setCredentialsMatcher(new CredentialsMatcher());
         return myShiroRealm;
     }
@@ -239,7 +251,7 @@ public class ShiroConfig {
             UserExample userExample = new UserExample();
             userExample.or().andNameEqualTo(usertoken.getUsername());
             //注意getBean(String s) bean在spring中对象名小写开头
-            List<User> users = ((UserMapper)ApplicationContextUtil.getBean("userMapper")).selectByExample(userExample);
+            List<User> users = ((UserMapper) ApplicationContextUtil.getBean("userMapper")).selectByExample(userExample);
             //[盐] 一般为用户名或随机数
             String salt = users.get(0).getSalt();
             log.info("==从数据库查询出来的盐值==：" + salt);
@@ -269,13 +281,13 @@ public class ShiroConfig {
     }
 
     /**
-     * LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
-     * 负责org.apache.shiro.util.Initializable类型bean的生命周期的，初始化和销毁，主要是AuthorizingRealm类的子类，以及EhCacheManager类
+     * LifecycleBeanPostProcessor将Initializable和Destroyable的实现类统一在其内部自动分别调用了Initializable.init()
+     * 和Destroyable.destroy()方法，从而达到管理shiro bean生命周期的目的
      *
-     * @return
+     * 该方法注释掉或者加上static修饰，程序才不会出错！！！
      */
     @Bean
-    public LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
 

@@ -3,6 +3,7 @@ package com.jsp.service.impl;
 import com.jsp.entity.User;
 import com.jsp.entity.UserExample;
 import com.jsp.mapper.UserMapper;
+import com.jsp.service.UserRoleService;
 import com.jsp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     UserMapper userMapper;
+    @Resource
+    UserRoleService userRoleService;
 
     @Override
     public User findByUsername(String name) {
@@ -34,26 +37,29 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> list() {
-        return null;
+        UserExample example = new UserExample();
+        example.setOrderByClause("id desc");
+        return userMapper.selectByExample(example);
     }
 
     @Override
     public User get(long id) {
-        return null;
+        return userMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public void delete(long id) {
-
+        userMapper.deleteByPrimaryKey(id);
+        userRoleService.deleteByUser(id);
     }
 
     @Override
     public void update(User user) {
-
+        userMapper.updateByPrimaryKeySelective(user);
     }
 
     @Override
-    public void add(User u) {
-
+    public void add(User user) {
+        userMapper.insert(user);
     }
 }

@@ -40,11 +40,11 @@ public class PermissionServiceImpl implements PermissionService {
         roleExample.or().andNameIn(roleNames);
         List<Role> roles = roleMapper.selectByExample(roleExample);
 
-        for (Role role:roles){
+        for (Role role : roles) {
             RolePermissionExample example = new RolePermissionExample();
             example.or().andRidEqualTo(role.getId());
             List<RolePermission> rps = rolePermissionMapper.selectByExample(example);
-            for (RolePermission permission: rps){
+            for (RolePermission permission : rps) {
                 Permission permission1 = permissionMapper.selectByPrimaryKey(permission.getPid());
                 result.add(permission1.getName());
             }
@@ -57,8 +57,8 @@ public class PermissionServiceImpl implements PermissionService {
         PermissionExample example = new PermissionExample();
         example.setOrderByClause("id desc");
         List<Permission> ps = permissionMapper.selectByExample(example);
-        for(Permission p:ps){
-            if (p.getUrl().equals(requestURI)){
+        for (Permission p : ps) {
+            if (p.getUrl().equals(requestURI)) {
                 return true;
             }
         }
@@ -69,11 +69,11 @@ public class PermissionServiceImpl implements PermissionService {
     public Set<String> listPermissionURLs(String userName) {
         Set<String> result = new HashSet<>();
         List<String> permissionNames = listPermissionsNames(userName);
-        for (String name:permissionNames){
+        for (String name : permissionNames) {
             PermissionExample example = new PermissionExample();
             example.or().andNameEqualTo(name);
             List<Permission> permissions = permissionMapper.selectByExample(example);
-            for (Permission permission:permissions){
+            for (Permission permission : permissions) {
                 result.add(permission.getUrl());
             }
         }
@@ -82,31 +82,40 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public List<Permission> list() {
-        return null;
+        PermissionExample example = new PermissionExample();
+        example.setOrderByClause("id desc");
+        return permissionMapper.selectByExample(example);
     }
 
     @Override
     public Permission get(long id) {
-        return null;
+        return permissionMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public void update(Permission permission) {
-
+        permissionMapper.updateByPrimaryKeySelective(permission);
     }
 
     @Override
     public void add(Permission permission) {
-
+        permissionMapper.insert(permission);
     }
 
     @Override
     public void delete(long id) {
-
+        permissionMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public List<Permission> list(Role role) {
-        return null;
+        List<Permission> result = new ArrayList<>();
+        RolePermissionExample example = new RolePermissionExample();
+        example.createCriteria().andRidEqualTo(role.getId());
+        List<RolePermission> rps = rolePermissionMapper.selectByExample(example);
+        for (RolePermission rolePermission : rps) {
+            result.add(permissionMapper.selectByPrimaryKey(rolePermission.getPid()));
+        }
+        return result;
     }
 }

@@ -1,9 +1,6 @@
 package com.jsp.service.impl;
 
-import com.jsp.entity.Role;
-import com.jsp.entity.User;
-import com.jsp.entity.UserRole;
-import com.jsp.entity.UserRoleExample;
+import com.jsp.entity.*;
 import com.jsp.mapper.RoleMapper;
 import com.jsp.mapper.UserRoleMapper;
 import com.jsp.service.RoleService;
@@ -36,7 +33,7 @@ public class RoleServiceImpl implements RoleService {
         UserRoleExample userRoleExample = new UserRoleExample();
         userRoleExample.or().andUidEqualTo(user.getId());
         List<UserRole> userRoles = userRoleMapper.selectByExample(userRoleExample);
-        for (UserRole userRole: userRoles){
+        for (UserRole userRole : userRoles) {
             Role role = roleMapper.selectByPrimaryKey(userRole.getRid());
             roles.add(role.getName());
         }
@@ -45,31 +42,44 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public List<Role> list() {
-        return null;
+        RoleExample example = new RoleExample();
+        example.setOrderByClause("id desc");
+        return roleMapper.selectByExample(example);
     }
 
     @Override
     public Role get(long id) {
-        return null;
+        return roleMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public void update(Role role) {
-
+        roleMapper.updateByPrimaryKeySelective(role);
     }
 
     @Override
     public void add(Role role) {
-
+        roleMapper.insert(role);
     }
 
     @Override
     public void delete(long id) {
-
+        roleMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public List<Role> listRoles(User user) {
-        return null;
+        List<Role> roles = new ArrayList<>();
+
+        UserRoleExample example = new UserRoleExample();
+
+        example.createCriteria().andUidEqualTo(user.getId());
+        List<UserRole> userRoles = userRoleMapper.selectByExample(example);
+
+        for (UserRole userRole : userRoles) {
+            Role role = roleMapper.selectByPrimaryKey(userRole.getRid());
+            roles.add(role);
+        }
+        return roles;
     }
 }
