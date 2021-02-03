@@ -20,14 +20,11 @@ public class WorkSender {
 
     public void send(int index) {
         StringBuilder builder = new StringBuilder("Hello");
-        int limitIndex = index % 3 + 1;
-        for (int i = 1; i < limitIndex; i++) {
+        for (int i = 0; i < index; i++) {
             builder.append('.');
         }
-        builder.append(index + 1);
         String message = builder.toString();
-
         template.convertAndSend(queueName, message);
-        LOGGER.info(" [" + index + "] Sent '{}'", message);
+        LOGGER.info("work生产者 " + index + " Sent {}", message);
     }
 }

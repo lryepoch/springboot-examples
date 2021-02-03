@@ -22,6 +22,6 @@ public class SimpleSender {
     public void send(int no) {
         String message = "Hello World!";
         this.template.convertAndSend(queueName, message);
-        LOGGER.info(" [" + no + "] Sent '{}'", message);
+        LOGGER.info("simple生产者 " + no + " Sent {} ", message);
     }
 }

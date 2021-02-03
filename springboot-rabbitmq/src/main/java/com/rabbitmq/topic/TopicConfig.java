@@ -7,15 +7,16 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author lryepoch
  * @date 2020/12/18 17:22
- * @description TODO 通配符模式是可以根据路由键匹配规则选择性给多个消费者发送消息的模式，它包含一个生产者、两个消费者、两个队列和一个交换机。
+ * @description TODO 通配符模式 是可以根据 "路由键" 匹配规则选择性给多个消费者发送消息的模式，它包含一个生产者、两个消费者、两个队列和一个交换机。
  *                   两个消费者同时绑定到不同的队列上去，两个队列通过路由键匹配规则绑定到交换机上去，生产者发送消息到交换机，交换机通过路由键匹配规则转发到不同队列，队列绑定的消费者接收并消费消息。
  *
- *                   添加通配符模式相关Java配置，创建一个名为exchange.topic的交换机、一个生产者、两个消费者和两个匿名队列，
- *                   匹配*.orange.*和*.*.rabbit发送到队列1，匹配lazy.#发送到队列2
+ * 添加通配符模式相关Java配置，创建一个名为exchange.topic的交换机、一个生产者、两个消费者和两个匿名队列，
+ * 匹配*.orange.*和*.*.rabbit发送到队列1；匹配lazy.#发送到队列2
  *
  */
 @Configuration
 public class TopicConfig {
+
     @Bean
     public TopicExchange topic() {
         return new TopicExchange("exchange.topic");
@@ -55,4 +56,5 @@ public class TopicConfig {
     public TopicSender topicSender() {
         return new TopicSender();
     }
+
 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author lryepoch
  * @date 2020/12/18 17:25
- * @description TODO 生产者通过send方法向交换机exchange.topic中发送消息，消息中包含不同的路由键；
+ * @description TODO 生产者通过send方法向交换机exchange.topic中发送消息，消息中包含不同的"路由键"；
  */
 public class TopicSender {
 
@@ -25,13 +25,12 @@ public class TopicSender {
 
     public void send(int index) {
         StringBuilder builder = new StringBuilder("Hello to ");
-        int limitIndex = index%keys.length;
+        int limitIndex = index % keys.length;
         String key = keys[limitIndex];
-        builder.append(key).append(' ');
-        builder.append(index+1);
+        builder.append(key).append(' ').append(index + 1);
         String message = builder.toString();
+
         template.convertAndSend(exchangeName, key, message);
-        LOGGER.info(" [x] Sent '{}'",message);
-        System.out.println(" [x] Sent '" + message + "'");
+        LOGGER.info("topic生产者 Sent {}", message);
     }
 }

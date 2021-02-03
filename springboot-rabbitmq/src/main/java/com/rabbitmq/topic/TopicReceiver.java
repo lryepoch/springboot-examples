@@ -3,6 +3,7 @@ package com.rabbitmq.topic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 /**
@@ -34,24 +35,7 @@ public class TopicReceiver {
     }
 
     public void receive(String in, int receiver){
-        StopWatch watch = new StopWatch();
-        watch.start();
-        LOGGER.info("instance {} [x] Received '{}'", receiver, in);
-        doWork(in);
-        watch.stop();
-        LOGGER.info("instance {} [x] Done in {}s", receiver, watch.getTotalTimeSeconds());
+        LOGGER.info("topic消费者 {} Received {}", receiver, in);
+        LOGGER.info("----------------");
     }
-
-    private void doWork(String in){
-        for (char ch : in.toCharArray()) {
-            if (ch == '.') {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
 }

@@ -24,23 +24,7 @@ public class FanoutReceiver {
     }
 
     private void receive(String in, int receiver) {
-        StopWatch watch = new StopWatch();
-        watch.start();
-        LOGGER.info("instance {} [x] Received '{}'", receiver, in);
-        doWork(in);
-        watch.stop();
-        LOGGER.info("instance {} [x] Done in {}s", receiver, watch.getTotalTimeSeconds());
-    }
-
-    private void doWork(String in) {
-        for (char ch : in.toCharArray()) {
-            if (ch == '.') {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        LOGGER.info("fanout消费者 {} Received {}", receiver, in);
+        LOGGER.info("----------------");
     }
 }

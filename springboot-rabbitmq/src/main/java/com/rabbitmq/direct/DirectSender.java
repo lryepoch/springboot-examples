@@ -25,11 +25,10 @@ public class DirectSender {
         StringBuilder builder = new StringBuilder("Hello to ");
         int limitIndex = index % 3;
         String key = keys[limitIndex];
-        builder.append(key).append(' ');
-        builder.append(index + 1);
+        builder.append(key).append(' ').append(index + 1);
         String message = builder.toString();
 
         template.convertAndSend(exchangeName, key, message);
-        LOGGER.info(" [x] Sent '{}'", message);
+        LOGGER.info("direct生产者 Sent {}", message);
     }
 }

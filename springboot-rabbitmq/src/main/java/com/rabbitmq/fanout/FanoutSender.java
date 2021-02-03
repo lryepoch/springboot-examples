@@ -20,14 +20,12 @@ public class FanoutSender {
 
     public void send(int index) {
         StringBuilder builder = new StringBuilder("Hello");
-        int limitIndex = index % 3 + 1;
-        for (int i = 0; i < limitIndex; i++) {
+        for (int i = 0; i < index; i++) {
             builder.append('.');
         }
-        builder.append(index + 1);
         String message = builder.toString();
         template.convertAndSend(exchangeName, "", message);
-        LOGGER.info(" [x] Sent '{}'", message);
+        LOGGER.info("fanout生产者 Sent {}", message);
     }
 
 }

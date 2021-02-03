@@ -21,7 +21,7 @@ public class TopicController {
     @RequestMapping(value = "/topic", method = RequestMethod.GET)
     @ResponseBody
     public Object topicTest() throws InterruptedException {
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             topicSender.send(i);
             Thread.sleep(1000);
         }

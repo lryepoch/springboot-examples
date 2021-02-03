@@ -17,6 +17,7 @@ public class SimpleReceiver {
 
     @RabbitHandler
     public void receive(String in){
-        LOGGER.info("消费者 Received '{}'", in);
+        LOGGER.info("simple消费者 Received {}", in);
+        LOGGER.info("----------------");
     }
 }
