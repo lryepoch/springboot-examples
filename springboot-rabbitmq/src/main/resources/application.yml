@@ -6,6 +6,7 @@ spring:
     password: guest
     listener:
       direct:
+        #防止Message一直重新分发而导致内存泄漏
         retry:
           # 开启ack确认，默认是开启的，此处多余
           enabled: true
