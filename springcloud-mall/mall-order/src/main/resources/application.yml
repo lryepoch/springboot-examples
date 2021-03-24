@@ -1,8 +1,10 @@
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
+
 global-config:
   db-config:
     id-type: auto
+
 server:
   port: 10020
 
@@ -23,6 +25,7 @@ spring:
   application:
     name: mall-order
 
-#feign:
-#  sentinel:
-#    enabled: true #开启Feign对Sentinel的支持
+#把Feign和Sentinel做个整合，这才是日常用法
+feign:
+  sentinel:
+    enabled: true #开启Feign对Sentinel的支持

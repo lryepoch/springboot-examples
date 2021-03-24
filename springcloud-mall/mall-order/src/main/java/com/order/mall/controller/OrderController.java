@@ -35,6 +35,12 @@ public class OrderController {
 
         Product product = productService.findById(pid);
 
+        if(product.getPid()==-1){
+            Order order = new Order();
+            order.setPname("下单失败");
+            return order;
+        }
+
         //下单(创建订单)
         Order order = new Order();
         order.setUid(1);

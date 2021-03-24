@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  *                   只需要创建一个接口并添加一个注解即可，主要是它还默认集成了Ribbon ，所以在Nacos下使用Fegin默认就可以实现负载均衡的效果。
  */
 //声明调用的提供者的name,这个name就是我们配置文件里设置的application.name
-@FeignClient("mall-product")
+//@FeignClient(value = "mall-product", fallback = ProductServiceFallback.class)
+@FeignClient(value = "mall-product", fallbackFactory = ProductServiceFallbackFactory.class)
 public interface ProductService {
 
     @GetMapping("/product/{pid}")
