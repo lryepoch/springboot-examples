@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true #让gateway可以发现组册中心中的微服务#开启以服务id去注册中心上获取转发地址
+      routes:
+        - id: order_route #路由id
+          uri: lb://mall-order # 基于lb负载均衡形式转发（通过注册中心服务名称，获取真实访问地址）
+          predicates: #匹配规则
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: product_route
+          uri: lb://mall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}

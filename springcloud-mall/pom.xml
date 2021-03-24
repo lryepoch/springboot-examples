@@ -17,7 +17,7 @@
         <module>mall-user</module>
         <module>mall-product</module>
         <module>mall-order</module>
-        <module>api-gateway</module>
+        <module>mall-gateway</module>
     </modules>
 
 </project>
