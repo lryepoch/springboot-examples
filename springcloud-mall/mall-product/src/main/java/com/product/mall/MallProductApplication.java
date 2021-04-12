@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @date 2021/3/22 13:43
  * @description TODO
  */
-@EnableDiscoveryClient
+@EnableDiscoveryClient//让注册中心发现服务
 @SpringBootApplication
 public class MallProductApplication {
     public static void main(String[] args) {

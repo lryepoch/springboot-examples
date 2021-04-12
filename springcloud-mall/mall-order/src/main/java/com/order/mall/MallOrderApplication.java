@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * @date 2021/3/22 12:24
  * @description TODO
  */
-@EnableDiscoveryClient
+@EnableDiscoveryClient//让注册中心能够发现
 @EnableFeignClients
 @SpringBootApplication
 public class MallOrderApplication {

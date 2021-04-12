@@ -18,8 +18,8 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-cloud.version>Hoxton.SR5</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencies>
@@ -35,6 +35,7 @@
         </dependency>
     </dependencies>
 
+    <!--在dependencyManagement元素中声明所依赖的jar包的版本号等信息，那么所有子项目再次引入此依赖jar包时则无需显式的列出版本号-->
     <dependencyManagement>
         <dependencies>
             <dependency>
