@@ -1,6 +1,7 @@
 package com.product.mall.service;
 
-import com.common.mall.domain.Product;
+
+import com.product.mall.domain.Product;
 
 /**
  * @author lryepoch

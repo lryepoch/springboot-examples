@@ -1,6 +1,6 @@
 package com.product.mall.controller;
 
-import com.common.mall.domain.Product;
+import com.product.mall.domain.Product;
 import com.product.mall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +25,7 @@ public class ProductController {
     @RequestMapping("/product/{pid}")
     public Product findByPid(@PathVariable("pid") Integer pid) {
         Product product = productService.findByPid(pid);
-        System.out.println("实例被调用，端口为：" + port);
+        System.out.println("product实例被调用，端口为：" + port);
         return product;
     }
 

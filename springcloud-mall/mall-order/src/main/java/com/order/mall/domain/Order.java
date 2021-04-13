@@ -1,4 +1,4 @@
-package com.common.mall.domain;
+package com.order.mall.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

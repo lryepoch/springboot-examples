@@ -28,9 +28,10 @@ import java.util.List;
  */
 public class FilePersistence implements InitFunc {
 
+    @Override
     public void init() throws Exception {
-        //地址可以自己定义
-        String ruleDir = System.getProperty("user.home") + "/sentinel-rules/" + "mall-order";
+        // TIPS: 持久化在本地的目录,如果你对这个路径不喜欢，可修改为你喜欢的路径
+        String ruleDir = System.getProperty("user.home") + "/sentinel/order/rules";
         String flowRulePath = ruleDir + "/flow-rule.json";
         String degradeRulePath = ruleDir + "/degrade-rule.json";
         String systemRulePath = ruleDir + "/system-rule.json";
@@ -49,11 +50,15 @@ public class FilePersistence implements InitFunc {
                 flowRulePath,
                 flowRuleListParser
         );
+        // 将可读数据源注册至FlowRuleManager
+        // 这样当规则文件发生变化时，就会更新规则到内存
         FlowRuleManager.register2Property(flowRuleRDS.getProperty());
         WritableDataSource<List<FlowRule>> flowRuleWDS = new FileWritableDataSource<>(
                 flowRulePath,
                 this::encodeJson
         );
+        // 将可写数据源注册至transport模块的WritableDataSourceRegistry中
+        // 这样收到控制台推送的规则时，Sentinel会先更新到内存，然后将规则写入到文件中
         WritableDataSourceRegistry.registerFlowDataSource(flowRuleWDS);
 
         // 降级规则
@@ -82,7 +87,7 @@ public class FilePersistence implements InitFunc {
 
         // 授权规则
         ReadableDataSource<String, List<AuthorityRule>> authorityRuleRDS = new FileRefreshableDataSource<>(
-                authorityRulePath,
+                flowRulePath,
                 authorityRuleListParser
         );
         AuthorityRuleManager.register2Property(authorityRuleRDS.getProperty());

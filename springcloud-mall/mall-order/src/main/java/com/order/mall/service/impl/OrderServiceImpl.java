@@ -1,7 +1,7 @@
 package com.order.mall.service.impl;
 
-import com.common.mall.domain.Order;
 import com.order.mall.dao.OrderDao;
+import com.order.mall.domain.Order;
 import com.order.mall.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

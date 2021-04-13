@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: api-gateway
+    name: mall-gateway
   cloud:
     nacos:
       discovery:
@@ -11,17 +11,18 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true #让gateway可以发现组册中心中的微服务#开启以服务id去注册中心上获取转发地址
-      routes:
+          enabled: true #让gateway可以发现组册中心中的微服务，开启以服务id去注册中心上获取转发地址
+          lower-case-service-id: true #使用小写service-id
+      routes: #配置路由路径
         - id: order_route #路由id
           uri: lb://mall-order # 基于lb负载均衡形式转发（通过注册中心服务名称，获取真实访问地址）
           predicates: #匹配规则
             - Path=/api/order/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
-        - id: product_route
-          uri: lb://mall-product
-          predicates:
+        - id: product_route      #路由标识符，区别于其他Route
+          uri: lb://mall-product #路由指向的目的地uri，即客户端请求最终被转发到的微服务
+          predicates:            #断言的作用是进行条件判断，只有断言都返回真，才会真正的执行路由
             - Path=/api/product/**
-          filters:
+          filters:               #过滤器用于修改请求和响应信息
             - RewritePath=/api/(?<segment>.*),/$\{segment}

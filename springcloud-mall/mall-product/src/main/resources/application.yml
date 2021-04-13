@@ -4,7 +4,7 @@ global-config:
   db-config:
     id-type: auto
 server:
-  port: 10010
+  port: 10011
 
 spring:
   datasource:

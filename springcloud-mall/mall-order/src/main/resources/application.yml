@@ -22,6 +22,10 @@ spring:
       transport:
         dashboard: localhost:8081 #指定控制台服务地址
         port: 8719 #跟控制台交流的端口，随意指定一个未使用的端口即可，默认为8719
+      eager: true #取消控制台懒加载
+      log:
+        dir: ./logs #默认值${home}/logs/csp/
+        switch-pid: true #日志带上线程id
   application:
     name: mall-order
 

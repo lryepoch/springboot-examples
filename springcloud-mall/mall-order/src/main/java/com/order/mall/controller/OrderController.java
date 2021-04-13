@@ -1,9 +1,9 @@
 package com.order.mall.controller;
 
-import com.common.mall.domain.Order;
-import com.common.mall.domain.Product;
+import com.order.mall.domain.Order;
 import com.order.mall.feign.ProductService;
 import com.order.mall.service.OrderService;
+import com.product.mall.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

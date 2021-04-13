@@ -1,6 +1,6 @@
 package com.order.mall.feign;
 
-import com.common.mall.domain.Product;
+import com.product.mall.domain.Product;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 

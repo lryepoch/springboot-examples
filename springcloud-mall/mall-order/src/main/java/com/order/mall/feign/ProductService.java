@@ -1,6 +1,6 @@
 package com.order.mall.feign;
 
-import com.common.mall.domain.Product;
+import com.product.mall.domain.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  *                   只需要创建一个接口并添加一个注解即可，主要是它还默认集成了Ribbon ，所以在Nacos下使用Fegin默认就可以实现负载均衡的效果。
  */
 //声明调用的提供者的name,这个name就是我们配置文件里设置的application.name
-//@FeignClient(value = "mall-product", fallback = ProductServiceFallback.class)
-@FeignClient(value = "mall-product", fallbackFactory = ProductServiceFallbackFactory.class)
+//@FeignClient(value = "mall-product", fallback = ProductServiceFallback.class)//无法得到具体错误
+@FeignClient(value = "mall-product", fallbackFactory = ProductServiceFallbackFactory.class)//可以得到具体错误
 public interface ProductService {
 
     @GetMapping("/product/{pid}")

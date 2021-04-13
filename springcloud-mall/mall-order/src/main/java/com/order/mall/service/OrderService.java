@@ -1,6 +1,7 @@
 package com.order.mall.service;
 
-import com.common.mall.domain.Order;
+
+import com.order.mall.domain.Order;
 
 /**
  * @author lryepoch

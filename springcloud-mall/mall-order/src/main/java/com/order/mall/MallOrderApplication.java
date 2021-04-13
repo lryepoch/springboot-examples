@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * @description TODO
  */
 @EnableDiscoveryClient//让注册中心能够发现
-@EnableFeignClients
+@EnableFeignClients//开启Fegin
 @SpringBootApplication
 public class MallOrderApplication {
 

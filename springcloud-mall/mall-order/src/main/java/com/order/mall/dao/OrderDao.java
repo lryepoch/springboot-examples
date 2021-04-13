@@ -1,7 +1,7 @@
 package com.order.mall.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.common.mall.domain.Order;
+import com.order.mall.domain.Order;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

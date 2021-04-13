@@ -1,7 +1,8 @@
 package com.product.mall.dao;
 
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.common.mall.domain.Product;
+import com.product.mall.domain.Product;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
