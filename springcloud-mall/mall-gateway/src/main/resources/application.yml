@@ -18,8 +18,10 @@ spring:
           uri: lb://mall-order # 基于lb负载均衡形式转发（通过注册中心服务名称，获取真实访问地址）
           predicates: #匹配规则
             - Path=/api/order/**
+            - Age=18,60
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
+            - Log=true,false  #自定义过滤器。表示开启consoleLog，不开启cacheLog。
         - id: product_route      #路由标识符，区别于其他Route
           uri: lb://mall-product #路由指向的目的地uri，即客户端请求最终被转发到的微服务
           predicates:            #断言的作用是进行条件判断，只有断言都返回真，才会真正的执行路由
