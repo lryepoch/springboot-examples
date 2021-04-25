@@ -8,10 +8,19 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    sentinel:   #sentinel控制台因为是懒加载的，所以需要先访问接口，才能在控制台上刷新出来
+      transport:
+        dashboard: localhost:8081 #指定控制台服务地址
+        port: 8719 #跟控制台交流的端口，随意指定一个未使用的端口即可，默认为8719
+      scg:  #scg.fallback为sentinel限流后的响应配置
+        fallback:
+          mode: response
+          response-status: 455
+          response-body: error!
     gateway:
       discovery:
         locator:
-          enabled: true #让gateway可以发现组册中心中的微服务，开启以服务id去注册中心上获取转发地址
+          enabled: true #让gateway可以发现注册中心的微服务，开启以服务id去注册中心上获取转发地址
           lower-case-service-id: true #使用小写service-id
       routes: #配置路由路径
         - id: order_route #路由id

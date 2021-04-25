@@ -1,0 +1,41 @@
+2021-04-25 10:10:11.458 INFO [InitExecutor] Found init func: com.alibaba.csp.sentinel.transport.init.CommandCenterInitFunc
+2021-04-25 10:10:11.462 INFO [InitExecutor] Found init func: com.alibaba.csp.sentinel.transport.init.HeartbeatSenderInitFunc
+2021-04-25 10:10:11.465 INFO [InitExecutor] Found init func: com.alibaba.csp.sentinel.init.ParamFlowStatisticSlotCallbackInit
+2021-04-25 10:10:11.469 INFO [InitExecutor] Found init func: com.alibaba.csp.sentinel.cluster.server.init.DefaultClusterServerInitFunc
+2021-04-25 10:10:11.472 INFO [InitExecutor] Found init func: com.alibaba.csp.sentinel.cluster.client.init.DefaultClusterClientInitFunc
+2021-04-25 10:10:11.483 INFO [InitExecutor] Found init func: com.alibaba.csp.sentinel.metric.extension.MetricCallbackInit
+2021-04-25 10:10:11.490 INFO [SpiLoader] Found CommandCenter SPI: com.alibaba.csp.sentinel.transport.command.SimpleHttpCommandCenter with order 2147483647
+2021-04-25 10:10:11.492 INFO [CommandCenterProvider] CommandCenter resolved: com.alibaba.csp.sentinel.transport.command.SimpleHttpCommandCenter
+2021-04-25 10:10:11.529 INFO App name resolved: mall-order
+2021-04-25 10:10:11.531 INFO [SentinelConfig] JVM parameter overrides csp.sentinel.charset: UTF-8 -> UTF-8
+2021-04-25 10:10:11.531 INFO [SentinelConfig] JVM parameter overrides csp.sentinel.flow.cold.factor: 3 -> 3
+2021-04-25 10:10:11.532 INFO [SentinelConfig] Application type resolved: 0
+2021-04-25 10:10:11.533 INFO [CommandCenterInit] Starting command center: com.alibaba.csp.sentinel.transport.command.SimpleHttpCommandCenter
+2021-04-25 10:10:11.533 INFO [InitExecutor] Executing com.alibaba.csp.sentinel.transport.init.CommandCenterInitFunc with order -1
+2021-04-25 10:10:11.538 INFO [SimpleHttpHeartbeatSender] Default console address list retrieved: [localhost/127.0.0.1:8081]
+2021-04-25 10:10:11.538 INFO [SpiLoader] Found HeartbeatSender SPI: com.alibaba.csp.sentinel.transport.heartbeat.SimpleHttpHeartbeatSender with order 2147483647
+2021-04-25 10:10:11.539 INFO [HeartbeatSenderProvider] HeartbeatSender activated: com.alibaba.csp.sentinel.transport.heartbeat.SimpleHttpHeartbeatSender
+2021-04-25 10:10:11.540 INFO [HeartbeatSenderInit] Heartbeat interval not configured in config property or invalid, using sender default: 10000
+2021-04-25 10:10:11.541 INFO [HeartbeatSenderInit] HeartbeatSender started: com.alibaba.csp.sentinel.transport.heartbeat.SimpleHttpHeartbeatSender
+2021-04-25 10:10:11.541 INFO [InitExecutor] Executing com.alibaba.csp.sentinel.transport.init.HeartbeatSenderInitFunc with order -1
+2021-04-25 10:10:11.549 INFO [InitExecutor] Executing com.alibaba.csp.sentinel.cluster.client.init.DefaultClusterClientInitFunc with order 0
+2021-04-25 10:10:11.555 INFO [InitExecutor] Executing com.alibaba.csp.sentinel.init.ParamFlowStatisticSlotCallbackInit with order 2147483647
+2021-04-25 10:10:11.566 INFO [TokenServiceProvider] Global token service resolved: com.alibaba.csp.sentinel.cluster.flow.DefaultTokenService
+2021-04-25 10:10:11.566 INFO [DefaultClusterServerInitFunc] Default entity codec and processors registered
+2021-04-25 10:10:11.567 INFO [InitExecutor] Executing com.alibaba.csp.sentinel.cluster.server.init.DefaultClusterServerInitFunc with order 2147483647
+2021-04-25 10:10:11.569 INFO [InitExecutor] Executing com.alibaba.csp.sentinel.metric.extension.MetricCallbackInit with order 2147483647
+2021-04-25 10:10:17.083 INFO [SystemRuleManager] Current system check status: false, highestSystemLoad: 1.797693e+308, highestCpuUsage: 1.797693e+308, maxRt: 9223372036854775807, maxThread: 9223372036854775807, maxQps: 1.797693e+308
+2021-04-25 10:29:05.636 INFO Add child <sentinel_default_context> to node <machine-root>
+2021-04-25 10:29:05.637 INFO Add child <sentinel_web_servlet_context> to node <machine-root>
+2021-04-25 10:29:05.653 INFO [SlotChainProvider] Global slot chain builder resolved: com.alibaba.csp.sentinel.slots.HotParamSlotChainBuilder
+2021-04-25 10:29:05.664 INFO Add child </order/message1> to node <sentinel_web_servlet_context>
+2021-04-25 10:29:05.668 INFO [ParamFlowRuleManager] No parameter flow rules, clearing all parameter metrics
+2021-04-25 10:29:05.668 INFO [ParamFlowRuleManager] Parameter flow rules received: {}
+2021-04-25 10:29:05.670 INFO [AuthorityRuleManager] Load authority rules: {}
+2021-04-25 10:29:05.674 INFO [FlowRuleManager] Flow rules loaded: {}
+2021-04-25 10:29:05.676 INFO [MetricWriter] Creating new MetricWriter, singleFileSize=52428800, totalFileCount=6
+2021-04-25 10:29:05.679 INFO [DegradeRuleManager] Degrade rules loaded: {}
+2021-04-25 10:29:05.684 INFO [MetricExtensionProvider] MetricExtension resolved, size=0
+2021-04-25 10:29:05.736 INFO Add child <message> to node </order/message1>
+2021-04-25 10:29:06.684 INFO [MetricWriter] New metric file created: ./logs\mall-order-metrics.log.pid8052.2021-04-25
+2021-04-25 10:29:06.684 INFO [MetricWriter] New metric index file created: ./logs\mall-order-metrics.log.pid8052.2021-04-25.idx

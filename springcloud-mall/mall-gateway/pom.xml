@@ -30,7 +30,7 @@
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
 
-        <!-- SpringCloud Ailibaba Sentinel Gateway -->
+        <!-- 整合 Sentinel + Gateway -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
