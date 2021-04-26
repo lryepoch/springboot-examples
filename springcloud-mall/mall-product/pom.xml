@@ -46,5 +46,12 @@
             <artifactId>sentinel-datasource-extension</artifactId>
             <version>1.8.0</version>
         </dependency>
+
+        <!--配置中心nacos-config-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

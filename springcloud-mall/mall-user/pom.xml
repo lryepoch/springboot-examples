@@ -30,6 +30,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!--fegin组件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
