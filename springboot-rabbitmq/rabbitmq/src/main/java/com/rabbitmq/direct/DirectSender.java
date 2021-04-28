@@ -22,13 +22,14 @@ public class DirectSender {
     private static final Logger LOGGER = LoggerFactory.getLogger(DirectSender.class);
 
     public void send(int index) {
-        StringBuilder builder = new StringBuilder("Hello to ");
         int limitIndex = index % 3;
         String key = keys[limitIndex];
-        builder.append(key).append(' ').append(index + 1);
+
+        StringBuilder builder = new StringBuilder("Hello to ");
+        builder.append(key);
         String message = builder.toString();
 
         template.convertAndSend(exchangeName, key, message);
-        LOGGER.info("direct生产者 Sent {}", message);
+        LOGGER.info("direct生产者第{}次 Sent {}", index, message);
     }
 }

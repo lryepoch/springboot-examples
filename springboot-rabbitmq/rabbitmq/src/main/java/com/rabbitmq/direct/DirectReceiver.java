@@ -26,7 +26,6 @@ public class DirectReceiver {
 
     private void receive(String in, int receiver) {
         LOGGER.info("direct消费者 {} Received {}", receiver, in);
-        LOGGER.info("----------------");
     }
 
 }

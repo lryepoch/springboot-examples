@@ -19,13 +19,13 @@ public class FanoutSender {
     private static final String exchangeName = "exchange.fanout";
 
     public void send(int index) {
-        StringBuilder builder = new StringBuilder("Hello");
+        StringBuilder builder = new StringBuilder("Hello World");
         for (int i = 0; i < index; i++) {
             builder.append('.');
         }
         String message = builder.toString();
         template.convertAndSend(exchangeName, "", message);
-        LOGGER.info("fanout生产者 Sent {}", message);
+        LOGGER.info("fanout生产者第{}次 Sent {}", index, message);
     }
 
 }

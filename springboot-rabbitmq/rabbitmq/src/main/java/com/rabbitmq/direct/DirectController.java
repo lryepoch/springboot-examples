@@ -21,7 +21,7 @@ public class DirectController {
     @RequestMapping(value = "/direct", method = RequestMethod.GET)
     @ResponseBody
     public Object directTest() throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             directSender.send(i);
             Thread.sleep(1000);
         }

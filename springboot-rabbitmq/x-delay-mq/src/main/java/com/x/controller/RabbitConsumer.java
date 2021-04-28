@@ -25,6 +25,7 @@ public class RabbitConsumer {
     */
     @RabbitListener(queues = RabbitConst.DELAY_QUEUE)
     public void cfgUserReceiveDelay(Object object, Message message, Channel channel) throws IOException {
+        //手动ACK
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         try {
             log.info("接受消息:{}", object.toString());
@@ -32,7 +33,7 @@ public class RabbitConsumer {
             log.error(e.getMessage());
             /**
              * basicRecover方法是进行补发操作，
-             * 其中的参数如果为true是把消息退回到queue但是有可能被其它的consumer(集群)接收到，
+             * 其中的参数如果为true，是把消息退回到queue，但是有可能被其它的consumer(集群)接收到，
              * 设置为false是只补发给当前的consumer
              */
             channel.basicRecover(false);

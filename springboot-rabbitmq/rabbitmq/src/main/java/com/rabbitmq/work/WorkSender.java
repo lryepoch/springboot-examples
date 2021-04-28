@@ -19,12 +19,12 @@ public class WorkSender {
     private static final String queueName = "work.hello";
 
     public void send(int index) {
-        StringBuilder builder = new StringBuilder("Hello");
+        StringBuilder builder = new StringBuilder("Hello World");
         for (int i = 0; i < index; i++) {
             builder.append('.');
         }
         String message = builder.toString();
         template.convertAndSend(queueName, message);
-        LOGGER.info("work生产者 " + index + " Sent {}", message);
+        LOGGER.info("work生产者 {} Sent {}", index, message);
     }
 }

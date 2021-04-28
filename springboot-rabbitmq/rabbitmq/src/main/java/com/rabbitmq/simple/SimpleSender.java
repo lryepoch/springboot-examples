@@ -20,8 +20,8 @@ public class SimpleSender {
     private static final String queueName = "simple.hello";
 
     public void send(int no) {
-        String message = "Hello World!";
+        String message = "Hello World";
         this.template.convertAndSend(queueName, message);
-        LOGGER.info("simple生产者 " + no + " Sent {} ", message);
+        LOGGER.info(">>simple生产者{}发送了第 {} 个 {}", no, no, message);
     }
 }

@@ -15,16 +15,15 @@ public class FanoutReceiver {
 
     @RabbitListener(queues = "#{fanoutQueue1.name}")
     public void receive1(String in){
-        receive(in, 1);
+        receive(1, in);
     }
 
     @RabbitListener(queues = "#{fanoutQueue2.name}")
     public void receive2(String in){
-        receive(in, 2);
+        receive(2, in);
     }
 
-    private void receive(String in, int receiver) {
+    private void receive(int receiver, String in) {
         LOGGER.info("fanout消费者 {} Received {}", receiver, in);
-        LOGGER.info("----------------");
     }
 }

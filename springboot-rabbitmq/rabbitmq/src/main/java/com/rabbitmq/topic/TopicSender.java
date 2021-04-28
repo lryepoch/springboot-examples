@@ -24,13 +24,14 @@ public class TopicSender {
             "lazy.brown.fox", "lazy.pink.rabbit", "quick.brown.fox"};
 
     public void send(int index) {
-        StringBuilder builder = new StringBuilder("Hello to ");
         int limitIndex = index % keys.length;
         String key = keys[limitIndex];
-        builder.append(key).append(' ').append(index + 1);
+
+        StringBuilder builder = new StringBuilder("Hello to ");
+        builder.append(key);
         String message = builder.toString();
 
         template.convertAndSend(exchangeName, key, message);
-        LOGGER.info("topic生产者 Sent {}", message);
+        LOGGER.info("topic生产者第{}次 Sent {}", index, message);
     }
 }

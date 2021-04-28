@@ -16,8 +16,7 @@ public class SimpleReceiver {
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleReceiver.class);
 
     @RabbitHandler
-    public void receive(String in){
-        LOGGER.info("simple消费者 Received {}", in);
-        LOGGER.info("----------------");
+    public void receive(String message) {
+        LOGGER.info("<<simple消费者接收到 {}", message);
     }
 }

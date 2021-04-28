@@ -21,7 +21,7 @@ public class SimpleController {
     @ResponseBody
     @RequestMapping(value = "/simple", method = RequestMethod.GET)
     public Object simpleTest() throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 3; i++) {
             simpleSender.send(i);
             Thread.sleep(1000);
         }

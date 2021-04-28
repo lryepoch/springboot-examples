@@ -25,6 +25,5 @@ public class WorkReceiver {
     @RabbitHandler
     public void receive(String in){
         LOGGER.info("work消费者 {} Received {}", this.instance, in);
-        LOGGER.info("----------------");
     }
 }

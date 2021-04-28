@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author lryepoch
  * @date 2021/4/27 11:48
- * @description TODO
+ * @description TODO 延迟队列
  */
 @SpringBootApplication
 @RestController
-public class RabbitApplication {
+public class XdelayMqApplication {
 
     @Autowired
     private RabbitProducer producer;
 
     @GetMapping("/init")
     public void init(){
-        String message1 = "这是第一条消息";
-        String message2 = "这是第二条消息";
+        String message1 = "这是第一条消息，延时5秒发送";
+        String message2 = "这是第二条消息，延时10秒发送";
         producer.sendDelayMessage(message1, 5000);
         producer.sendDelayMessage(message2, 10000);
     }
 
     public static void main(String[] args){
-        SpringApplication.run(RabbitApplication.class, args);
+        SpringApplication.run(XdelayMqApplication.class, args);
     }
 }

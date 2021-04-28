@@ -21,7 +21,7 @@ public class FanoutController {
     @RequestMapping(value = "/fanout", method = RequestMethod.GET)
     @ResponseBody
     public Object fanoutTest() throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             fanoutSender.send(i);
             Thread.sleep(1000);
         }
