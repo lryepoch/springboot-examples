@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author lryepoch
  * @date 2021/4/27 11:48
- * @description TODO 延迟队列
+ * @description rabbitmq延迟队列
+ *              此处是第二种方式：运用rabbitmq延迟插件
  */
 @SpringBootApplication
 @RestController
