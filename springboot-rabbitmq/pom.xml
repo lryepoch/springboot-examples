@@ -11,6 +11,7 @@
     <modules>
         <module>x-delay-mq</module>
         <module>rabbitmq</module>
+        <module>ttl-mq</module>
     </modules>
 
     <parent>
