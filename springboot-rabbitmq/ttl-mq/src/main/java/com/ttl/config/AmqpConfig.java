@@ -23,6 +23,7 @@ public class AmqpConfig {
 
     public static final String LIND_FANOUT_EXCHANGE = "lindFanoutExchange";
 
+    //此处时间设置固定，不知道如何更改
     /**
      * 单位为微妙
      */
