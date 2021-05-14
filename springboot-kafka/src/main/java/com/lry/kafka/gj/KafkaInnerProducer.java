@@ -12,6 +12,26 @@ import java.util.Properties;
  * @description TODO 生产者。单例模式实现kakfa。
  */
 public class KafkaInnerProducer {
+    /*----------1--------*/
+//    public static void main(String[] args) throws InterruptedException {
+//        Properties props = new Properties();
+//        try {
+//            props.load(MsgProducer.class.getResourceAsStream("/producer.properties"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        //读取配置文件
+//        Producer<String, String> producer = new KafkaProducer<>(props);
+//        for (int i = 0; i < 100; i++) {
+//            String msg = "---------" + i + "--------";
+//            producer.send(new ProducerRecord<>("lytest", i + "", msg));
+//            System.out.println("生产数据 key：value -> " + i + "：" + msg);
+//            Thread.sleep(1000);
+//        }
+//        producer.close();
+//    }
+
+    /*-------2.单例模式-----*/
     //懒汉式
     private volatile static KafkaInnerProducer instance;
 

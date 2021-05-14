@@ -16,6 +16,27 @@ import static com.lry.kafka.gj.SenderController.TOPIC;
  * @description TODO 消费者。单例模式实现kakfa。
  */
 public class KafkaInnerConsumer {
+    /*-------1------*/
+//    public static void main(String[] args) {
+//        //读取配置文件
+//        Properties props=new Properties();
+//        try {
+//            props.load(MsgConsumer.class.getResourceAsStream("/consumer.properties"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
+//        //指定消费的topic
+//        consumer.subscribe(Arrays.asList("lytest"));
+//        while (true) {
+//            ConsumerRecords<String, String> records = consumer.poll(100);
+//            for (ConsumerRecord<String, String> record : records) {
+//                System.out.printf("offset = %d, key = %s, value = %s, headers = %s%n", record.offset(), record.key(), record.value(), record.headers());
+//            }
+//        }
+//    }
+
+    /*-------2.单例模式---------*/
     //饿汉式
     public static KafkaInnerConsumer instance = new KafkaInnerConsumer();
 
