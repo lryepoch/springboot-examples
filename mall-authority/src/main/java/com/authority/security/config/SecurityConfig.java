@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * @Author lryepoch
  * @CreateDate 2020/12/27 17:49
- * @Description TODO 对SpringSecurity的配置的扩展，支持自定义白名单资源路径和查询用户逻辑
+ * @Description TODO 对Spring Security的配置的扩展，支持自定义白名单资源路径和查询用户逻辑
  */
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);

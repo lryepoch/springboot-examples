@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * @author lryepoch
  * @date 2020/12/28 11:28
- * @description TODO SpirngSecurity需要的用户详情。UserDetails接口实现仅仅存储用户的信息
+ * @description TODO Spring Security需要的用户详情。UserDetails接口实现仅仅存储用户的信息
  * <p>
  * UserDetails 默认提供了：
  * 用户的权限集，默认需要添加ROLE_ 前缀
@@ -40,10 +40,10 @@ public class AdminUserDetails implements UserDetails {
     /**
      * 用户权限集
      * UserDeitails接口里面有一个getAuthorities()方法。这个方法将返回此用户的所拥有的权限。这个集合将用于用户的访问控制，也就是Authorization
-     *
+     * <p>
      * 在security中，角色和权限共用GrantedAuthority接口，唯一的不同角色就是多了个前缀"ROLE_"，而且它没有shiro的那种从属关系，即一个角色包含哪些权限等等。
-     * 在security看来角色和权限时一样的，它认证的时候，把所有权限（角色、权限）都取出来，而不是分开验证。
-     *
+     * 在security看来角色和权限是一样的，它认证的时候，把所有权限（角色、权限）都取出来，而不是分开验证。
+     * <p>
      * 所以，在Security提供的UserDetailsService默认实现JdbcDaoImpl中，角色和权限都存储在auhtorities表中。而不是像Shiro那样，角色有个roles表，
      * 权限有个permissions表。以及相关的管理表等等。
      */
@@ -53,6 +53,7 @@ public class AdminUserDetails implements UserDetails {
         List<SimpleGrantedAuthority> collect = resourceList.stream()
                 .map(umsResource -> new SimpleGrantedAuthority(umsResource.getId() + ":" + umsResource.getName()))
                 .collect(Collectors.toList());
+
         for (SimpleGrantedAuthority simpleGrantedAuthority : collect) {
             logger.info("返回当前用户的权限集：{}", simpleGrantedAuthority);
         }

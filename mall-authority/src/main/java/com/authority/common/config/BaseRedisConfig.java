@@ -36,6 +36,7 @@ public class BaseRedisConfig {
         redisTemplate.setValueSerializer(serializer);
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashValueSerializer(serializer);
+        //初始化参数和初始化工作
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
@@ -48,7 +49,7 @@ public class BaseRedisConfig {
         //创建JSON序列化器
         Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
-        // 指定要序列化的域(范围)，field,get和set,以及修饰符范围，ANY指的是包括private和public
+        //指定要序列化的域(范围)，field，get和set，以及修饰符范围，ANY指的是包括private和public
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         //必须设置，否则无法将JSON转化为对象，会转化成Map类型
         objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
@@ -68,6 +69,7 @@ public class BaseRedisConfig {
                 .entryTtl(Duration.ofDays(1));
         return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
     }
+
 
     @Bean
     public RedisService redisService() {

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @author lryepoch
  * @date 2020/12/25 19:03
- * @description TODO 全局异常异常
+ * @description TODO 全局异常类
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
