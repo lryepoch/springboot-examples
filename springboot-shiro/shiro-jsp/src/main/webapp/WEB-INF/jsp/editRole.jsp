@@ -11,6 +11,7 @@
 <div class="workingroom">
     <%@include file="include/menu.jsp" %>
     <div class="addOrEdit">
+        <%--action这个加了“/ ” servlet 会根据这个，将user认为是项目名，去找user项目下的这个页面，当然无法跳转显示，只要去掉“/”，写成 action=“user/register”即可--%>
         <form action="updateRole" method="post">
             角色名: <input type="text" name="name" value="${role.name}"> <br>
             角色描述: <input type="text" name="desc_" value="${role.desc_}"> <br><br>

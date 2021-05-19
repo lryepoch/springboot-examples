@@ -56,7 +56,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .setClaims(claims)//sub+created
                 .setExpiration(generateExpirationDate())//exp
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS512, secret)//签名，秘钥
                 .compact();
     }
 
@@ -71,14 +71,16 @@ public class JwtTokenUtil {
      * 当原来的token没过期是可以刷新的
      */
     public String refreshHeadToken(String oldToken) {
+        //是否为null
         if (StrUtil.isEmpty(oldToken)) {
             return null;
         }
+        //截取token
         String token = oldToken.substring(tokenHead.length());
         if (StrUtil.isEmpty(token)) {
             return null;
         }
-        //token检验不通过
+        //token验证不通过
         Claims claims = getClaimsFromToken(token);
         if (claims == null) {
             return null;
@@ -89,9 +91,11 @@ public class JwtTokenUtil {
         }
         //如果token在30分钟之内刚刷新过，返回原token
         if (tokenRefreshJustBefore(token, 30 * 60)) {
+            //返回原token
             return token;
         } else {
             claims.put(CLAIM_KEY_CREATED, new Date());
+            //重新生成token
             return generateToken(claims);
         }
     }

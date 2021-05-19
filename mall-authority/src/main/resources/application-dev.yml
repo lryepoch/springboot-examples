@@ -16,6 +16,6 @@ logging:
       authority: debug
   file:
     name: D:/logs/app-api.log
-#    path: D:/logs
-#只配置 logging.path 会在指定路径下生成默认 spring.log文件
-#同时配置上面两个属性：默认只有logging.file.name 生效
+#    path: D:/logs  #只配置 logging.path 会在指定路径下生成默认 spring.log文件
+
+##同时配置上面两个属性：默认只有logging.file.name 生效
