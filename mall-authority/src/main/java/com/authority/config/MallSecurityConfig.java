@@ -46,7 +46,7 @@ public class MallSecurityConfig extends SecurityConfig {
     public UserDetailsService userDetailsService() {
         //获取登录用户信息
         UserDetailsService userDetailsService = username -> adminService.loadUserByUsername(username);
-        logger.info("MallSecurityConfig.userDetailsService: {}");
+        logger.info("MallSecurityConfig.userDetailsService: {}", userDetailsService);
         return userDetailsService;
     }
 

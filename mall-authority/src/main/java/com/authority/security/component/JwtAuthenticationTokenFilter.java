@@ -21,7 +21,7 @@ import java.io.IOException;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:00
- * @description TODO JWT登录授权过滤器(发起请求：1)。 设置用户信息
+ * @description TODO JWT登录授权过滤器(发起请求：1)。 设置用户信息到上下文中
  *                   使用的是OncePerRequestFilter，目的是为了保证每次request 只触发一次filter
  */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
