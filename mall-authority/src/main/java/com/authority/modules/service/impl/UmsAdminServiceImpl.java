@@ -99,7 +99,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
                 Asserts.fail("账号已被禁用");
             }
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            //设置用户权限信息上下文
+//            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             //登录后返回token
             token = jwtTokenUtil.generateToken(userDetails);
             //更新登录时间

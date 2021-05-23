@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        logger.info("0.1.进入configure(HttpSecurity httpSecurity)");
+        logger.info("进入SecurityConfig -> configure(HttpSecurity httpSecurity)");
 
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = httpSecurity
                 .authorizeRequests();
@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        logger.info("0.0.进入configure(AuthenticationManagerBuilder auth)");
+        logger.info("进入SecurityConfig -> configure(AuthenticationManagerBuilder auth)");
         //方法userDetailsService()，存在于类MallSecurityConfig中。
         //这个类的作用就是去获取用户信息,比如从数据库中获取。这样的话,AuthenticationManager在认证用户身份信息的时候，就会从中获取用户身份, 和从http中拿的用户身份做对比。
         auth.userDetailsService(userDetailsService())
@@ -165,7 +165,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @ConditionalOnBean(name = "dynamicSecurityService")
     @Bean
     public DynamicSecurityMetadataSource dynamicSecurityMetadataSource() {
-        logger.info("加载 3将当前请求的资源加入map中的Bean。DynamicSecurityMetadataSource dynamicSecurityMetadataSource()");
+        logger.info("加载 3将当前有访问权限的的资源加入map中并返回的Bean。DynamicSecurityMetadataSource dynamicSecurityMetadataSource()");
         return new DynamicSecurityMetadataSource();
     }
 
