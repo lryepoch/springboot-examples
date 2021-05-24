@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        logger.info("0.1.进入configure(HttpSecurity httpSecurity)");
+        logger.info("进入SecurityConfig -> configure(HttpSecurity httpSecurity)");
 
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = httpSecurity
                 .authorizeRequests();
@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        logger.info("0.0.进入configure(AuthenticationManagerBuilder auth)");
+        logger.info("进入SecurityConfig -> configure(AuthenticationManagerBuilder auth)");
         //方法userDetailsService()，存在于类MallSecurityConfig中。
         //这个类的作用就是去获取用户信息,比如从数据库中获取。这样的话,AuthenticationManager在认证用户身份信息的时候，就会从中获取用户身份, 和从http中拿的用户身份做对比。
         auth.userDetailsService(userDetailsService())
@@ -130,13 +130,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public IgnoreUrlsConfig ignoreUrlsConfig() {
-        logger.info("加载URL白名单。IgnoreUrlsConfig ignoreUrlsConfig()");
+        logger.info("加载URL白名单的Bean。IgnoreUrlsConfig ignoreUrlsConfig()");
         return new IgnoreUrlsConfig();
     }
 
     @Bean
     public JwtTokenUtil jwtTokenUtil() {
-        logger.info("加载JWT。JwtTokenUtil jwtTokenUtil()");
+        logger.info("加载JWT的Bean。JwtTokenUtil jwtTokenUtil()");
         return new JwtTokenUtil();
     }
 
