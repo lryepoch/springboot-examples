@@ -60,22 +60,24 @@ public class DynamicSecurityFilter extends AbstractSecurityInterceptor implement
         }
 
         /**
-         * beforeInvocation() 方法实现了对访问受保护对象的权限校验，它会从SecurityContextHolder获取Authentication，
-         * 然后通过 SecurityMetadataSource 可以得知当前请求是否在请求受保护的资源。对于请求那些受保护的资源，
-         * 如果 Authentication.isAuthenticated() 返回false或者 AbstractSecurityInterceptor 的 alwaysReauthenticate属性为true，
+         * 2.beforeInvocation() 方法实现了对访问受保护对象的权限校验，它会从SecurityContextHolder获取Authentication，
+         * 然后通过 3.SecurityMetadataSource 可以得知当前请求是否在请求受保护的资源。
+         *
+         * 对于请求那些受保护的资源，如果 Authentication.isAuthenticated() 返回false，或者 AbstractSecurityInterceptor 的 alwaysReauthenticate属性为true，
          * 那么将会使用其引用的 AuthenticationManager 再认证一次。
-         * 然后就是利用 AccessDecisionManager 进行权限的检查，调用 AccessDecisionManager 中的decide方法进行鉴权操作。
+         *
+         * 然后就是利用 4.AccessDecisionManager 进行权限的检查，调用 AccessDecisionManager 中的decide()方法进行鉴权操作。
          */
-        logger.info("2.执行super.beforeInvocation(fi)前^");
+        logger.info("2.执行super.beforeInvocation(fi)前……");
         InterceptorStatusToken token = super.beforeInvocation(fi);
-        logger.info("2.执行super.beforeInvocation(fi)后$，token是: {}", token);
+        logger.info("2.执行super.beforeInvocation(fi)后……，token是: {}", token.getSecurityContext().getAuthentication().getPrincipal());
         try {
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
         } finally {
             //afterInvocation()方法实现了对返回结果的处理，在注入了AfterInvocationManager的情况下默认会调用其decide()方法。
-            logger.info("2.super.afterInvocation(token, null)前^");
+            logger.info("2.super.afterInvocation(token, null)前……");
             super.afterInvocation(token, null);
-            logger.info("2.super.afterInvocation(token, null)后$");
+            logger.info("2.super.afterInvocation(token, null)后……");
         }
     }
 

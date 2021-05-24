@@ -37,6 +37,7 @@ public class DynamicAccessDecisionManager implements AccessDecisionManager {
             for (GrantedAuthority grantedAuthority : authentication.getAuthorities()) {
                 logger.info("4.目前用户拥有的资源:{}", grantedAuthority.getAuthority());
                 if (needAuthority.trim().equals(grantedAuthority.getAuthority())) {
+                    //放行
                     return;
                 }
             }

@@ -63,5 +63,7 @@ secure:
       - /admin/register
       - /admin/info
       - /admin/logout
+      - /csrf
+      - /error
 
 

@@ -165,7 +165,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @ConditionalOnBean(name = "dynamicSecurityService")
     @Bean
     public DynamicSecurityMetadataSource dynamicSecurityMetadataSource() {
-        logger.info("加载 3将当前请求的资源加入map中的Bean。DynamicSecurityMetadataSource dynamicSecurityMetadataSource()");
+        logger.info("加载 3将当前有访问权限的的资源加入map中并返回的Bean。DynamicSecurityMetadataSource dynamicSecurityMetadataSource()");
         return new DynamicSecurityMetadataSource();
     }
 

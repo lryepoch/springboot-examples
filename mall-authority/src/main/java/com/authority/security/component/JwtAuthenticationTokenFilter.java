@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author lryepoch
  * @date 2020/12/28 16:00
  * @description TODO JWT登录授权过滤器(发起请求：1)。 设置用户信息到上下文中
- *                   使用的是OncePerRequestFilter，目的是为了保证每次request 只触发一次filter
+ *                   使用的是OncePerRequestFilter，确保在登录后，一次请求只通过一次filter。
  */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationTokenFilter.class);
@@ -41,20 +41,21 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader(this.tokenHeader);
 
         if (authHeader != null && authHeader.startsWith(this.tokenHead)) {
-            // authToken is the part after "Bearer "
+            //获取"Bearer "之后实际的token字符串
             String authToken = authHeader.substring(this.tokenHead.length());
+            //从token中获取用户名
             String username = jwtTokenUtil.getUserNameFromToken(authToken);
-            LOGGER.info("1.从token中获取的用户名称为: {}", username);
+            LOGGER.info("1.登录后发起一次请求时，从token中获取的用户名称为: {}", username);
 
             //SecurityContextHolder.getContext().getAuthentication()读取身份验证对象（用户登录的时候设置好了），比缓存要快
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
-                //判断token中的username和数据库中的username是否一致
+                //判断token中的username和userDetails中的username是否一致
                 if (jwtTokenUtil.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    LOGGER.info("1.在authenticationToken设置的用户名为: {}", userDetails.getUsername());
+                    LOGGER.info("1.设置用户名为 {} 的用户权限信息上下文", userDetails.getUsername());
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 }
             }

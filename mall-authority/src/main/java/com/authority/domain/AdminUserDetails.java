@@ -39,7 +39,7 @@ public class AdminUserDetails implements UserDetails {
 
     /**
      * 用户权限集
-     * UserDeitails接口里面有一个getAuthorities()方法。这个方法将返回此用户的所拥有的权限。这个集合将用于用户的访问控制，也就是Authorization
+     * UserDeitails接口里面有一个getAuthorities()方法。这个方法将返回此用户的所拥有的资源权限。这个集合将用于用户的访问控制，也就是Authorization
      * <p>
      * 在security中，角色和权限共用GrantedAuthority接口，唯一的不同角色就是多了个前缀"ROLE_"，而且它没有shiro的那种从属关系，即一个角色包含哪些权限等等。
      * 在security看来角色和权限是一样的，它认证的时候，把所有权限（角色、权限）都取出来，而不是分开验证。
@@ -55,7 +55,7 @@ public class AdminUserDetails implements UserDetails {
                 .collect(Collectors.toList());
 
         for (SimpleGrantedAuthority simpleGrantedAuthority : collect) {
-            logger.info("返回当前用户的权限集：{}", simpleGrantedAuthority);
+            logger.info("AdminUserDetails->getAuthorities()，返回当前用户的权限集：{}", simpleGrantedAuthority);
         }
         return collect;
     }

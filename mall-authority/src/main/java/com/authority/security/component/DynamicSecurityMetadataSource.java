@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * @author lryepoch
  * @date 2020/12/26 14:20
- * @description TODO 动态权限数据源，用于获取动态权限规则(请求经过：3) 。将当前请求的资源加入map中
+ * @description TODO 动态权限数据源，用于获取动态权限规则(请求经过：3) 。将当前有访问权限的的资源加入map中并返回
  */
 public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     private static final Logger logger = LoggerFactory.getLogger(DynamicSecurityMetadataSource.class);
@@ -40,29 +40,28 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
      * 不被当前SecurityMetadataSource对象支持,则抛出异常IllegalArgumentException。
      */
     @Override
-    public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
+    public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         //查询所有的资源resource
         if (configAttributeMap == null) {
             this.loadDataSource();
         }
         List<ConfigAttribute> configAttributes = new ArrayList<>();
         //获取当前访问的路径
-        String url = ((FilterInvocation) o).getRequestUrl();
+        String url = ((FilterInvocation) object).getRequestUrl();
         String path = URLUtil.getPath(url);
-        logger.info("3.url：{}", url);
-        logger.info("3.path：{}", path);
+        logger.info("3.获取当前访问的资源路径：{}", path);
         PathMatcher pathMatcher = new AntPathMatcher();
         Iterator<String> iterator = configAttributeMap.keySet().iterator();
         //获取访问该路径所需资源
         while (iterator.hasNext()) {
             String pattern = iterator.next();
-            logger.info("3.pattern：{}", pattern);
+            logger.info("3.获取当前拥有访问权限的资源路径：{}", pattern);
             if (pathMatcher.match(pattern, path)) {
-                logger.info("3.configAttributeMap.get(pattern)：{}", configAttributeMap.get(pattern));
+                logger.info("3.当前访问路径如果拥有访问权限，则添加到集合中并返回：{}", configAttributeMap.get(pattern));
                 configAttributes.add(configAttributeMap.get(pattern));
             }
         }
-        //未设置操作请求权限，返回空集合
+        //如果未设置操作请求权限，返回空集合
         return configAttributes;
     }
 
