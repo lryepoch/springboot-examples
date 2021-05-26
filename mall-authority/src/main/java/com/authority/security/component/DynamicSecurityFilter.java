@@ -21,6 +21,7 @@ import java.io.IOException;
  * @author lryepoch
  * @date 2020/12/28 16:12
  * @description TODO 动态权限过滤器，用于实现基于路径的动态权限过滤(请求经过：2) 。过滤掉不需拦截的资源权限
+ *                   鉴权规则源组件SecurityMetadataSource和授权管理组件AccessDecisionManager，必须通过鉴权过滤器FilterSecurityInterceptor来配置生效
  */
 public class DynamicSecurityFilter extends AbstractSecurityInterceptor implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(DynamicSecurityFilter.class);
@@ -95,6 +96,7 @@ public class DynamicSecurityFilter extends AbstractSecurityInterceptor implement
      */
     @Override
     public SecurityMetadataSource obtainSecurityMetadataSource() {
+        // 将我们自定义的SecurityMetadataSource给返回
         return dynamicSecurityMetadataSource;
     }
 }

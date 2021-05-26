@@ -16,7 +16,7 @@ import java.util.Iterator;
 /**
  * @author lryepoch
  * @date 2020/12/28 16:15
- * @description TODO 动态权限决策管理器，用于判断用户是否有访问权限(请求经过：4) 。对比请求的资源和拥有的资源
+ * @description TODO 授权管理组件。调用AccessDecisionManager 来校验当前用户是否拥有该权限(请求经过：4) 。对比请求的资源和拥有的资源
  */
 public class DynamicAccessDecisionManager implements AccessDecisionManager {
     private static final Logger logger = LoggerFactory.getLogger(DynamicAccessDecisionManager.class);

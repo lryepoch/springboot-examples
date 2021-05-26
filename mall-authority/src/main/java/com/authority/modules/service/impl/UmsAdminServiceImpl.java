@@ -98,9 +98,11 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
             if (!userDetails.isEnabled()) {
                 Asserts.fail("账号已被禁用");
             }
+            //Authentication authentication = new UsernamePasswordAuthenticationToken(用户名, 用户密码, 用户的权限集合);
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            System.out.println("login()->authenticationToken：" + authenticationToken);
             //设置用户权限信息上下文
-//            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             //登录后返回token
             token = jwtTokenUtil.generateToken(userDetails);
             //更新登录时间
@@ -139,7 +141,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         record.setLoginTime(new Date());
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
         wrapper.lambda().eq(UmsAdmin::getUsername, username);
-        update(wrapper);
+        update(record, wrapper);
     }
 
     @Override
@@ -208,8 +210,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     }
 
     /**
-    * MyBatis-Plus默认配置策略是：当更新数据库值时，传过来的字段为NULL时，则忽略更新。
-    */
+     * MyBatis-Plus默认配置策略是：当更新数据库值时，传过来的字段为NULL时，则忽略更新。
+     */
     @Override
     public boolean update(Long id, UmsAdmin admin) {
         //设置id
@@ -222,7 +224,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
             //密码不需要修改
             if (StrUtil.isEmpty(admin.getPassword())) {
                 admin.setPassword(null);
-            //与原加密密码不同的需要加密修改
+                //与原加密密码不同的需要加密修改
             } else {
                 admin.setPassword(passwordEncoder.encode(admin.getPassword()));
             }

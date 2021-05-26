@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * @author lryepoch
  * @date 2020/12/26 14:20
- * @description TODO 动态权限数据源，用于获取动态权限规则(请求经过：3) 。将当前有访问权限的的资源加入map中并返回
+ * @description TODO 鉴权规则源组件，获取当前请求的鉴权规则(请求经过：3) 。将当前有访问权限的的资源加入map中并返回
  */
 public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     private static final Logger logger = LoggerFactory.getLogger(DynamicSecurityMetadataSource.class);
@@ -61,6 +61,7 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
                 configAttributes.add(configAttributeMap.get(pattern));
             }
         }
+        //返回的ConfigAttribute鉴权规则，就是我们的资源路径
         //如果未设置操作请求权限，返回空集合
         return configAttributes;
     }

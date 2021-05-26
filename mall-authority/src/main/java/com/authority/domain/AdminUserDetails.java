@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * @author lryepoch
  * @date 2020/12/28 11:28
- * @description TODO Spring Security需要的用户详情。UserDetails接口实现仅仅存储用户的信息
+ * @description TODO UserDetails接口实现仅仅存储用户的信息。此处AdminUserDetails，当认证完毕时，Authentication就会拥有用户信息和权限数据
  * <p>
  * UserDetails 默认提供了：
  * 用户的权限集，默认需要添加ROLE_ 前缀
