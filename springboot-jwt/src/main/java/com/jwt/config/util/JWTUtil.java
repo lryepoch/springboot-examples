@@ -1,4 +1,4 @@
-package com.jwt.config;
+package com.jwt.config.util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -19,7 +19,7 @@ public class JWTUtil {
     private static final Logger log = LoggerFactory.getLogger(JWTUtil.class);
 
     // 过期时间5分钟
-    private static final long EXPIRE_TIME = 5 * 60 * 1000;
+    private static final long EXPIRE_TIME = 30 * 60 * 1000;
 
     /**
      * 生成签名,5min后过期
@@ -42,6 +42,7 @@ public class JWTUtil {
      * 校验token是否正确
      *
      * @param token  密钥
+     * @param username  用户名
      * @param secret 用户的密码
      * @return 是否正确
      */

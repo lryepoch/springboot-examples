@@ -1,4 +1,4 @@
-package com.jwt.config;
+package com.jwt.config.util;
 
 import org.apache.shiro.authc.AuthenticationToken;
 

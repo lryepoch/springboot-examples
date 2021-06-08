@@ -1,4 +1,4 @@
-package com.jwt.config;
+package com.jwt.config.util;
 
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.slf4j.Logger;
@@ -10,12 +10,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author lryepoch
  * @date 2021/1/11 10:56
- * @description JWT的拦截器
+ * @description jwt拦截器
  */
 public class JWTFilter extends BasicHttpAuthenticationFilter {
 
@@ -32,7 +31,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
      */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        logger.info("进入BasicHttpAuthenticationFilter->isAccessAllowed()");
+        logger.info("进入JWT的拦截器BasicHttpAuthenticationFilter->isAccessAllowed()");
         if (isLoginAttempt(request, response)) {
             return executeLogin(request, response);
         }
@@ -40,13 +39,14 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
     }
 
     /**
-     * 判断用户是否想要登入。
+     * 判断用户是否已经登录（即是否已经携带token）
      * 检测header里面是否包含Authorization字段即可
      */
     @Override
     protected boolean isLoginAttempt(ServletRequest request, ServletResponse response) {
         HttpServletRequest req = (HttpServletRequest) request;
         String authorization = req.getHeader("Authorization");
+        logger.info("isLoginAttempt()-> authorization：{}", authorization);
         return authorization != null;
     }
 
@@ -55,6 +55,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String authorization = httpServletRequest.getHeader("Authorization");
         JWTToken token = new JWTToken(authorization);
+        logger.info("executeLogin()-> token：{}", token);
         // 提交给realm进行登入，如果错误，会抛出异常并被捕获
         getSubject(request, response).login(token);
         // 如果没有抛出异常则代表登入成功，返回true

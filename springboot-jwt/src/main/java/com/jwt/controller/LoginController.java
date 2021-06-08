@@ -1,8 +1,8 @@
 package com.jwt.controller;
 
 
-import com.jwt.config.JWTUtil;
-import com.jwt.config.ShiroKit;
+import com.jwt.config.util.JWTUtil;
+import com.jwt.config.util.ShiroKit;
 import com.jwt.config.model.BaseResponse;
 import com.jwt.entity.vo.LoginParam;
 import com.jwt.entity.vo.ManagerInfo;
@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -30,7 +29,6 @@ public class LoginController {
 
     @PostMapping("/login")
     public BaseResponse<String> login(@RequestBody LoginParam loginParam) {
-        logger.info("用户请求登录获取Token");
         String username = loginParam.getUsername();
         String password = loginParam.getPassword();
         ManagerInfo user = managerInfoService.findByUsername(username);
@@ -38,11 +36,11 @@ public class LoginController {
         String salt = user.getSalt();
         //原密码加密（通过username + salt作为盐）
         String encodedPassword = ShiroKit.md5(password, username + salt);
-        logger.info("用户输入密码："+password);
-        logger.info("username + salt作为盐: "+username + salt);
-        logger.info("加密后密码: "+encodedPassword);
+        logger.info("输入密码：" + password);
+        logger.info("盐=username + salt: " + username + salt);
+        logger.info("加(盐)密后密码: " + encodedPassword);
         if (user.getPassword().equals(encodedPassword)) {
-            logger.info("正常，则返回token");
+            logger.info("用户登录通过校验，则返回token到浏览器");
             return new BaseResponse<>(true, "Login success", JWTUtil.sign(username, encodedPassword));
         } else {
             logger.info("不正常，则抛出异常");

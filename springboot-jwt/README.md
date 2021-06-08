@@ -2,22 +2,21 @@
 
   * [简介](#简介)
   * [测试](#测试)
-  * [许可证](#许可证)
 
 
 ## 简介
 
-一般来讲，对于RESTful API都会有认证(Authentication)和授权(Authorization)过程，保证API的安全性。
+- 一般来讲，对于RESTful API都会有认证(Authentication)和授权(Authorization)过程，保证API的安全性。
 
-采用TOKEN认证，这种方式也是再HTTP头中，使用`Authorization: Bearer <token>`，使用最广泛的TOKEN是JWT，通过签名过的TOKEN。
+- 采用TOKEN认证，这种方式也是再HTTP头中，使用`Authorization: Bearer <token>`，使用最广泛的TOKEN是JWT，通过签名过的TOKEN。
 
-基于Shiro+JWT可实现Token认证方式
+- 基于Shiro+JWT可实现Token认证方式
 
 ## 测试
 
-启动应用后
+启动应用后：
 
-1. 先访问登录接口/login
+1.先访问登录接口/login
 
 *URL*
 
@@ -35,8 +34,8 @@ Content-Type: application/json
 
 ``` json
 {
-	"username": "admin",
-	"password": "12345678"
+    "username": "admin",
+    "password": "12345678"
 }
 ```
 
@@ -61,14 +60,14 @@ Content-Type: application/json
 }
 ```
 
-2. 使用token再去访问接口
+2.使用token再去访问业务接口
 
 上面的"data"对应的一长串字符串就是返回的token值
 
 *URL*
 
 ```
-GET http://localhost:9095/api/v1/join?imei=imei
+GET http://localhost:9095/api/join
 ```
 
 *Header参数*
@@ -84,10 +83,5 @@ curl访问语法：
 curl -X GET http://localhost:9095/api/v1/join?imei=imei -H 'Content-Type: application/json' -H 'Authorization: 上面拿到的token值'
 ```
 
-## 许可证
-
-Copyright (c) 2018 Xiong Neng
-
-基于 MIT 协议发布: <http://www.opensource.org/licenses/MIT>
-
+结束语
 

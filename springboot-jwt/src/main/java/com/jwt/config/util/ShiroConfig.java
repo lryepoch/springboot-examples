@@ -1,4 +1,4 @@
-package com.jwt.config;
+package com.jwt.config.util;
 
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
@@ -42,7 +42,7 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
 
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-        // 必须设置 SecurityManager
+        //必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //验证码过滤器
         Map<String, Filter> filtersMap = shiroFilterFactoryBean.getFilters();
@@ -59,7 +59,7 @@ public class ShiroConfig {
         //authcBasic：比如/admins/user/**=authcBasic没有参数表示httpBasic认证
         //ssl：比如/admins/user/**=ssl没有参数，表示安全的url请求，协议为https
         //user：比如/admins/user/**=user没有参数表示必须存在用户，当登入操作时不做检查
-        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 
         // swagger接口文档
         filterChainDefinitionMap.put("/v2/api-docs", "anon");
