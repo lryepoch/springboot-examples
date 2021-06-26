@@ -1,5 +1,7 @@
 package com.plus.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageInfo;
 import com.plus.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -21,4 +23,9 @@ public interface UserService extends IService<User> {
     int update(User user);
 
     int delete(int id);
+
+    /**
+    * 使用mybatis-plus分页插件
+    */
+    IPage<User> select(Page<User> page);
 }

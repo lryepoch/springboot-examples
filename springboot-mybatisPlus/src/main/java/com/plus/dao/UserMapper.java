@@ -1,5 +1,7 @@
 package com.plus.dao;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.plus.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -16,4 +18,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+
+    IPage<User> selectPage(Page<User> page);
 }

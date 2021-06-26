@@ -1,6 +1,8 @@
 package com.plus.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.plus.entity.User;
@@ -53,4 +55,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public int delete(int id) {
         return userMapper.deleteById(id);
     }
+
+    /**
+     * 使用mybatis-plus分页插件
+     *
+     * @param page
+     */
+    @Override
+    public IPage<User> select(Page<User> page) {
+        return userMapper.selectPage(page);
+    }
+
+
 }

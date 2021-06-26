@@ -10,4 +10,8 @@
         <result column="email" property="email" />
     </resultMap>
 
+    <select id="selectPage" resultType="com.plus.entity.User">
+        select *
+        from `user`
+    </select>
 </mapper>
