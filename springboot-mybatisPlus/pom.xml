@@ -34,7 +34,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.46</version><!--5.x对应com.mysql.jdbc.Driver；6.x对应com.mysql.cj.jdbc.Driver-->
+            <version>8.0.16</version><!--5.x对应com.mysql.jdbc.Driver；6.x对应com.mysql.cj.jdbc.Driver-->
         </dependency>
 
         <!--mybatis-plus-->
